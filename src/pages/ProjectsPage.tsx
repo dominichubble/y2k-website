@@ -1,29 +1,33 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Code2, Briefcase, GraduationCap, Star, GitFork } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Briefcase, Code2, ExternalLink, GitFork, GraduationCap, Star } from 'lucide-react';
 import { useState } from 'react';
 import { COLORS } from '../constants';
 import { useGitHubProjects } from '../hooks/useGitHubProjects';
+import DetailWindow from '../components/ui/DetailWindow';
 
 type FilterType = 'all' | 'Professional' | 'Academic';
 
-interface ProjectCardProps {
-  project: {
-    id: string;
-    title: string;
-    description: string;
-    technologies: string[];
-    status: string;
-    type: string;
-    highlights: string[];
-    link?: string;
-    githubRepo?: string;
-    stars?: number;
-    forks?: number;
-    lastUpdated?: string;
-  };
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  technologies: string[];
+  status: string;
+  type: string;
+  highlights: string[];
+  link?: string;
+  githubRepo?: string;
+  stars?: number;
+  forks?: number;
+  lastUpdated?: string;
 }
 
-function ProjectCard({ project }: ProjectCardProps) {
+interface ProjectCardProps {
+  project: Project;
+  onViewDetails: (project: Project) => void;
+}
+
+function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   
   const getStatusColor = (status: string) => {
@@ -114,9 +118,25 @@ function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* Description - Always visible preview */}
-      <p className="text-gray-300 text-sm leading-relaxed">
+      <p className="text-gray-300 text-sm leading-relaxed mb-3">
         {isExpanded ? project.description : `${project.description.slice(0, 100)}${project.description.length > 100 ? '...' : ''}`}
       </p>
+
+      {/* View Details Button */}
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          onViewDetails(project);
+        }}
+        className="px-3 py-1 text-xs font-mono border transition-all hover:scale-105"
+        style={{ 
+          borderColor: COLORS.primary,
+          color: COLORS.primary,
+          backgroundColor: `${COLORS.primary}10`
+        }}
+      >
+        View Full Details →
+      </button>
       </button>
 
       {/* Expanded Details */}
@@ -185,6 +205,7 @@ function ProjectCard({ project }: ProjectCardProps) {
 export default function ProjectsPage() {
   const { projects, loading, error } = useGitHubProjects();
   const [filter, setFilter] = useState<FilterType>('all');
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filteredProjects = filter === 'all' 
     ? projects 
@@ -295,7 +316,11 @@ export default function ProjectsPage() {
             className="grid md:grid-cols-2 gap-6"
           >
             {filteredProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+              <ProjectCard 
+                key={project.id} 
+                project={project}
+                onViewDetails={setSelectedProject}
+              />
             ))}
           </motion.div>
         </AnimatePresence>
@@ -309,6 +334,56 @@ export default function ProjectsPage() {
           >
             <p className="text-gray-400 font-mono">No projects found for this filter.</p>
           </motion.div>
+        )}
+
+        {/* Draggable Detail Window */}
+        {selectedProject && (
+          <DetailWindow
+            title={selectedProject.title}
+            subtitle={selectedProject.description}
+            link={selectedProject.link}
+            onClose={() => setSelectedProject(null)}
+            initialX={250}
+            initialY={100}
+            width={700}
+            height={600}
+            sections={[
+              {
+                title: 'PROJECT INFO',
+                items: [
+                  { label: 'Status', value: selectedProject.status },
+                  { label: 'Type', value: selectedProject.type },
+                  ...(selectedProject.stars !== undefined && selectedProject.stars > 0 
+                    ? [{ label: 'Stars', value: `⭐ ${selectedProject.stars}` }] 
+                    : []),
+                  ...(selectedProject.forks !== undefined && selectedProject.forks > 0 
+                    ? [{ label: 'Forks', value: `🍴 ${selectedProject.forks}` }] 
+                    : []),
+                  ...(selectedProject.lastUpdated 
+                    ? [{ 
+                        label: 'Last Updated', 
+                        value: new Date(selectedProject.lastUpdated).toLocaleDateString('en-US', { 
+                          year: 'numeric', 
+                          month: 'long', 
+                          day: 'numeric' 
+                        }) 
+                      }] 
+                    : []),
+                  ...(selectedProject.githubRepo 
+                    ? [{ label: 'Repository', value: selectedProject.githubRepo }] 
+                    : [])
+                ]
+              },
+              {
+                title: 'TECHNOLOGIES USED',
+                tags: selectedProject.technologies
+              },
+              {
+                title: 'KEY HIGHLIGHTS',
+                listItems: selectedProject.highlights
+              }
+            ]}
+          />
         )}
       </div>
     </div>

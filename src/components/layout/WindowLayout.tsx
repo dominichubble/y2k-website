@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { ReactNode } from 'react';
 import WindowHeader from './WindowHeader';
 import WindowNav from './WindowNav';
@@ -16,8 +17,20 @@ export default function WindowLayout({
   currentSection, 
   onSectionChange 
 }: WindowLayoutProps) {
+  const [isMaximized, setIsMaximized] = useState(false);
+
+  const handleClose = () => {
+    if (confirm('Are you sure you want to close this window? This will exit the portfolio.')) {
+      window.close();
+      // If window.close() doesn't work (blocked by browser), redirect to a blank page
+      setTimeout(() => {
+        window.location.href = 'about:blank';
+      }, 100);
+    }
+  };
+
   return (
-    <div className="h-screen w-screen bg-black overflow-hidden relative y2k-grid flex items-center justify-center p-4 md:p-8">
+    <div id="app-root" className="h-screen w-screen bg-black overflow-hidden relative y2k-grid flex items-center justify-center p-4 md:p-8">
       {/* Starfield background */}
       <div className="y2k-stars opacity-20"></div>
       
@@ -37,13 +50,20 @@ export default function WindowLayout({
 
       {/* Main Window Container */}
       <div 
-        className="relative w-full max-w-5xl h-[90vh] bg-black/95 border-4 shadow-2xl overflow-hidden"
+        className={`relative bg-black/95 border-4 shadow-2xl overflow-hidden transition-all duration-300 ${
+          isMaximized ? 'w-full h-full max-w-none' : 'w-full max-w-5xl h-[90vh]'
+        }`}
         style={{ 
           borderColor: COLORS.primary,
           boxShadow: 'none'
         }}
       >
-        <WindowHeader />
+        <WindowHeader 
+          onMaximize={() => setIsMaximized(!isMaximized)}
+          onClose={handleClose}
+          isMaximized={isMaximized}
+        />
+        
         <WindowNav 
           currentSection={currentSection} 
           onSectionChange={onSectionChange} 
