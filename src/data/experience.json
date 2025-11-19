@@ -1,0 +1,89 @@
+{
+  "experiences": [
+    {
+      "id": "mezzedata",
+      "title": "Junior Software Developer",
+      "company": "MezzeData Limited",
+      "companyUrl": "https://www.linkedin.com/company/mezzedata-limited",
+      "employmentType": "Part-time",
+      "startDate": "Apr 2025",
+      "endDate": "Present",
+      "location": "Isle of Man",
+      "workType": "Remote",
+      "description": "",
+      "skills": [],
+      "color": "orange"
+    },
+    {
+      "id": "loads-traffic-current",
+      "title": "Affiliate Executive and Software Developer",
+      "company": "Loads of Traffic",
+      "companyUrl": "https://www.linkedin.com/company/loads-of-traffic/",
+      "employmentType": "Part-time",
+      "startDate": "Jun 2023",
+      "endDate": "Present",
+      "location": "Douglas, Isle of Man",
+      "workType": "Hybrid",
+      "description": "Spearheading affiliate marketing initiatives and enhancing partnership strategies to drive traffic and engagement, whilst also focusing on competitor intelligence and market penetration strategies.",
+      "skills": ["Marketing", "Python", "VBA", "Project Management", "Analytics", "Automation"],
+      "color": "rose"
+    },
+    {
+      "id": "pdms",
+      "title": "Software Developer Internship",
+      "company": "PDMS",
+      "companyUrl": "https://www.linkedin.com/company/pdms/",
+      "employmentType": "Internship",
+      "startDate": "Sep 2024",
+      "endDate": "Sep 2024",
+      "location": "Isle of Man",
+      "workType": "On-site",
+      "description": "",
+      "skills": ["Front-End Development", "Business Analysis", "Testing", "UX", "Project Management"],
+      "color": "sky"
+    },
+    {
+      "id": "loads-traffic-junior",
+      "title": "Junior Web Developer",
+      "company": "Loads of Traffic",
+      "companyUrl": "https://www.linkedin.com/company/loads-of-traffic/",
+      "employmentType": "Internship",
+      "startDate": "Jun 2022",
+      "endDate": "Aug 2022",
+      "location": "Douglas, Isle of Man",
+      "workType": "On-site",
+      "description": "Assisted in the development and maintenance of client websites, implementing responsive designs and improving user experience.",
+      "skills": ["Web Development", "Web Design"],
+      "color": "rose"
+    },
+    {
+      "id": "panthera",
+      "title": "Managing Director (Company of the Year Competition)",
+      "company": "Panthera",
+      "companyUrl": "https://www.linkedin.com/company/pantherajaiom/",
+      "employmentType": "Full-time",
+      "startDate": "Sep 2021",
+      "endDate": "Jul 2022",
+      "location": "Douglas, Isle of Man",
+      "workType": "Hybrid",
+      "description": "Led a team in developing a student lifestyle app, earning several awards, including the Leadership accolade and Companies choice.",
+      "skills": ["Leadership", "App Development", "Project Management", "Software Development"],
+      "color": "sky-dark",
+      "isLeadership": true
+    },
+    {
+      "id": "pushologies",
+      "title": "Junior Graphic Designer",
+      "company": "Pushologies",
+      "companyUrl": "https://www.linkedin.com/company/pushologies/",
+      "employmentType": "Internship",
+      "startDate": "Mar 2020",
+      "endDate": "Mar 2020",
+      "location": "Douglas, Isle of Man",
+      "workType": "Hybrid",
+      "description": "Designed graphics for use in various marketing materials, including push notifications and social media.",
+      "skills": ["Marketing", "Adobe Photoshop", "Adobe Illustrator", "Adobe InDesign"],
+      "color": "blue"
+    }
+  ]
+}

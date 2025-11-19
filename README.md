@@ -1,57 +1,69 @@
-# Dominic Hubble - Professional Portfolio
+# Dominic Hubble - Y2K Portfolio Website
 
-A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS, featuring advanced animations and professional content showcasing skills, projects, and experience.
+A Y2K-themed portfolio website built with React, TypeScript, and Tailwind CSS, featuring a retro aesthetic inspired by late 90s/early 2000s internet design with modern functionality.
 
 ## 🚀 Features
 
-### Professional Content
-- **Dynamic Hero Section**: Animated typing effect with floating particles
-- **Interactive Skills Showcase**: Technical and soft skills with hover animations
-- **Project Portfolio**: Detailed project cards with status indicators and technology tags
-- **Experience Timeline**: Professional journey with interactive timeline
-- **Testimonials**: Client feedback with smooth marquee animation
-- **Contact Integration**: Direct links to LinkedIn, GitHub, and email
+### Y2K Design Elements
+- **Windowed Interface**: Dooby3d.tv-inspired centered window layout
+- **Retro Aesthetics**: Chrome text effects, neon borders, holographic elements
+- **Custom Animations**: Glitch effects, scanlines, animated grids
+- **Section Navigation**: Non-scrolling click-to-navigate interface
+- **Y2K Color Palette**: Magenta (#ff00ff), Cyan (#00ffff), Lime (#ccff00)
 
 ### Technical Features
 - **Modern React**: Built with React 18+ and TypeScript for type safety
-- **Responsive Design**: Mobile-first approach with Tailwind CSS
-- **Smooth Animations**: Framer Motion for professional interactions
-- **Optimized Performance**: Vite for fast development and building
-- **Clean Architecture**: Scalable file structure with separation of concerns
+- **Responsive Design**: Mobile-first approach with Tailwind CSS v4
+- **Smooth Animations**: Framer Motion for page transitions
+- **Optimized Performance**: Vite 7.0.5 for fast development and building
+- **Clean Architecture**: Scalable structure with separation of concerns
+- **JSON Data**: All content stored in portable JSON format
 
 ## 🏗️ Project Structure
 
 ```
 src/
 ├── components/
-│   ├── sections/          # Main page sections
-│   │   ├── Hero.tsx
-│   │   ├── ContentCards.tsx
-│   │   ├── Projects.tsx
-│   │   ├── Timeline.tsx
-│   │   ├── Marquee.tsx
-│   │   ├── CallToAction.tsx
-│   │   └── Footer.tsx
-│   └── ui/               # Reusable UI components
-│       ├── ProfileSimple.tsx
-│       └── ScrollToTop.tsx
-├── data/                 # Static data and content
-│   ├── projects.ts
-│   └── skills.ts
-├── types/                # TypeScript type definitions
+│   └── layout/            # Reusable layout components
+│       ├── WindowLayout.tsx
+│       ├── WindowHeader.tsx
+│       ├── WindowNav.tsx
+│       ├── WindowFooter.tsx
+│       └── index.ts
+├── constants/             # Configuration & constants
+│   ├── navigation.ts
+│   ├── theme.ts
 │   └── index.ts
-├── utils/                # Utility functions
+├── data/                  # JSON data files
+│   ├── profile.json
+│   ├── experience.json
+│   ├── projects.json
+│   └── skills.json
+├── hooks/                 # Custom React hooks
+│   ├── useNavigation.ts
+│   └── index.ts
+├── pages/                 # Page components
+│   ├── HomePage.tsx
+│   ├── AboutPage.tsx
+│   ├── ProjectsPage.tsx
+│   ├── ExperiencePage.tsx
+│   ├── SkillsPage.tsx
+│   └── index.ts
+├── types/                 # TypeScript type definitions
+│   └── index.ts
+├── utils/                 # Utility functions
 │   └── colors.ts
-└── App.tsx              # Main application component
+├── App.tsx                # Main application (~35 lines)
+└── index.css              # Global Y2K styles & animations
 ```
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React 18, TypeScript, Tailwind CSS
+- **Frontend**: React 18, TypeScript, Tailwind CSS v4
 - **Animations**: Framer Motion
-- **Build Tool**: Vite
-- **Icons**: Lucide React
-- **Deployment**: GitHub Pages
+- **Build Tool**: Vite 7.0.5
+- **Styling**: Custom Y2K CSS animations & utilities
+- **State Management**: React Hooks (useState, useCallback)
 - **Code Quality**: ESLint, TypeScript strict mode
 
 ## 🚦 Getting Started
@@ -64,8 +76,8 @@ src/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/dominichubble/Personal-Website.git
-   cd my-react-app
+   git clone https://github.com/dominichubble/y2k-website.git
+   cd y2k-website
    ```
 
 2. **Install dependencies**

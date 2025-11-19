@@ -1,8 +1,8 @@
 {
-  "name": "my-react-app",
-  "homepage": "https://dominichubble.github.io/personal-website/",
+  "name": "y2k-website",
+  "homepage": "https://dominichubble.github.io/y2k-website/",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
