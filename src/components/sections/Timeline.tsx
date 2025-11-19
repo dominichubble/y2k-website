@@ -23,7 +23,7 @@ const experiences: Experience[] = [
     id: "mezzedata",
     title: "Junior Software Developer",
     company: "MezzeData Limited",
-    companyUrl: "https://www.linkedin.com/company/mezzedata/",
+    companyUrl: "https://www.linkedin.com/company/mezzedata-limited",
     employmentType: "Part-time",
     startDate: "Apr 2025",
     endDate: "Present",
