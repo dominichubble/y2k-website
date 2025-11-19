@@ -9,7 +9,7 @@ interface WindowHeaderProps {
 }
 
 export default function WindowHeader({ 
-  title = "DOMINIC HUBBLE.TV",
+  title = "DOMINIC HUBBLE",
   onMaximize,
   onClose,
   isMaximized = false
