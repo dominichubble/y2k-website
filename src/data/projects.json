@@ -11,7 +11,8 @@
         "📱 Building mobile app for community engagement",
         "📰 Implementing news and events management system",
         "🏛️ Connecting residents with local commissioners and services"
-      ]
+      ],
+      "githubRepo": "dominichubble/mezzedata-app"
     },
     {
       "id": "panthera-app",
@@ -26,7 +27,8 @@
         "🎯 Achieved Companies Choice Award",
         "💻 Led team of 4 developers for 10 months"
       ],
-      "link": "https://www.instagram.com/p/CbuKdeLqJZP/"
+      "link": "https://www.instagram.com/p/CbuKdeLqJZP/",
+      "githubRepo": "dominichubble/panthera-app"
     },
     {
       "id": "traffic-automation",
@@ -39,7 +41,8 @@
         "📈 Increased traffic engagement by 30%",
         "🤖 Automated 80% of repetitive marketing tasks",
         "🔍 Built comprehensive competitor intelligence system"
-      ]
+      ],
+      "githubRepo": "dominichubble/traffic-automation"
     },
     {
       "id": "productivity-platform",
@@ -53,7 +56,8 @@
         "📱 Fully responsive design",
         "✨ Implemented user-friendly interfaces and experiences"
       ],
-      "link": "https://www.linkedin.com/posts/dominichubble_another-exciting-and-challenging-phase-of-activity-7299509157802504193-cAgA?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADhuLNIBIHLbwP6xLKdQUupQj83tti8Rql0"
+      "link": "https://www.linkedin.com/posts/dominichubble_another-exciting-and-challenging-phase-of-activity-7299509157802504193-cAgA?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADhuLNIBIHLbwP6xLKdQUupQj83tti8Rql0",
+      "githubRepo": "dominichubble/productivity-platform"
     }
   ]
 }
