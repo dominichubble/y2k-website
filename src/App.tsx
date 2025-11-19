@@ -1,7 +1,7 @@
 import ContentCards from './components/sections/ContentCards';
 import Footer from './components/sections/Footer';
 import Hero from './components/sections/Hero';
-import MarqueeDemo from './components/sections/Marquee';
+// import MarqueeDemo from './components/sections/Marquee';
 import Projects from './components/sections/Projects';
 import Timeline from './components/sections/Timeline';
 import Profile from './components/ui/ProfileSimple';
