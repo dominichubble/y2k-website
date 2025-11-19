@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { Code2, Rocket, Users, ChevronDown } from 'lucide-react';
+import { Code2, Rocket, Users, ChevronDown, Trophy } from 'lucide-react';
 import { useState } from 'react';
 import { COLORS } from '../constants';
 import skillsData from '../data/skills.json';
@@ -259,7 +259,7 @@ export default function AboutPage() {
             >
               <div className="bg-black/40 border-2 p-6" style={{ borderColor: `${COLORS.primary}30` }}>
                 <h3 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: COLORS.primary }}>
-                  <span>💻</span> Technical Skills
+                  <Code2 size={20} /> Technical Skills
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {technicalSkills.map((skill, index) => (
@@ -329,7 +329,7 @@ export default function AboutPage() {
             >
               <div className="bg-black/40 border-2 p-6" style={{ borderColor: `${COLORS.accent}30` }}>
                 <h3 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: COLORS.accent }}>
-                  <span>🏆</span> Key Achievements
+                  <Trophy size={20} /> Key Achievements
                 </h3>
                 <div className="space-y-3">
                   {achievements.map((achievement, index) => (
@@ -339,11 +339,13 @@ export default function AboutPage() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1, duration: 0.4 }}
                       whileHover={{ x: 5 }}
-                      className="flex items-start gap-3 p-3 border-2 transition-all"
+                      className="flex flex-col gap-1 p-3 border-2 transition-all"
                       style={{ backgroundColor: `${COLORS.accent}10`, borderColor: `${COLORS.accent}30` }}
                     >
-                      <span className="text-2xl">{achievement.icon}</span>
-                      <p className="text-gray-300 text-sm flex-1">
+                      <h4 className="font-bold text-sm uppercase tracking-wider" style={{ color: COLORS.accent }}>
+                        {achievement.title}
+                      </h4>
+                      <p className="text-gray-300 text-sm">
                         {achievement.description}
                       </p>
                     </motion.div>

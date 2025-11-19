@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, MapPin, Briefcase } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, Briefcase, GraduationCap } from 'lucide-react';
 import { COLORS } from '../constants';
 import profileData from '../data/profile.json';
 
@@ -94,7 +94,8 @@ export default function HomePage() {
               <span className="text-gray-300">{personalInfo.location}</span>
             </div>
             <div className="flex items-center gap-2 bg-black/50 px-3 py-2 border-2" style={{ borderColor: COLORS.primary }}>
-              <span className="text-gray-300">🎓 {personalInfo.university}</span>
+              <GraduationCap size={14} style={{ color: COLORS.primary }} />
+              <span className="text-gray-300">{personalInfo.university}</span>
             </div>
           </motion.div>
 

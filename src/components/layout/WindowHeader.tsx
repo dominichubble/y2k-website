@@ -32,10 +32,6 @@ export default function WindowHeader({
       </div>
       
       <div className="flex items-center gap-4">
-        <div className="text-xs text-gray-500 font-mono hidden md:block">
-          [Y2K MODE ACTIVE]
-        </div>
-        
         {/* Window Controls */}
         <div className="flex items-center gap-2">
           {onMaximize && (

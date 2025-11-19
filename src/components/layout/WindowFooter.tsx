@@ -10,7 +10,7 @@ export default function WindowFooter() {
           <p className="font-mono text-gray-400">&copy; 2025 Dominic Hubble</p>
           <span style={{ color: COLORS.primary }}>✩</span>
           <p className="font-mono text-gray-400">
-            made with <span style={{ color: COLORS.primary }}>♥</span>
+            Built with React & TypeScript
           </p>
           <span style={{ color: COLORS.secondary }}>✩</span>
           <p className="font-mono text-gray-400 hidden md:inline">

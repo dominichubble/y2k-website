@@ -1,0 +1,43 @@
+{
+  "posts": [
+    {
+      "id": "building-y2k-portfolio",
+      "title": "Building a Y2K-Themed Portfolio with React and TypeScript",
+      "slug": "building-y2k-portfolio",
+      "excerpt": "A deep dive into creating a nostalgic yet modern portfolio website using React, TypeScript, and Framer Motion to capture the essence of early 2000s web design.",
+      "date": "2025-11-15",
+      "readTime": "8 min read",
+      "category": "Web Development",
+      "tags": ["React", "TypeScript", "Design", "Portfolio"],
+      "author": "Dominic Hubble",
+      "published": true,
+      "content": "# Building a Y2K-Themed Portfolio\n\nThe early 2000s aesthetic is making a comeback, and for good reason. The bold colors, chrome effects, and unapologetic digital optimism of the Y2K era offer a refreshing contrast to today's minimalist design trends.\n\n## The Tech Stack\n\nFor this project, I chose:\n- **React** for component-based architecture\n- **TypeScript** for type safety and better developer experience\n- **Framer Motion** for smooth, eye-catching animations\n- **Tailwind CSS** for rapid styling\n\n## Design Philosophy\n\nThe key to authentic Y2K design isn't just throwing neon colors everywhere. It's about:\n\n1. **Chrome text effects** - Metallic gradients that catch the light\n2. **Bold borders** - Thick, colorful outlines that define sections\n3. **Geometric shapes** - Angled corners and unconventional layouts\n4. **Animated elements** - Everything should feel alive\n\n## Technical Implementation\n\nOne of the challenges was maintaining performance while adding all these animations. Using Framer Motion's `AnimatePresence` and lazy loading helped keep the site snappy.\n\n```tsx\n<motion.div\n  initial={{ opacity: 0, y: 20 }}\n  animate={{ opacity: 1, y: 0 }}\n  transition={{ delay: 0.2 }}\n>\n  {content}\n</motion.div>\n```\n\n## Lessons Learned\n\n- Less is often more, even with bold aesthetics\n- Accessibility shouldn't be sacrificed for style\n- Performance matters, especially with heavy animations\n\nThe final result is a portfolio that stands out while remaining professional and functional."
+    },
+    {
+      "id": "github-api-integration",
+      "title": "Integrating GitHub API for Dynamic Project Showcases",
+      "slug": "github-api-integration",
+      "excerpt": "Learn how to fetch and display your GitHub repositories in real-time, including stars, forks, and recent activity, to keep your portfolio automatically updated.",
+      "date": "2025-11-10",
+      "readTime": "6 min read",
+      "category": "Development",
+      "tags": ["GitHub API", "React", "REST API"],
+      "author": "Dominic Hubble",
+      "published": true,
+      "content": "# Integrating GitHub API for Dynamic Project Showcases\n\nKeeping your portfolio updated with your latest projects can be tedious. By integrating the GitHub API, your portfolio can automatically display your most recent work.\n\n## Why Automate?\n\nManually updating project listings is:\n- Time-consuming\n- Error-prone\n- Often forgotten\n\nWith GitHub API integration, your portfolio stays current without any manual intervention.\n\n## Implementation\n\nThe GitHub REST API is straightforward to use:\n\n```typescript\nconst fetchRepos = async (username: string) => {\n  const response = await fetch(\n    `https://api.github.com/users/${username}/repos?sort=updated`\n  );\n  return response.json();\n};\n```\n\n## Enriching Project Data\n\nI created a custom hook that combines manual project data with live GitHub stats:\n\n- **Stars** - Shows project popularity\n- **Forks** - Indicates community engagement  \n- **Last updated** - Proves active maintenance\n- **Languages** - Displays tech stack\n\n## Rate Limiting\n\nThe GitHub API has rate limits:\n- 60 requests/hour for unauthenticated\n- 5,000 requests/hour with authentication\n\nFor a portfolio site, unauthenticated is usually sufficient. Implement caching to avoid hitting limits.\n\n## Result\n\nYour projects section now updates automatically, showcasing your latest work and its reception in the developer community."
+    },
+    {
+      "id": "university-work-balance",
+      "title": "Balancing University and Full-Time Work as a Developer",
+      "slug": "university-work-balance",
+      "excerpt": "My experience managing a Computer Science degree at Loughborough University while working as a full-time software developer, and the strategies that made it possible.",
+      "date": "2025-11-05",
+      "readTime": "5 min read",
+      "category": "Career",
+      "tags": ["Career", "Education", "Personal"],
+      "author": "Dominic Hubble",
+      "published": true,
+      "content": "# Balancing University and Full-Time Work\n\nCurrently in my final year at Loughborough University while working full-time as a Junior Software Developer at MezzeData Limited, I've learned a lot about time management and prioritization.\n\n## The Challenge\n\nCombining:\n- Full course load for Computer Science\n- 40+ hour work weeks\n- Personal projects\n- Social life (yes, it exists!)\n\n...requires serious organization.\n\n## Strategies That Work\n\n### 1. Time Blocking\nI dedicate specific hours to specific activities:\n- Early mornings: Study sessions\n- Work hours: 9-5 focused development\n- Evenings: Coursework and assignments\n- Weekends: Project work and review\n\n### 2. Overlap When Possible\nMany university projects align with work skills:\n- Use work technologies in coursework\n- Apply course concepts to work problems\n- Share learning in both directions\n\n### 3. Communication is Key\nBoth my employer and university know my situation:\n- Flexible work arrangements during exams\n- Understanding from professors about workload\n- Clear boundaries and expectations\n\n### 4. Automate Everything\n- Scripts for repetitive tasks\n- Templates for common assignments\n- Systems for tracking deadlines\n\n## The Benefits\n\n**Real-world experience:** Theory meets practice daily\n\n**Financial independence:** No student debt accumulation\n\n**Resume building:** Graduating with significant experience\n\n**Skill acceleration:** Learning from two sources simultaneously\n\n## Is It Worth It?\n\nAbsolutely. The challenge builds resilience, time management, and a unique perspective that combines academic rigor with practical application.\n\nIt's not for everyone, but if you're organized and passionate about the field, it's incredibly rewarding."
+    }
+  ]
+}

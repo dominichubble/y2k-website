@@ -35,3 +35,17 @@ export interface Achievement {
   icon: string;
   description: string;
 }
+
+export interface BlogPost {
+  id: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+  category: string;
+  tags: string[];
+  author: string;
+  published: boolean;
+  content: string;
+}

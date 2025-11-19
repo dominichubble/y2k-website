@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import { Briefcase, FolderGit2, Home, User, Zap } from 'lucide-react';
+import { Home, User, FolderGit2, Briefcase, Zap, BookOpen } from 'lucide-react';
 import type { Section } from '../../constants';
-import { COLORS, NAV_ITEMS } from '../../constants';
+import { NAV_ITEMS, COLORS } from '../../constants';
 
 interface WindowNavProps {
   currentSection: Section;
@@ -14,6 +14,7 @@ const iconMap: Record<Section, React.ComponentType<{ size?: number; className?: 
   projects: FolderGit2,
   experience: Briefcase,
   skills: Zap,
+  blog: BookOpen,
 };
 
 export default function WindowNav({ currentSection, onSectionChange }: WindowNavProps) {

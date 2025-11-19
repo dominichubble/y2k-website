@@ -1,4 +1,4 @@
-export type Section = 'home' | 'about' | 'projects' | 'experience' | 'skills';
+export type Section = 'home' | 'about' | 'projects' | 'experience' | 'skills' | 'blog';
 
 export interface NavItem {
   id: Section;
@@ -12,4 +12,5 @@ export const NAV_ITEMS: NavItem[] = [
   { id: 'projects', label: 'projects', icon: 'folder' },
   { id: 'experience', label: 'experience', icon: 'briefcase' },
   { id: 'skills', label: 'skills', icon: 'zap' },
+  { id: 'blog', label: 'blog', icon: 'book' },
 ];

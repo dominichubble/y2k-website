@@ -77,21 +77,26 @@ function SkillCategory({ title, skills, icon, color }: SkillCategoryProps) {
 }
 
 interface AchievementProps {
-  icon: string;
+  title: string;
   description: string;
   index: number;
 }
 
-function Achievement({ icon, description, index }: AchievementProps) {
+function Achievement({ title, description, index }: AchievementProps) {
   return (
     <motion.div
       variants={itemVariants}
       className="bg-black/40 border-2 p-4 hover:scale-105 transition-transform"
       style={{ borderColor: `${COLORS.accent}40` }}
     >
-      <div className="flex items-start gap-3">
-        <span className="text-2xl">{icon}</span>
-        <p className="text-sm text-gray-300 font-mono flex-1">
+      <div className="flex flex-col gap-2">
+        <h4 
+          className="text-sm font-bold font-mono uppercase tracking-wider"
+          style={{ color: COLORS.accent }}
+        >
+          {title}
+        </h4>
+        <p className="text-sm text-gray-300">
           {description}
         </p>
       </div>
@@ -178,7 +183,7 @@ export default function SkillsPage() {
               {achievements.map((achievement, index) => (
                 <Achievement
                   key={index}
-                  icon={achievement.icon}
+                  title={achievement.title}
                   description={achievement.description}
                   index={index}
                 />

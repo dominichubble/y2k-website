@@ -25,23 +25,23 @@
   ],
   "achievements": [
     {
-      "icon": "🏆",
+      "title": "Award Winner",
       "description": "Company of the Year Competition Award Winner (Panthera)"
     },
     {
-      "icon": "👥",
+      "title": "Team Leadership",
       "description": "Led cross-functional teams of 5+ developers"
     },
     {
-      "icon": "📈",
+      "title": "Performance",
       "description": "Increased traffic engagement by 30% at Loads of Traffic"
     },
     {
-      "icon": "🎓",
+      "title": "Academic Excellence",
       "description": "Maintaining First-Class Honours at Loughborough University"
     },
     {
-      "icon": "💼",
+      "title": "Work & Study",
       "description": "Currently employed while studying full-time"
     }
   ]

@@ -5,7 +5,8 @@ import {
   AboutPage, 
   ProjectsPage, 
   ExperiencePage, 
-  SkillsPage 
+  SkillsPage,
+  BlogPage
 } from './pages';
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
         return <ExperiencePage />;
       case 'skills':
         return <SkillsPage />;
+      case 'blog':
+        return <BlogPage />;
       default:
         return <HomePage />;
     }
