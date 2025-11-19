@@ -1,4 +1,4 @@
-import { X, Maximize2 } from 'lucide-react';
+import { Maximize2, X } from 'lucide-react';
 import { COLORS } from '../../constants';
 
 interface WindowHeaderProps {

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Code2, Users, Trophy, Sparkles } from 'lucide-react';
+import { Code2, Sparkles, Trophy, Users } from 'lucide-react';
 import { COLORS } from '../constants';
 import skillsData from '../data/skills.json';
 

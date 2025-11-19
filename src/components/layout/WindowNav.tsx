@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import { Home, User, FolderGit2, Briefcase, Zap } from 'lucide-react';
+import { Briefcase, FolderGit2, Home, User, Zap } from 'lucide-react';
 import type { Section } from '../../constants';
-import { NAV_ITEMS, COLORS } from '../../constants';
+import { COLORS, NAV_ITEMS } from '../../constants';
 
 interface WindowNavProps {
   currentSection: Section;
