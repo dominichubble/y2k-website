@@ -1,9 +1,9 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { Code2, Rocket, Users, ChevronDown, Trophy } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { ChevronDown, Code2, Rocket, Trophy, Users } from 'lucide-react';
 import { useState } from 'react';
 import { COLORS } from '../constants';
-import skillsData from '../data/skills.json';
 import profileData from '../data/profile.json';
+import skillsData from '../data/skills.json';
 
 export default function AboutPage() {
   const { technicalSkills, softSkills, achievements } = skillsData;

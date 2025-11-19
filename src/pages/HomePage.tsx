@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, MapPin, Briefcase, GraduationCap } from 'lucide-react';
+import { Briefcase, Github, GraduationCap, Linkedin, Mail, MapPin } from 'lucide-react';
 import { COLORS } from '../constants';
 import profileData from '../data/profile.json';
 

@@ -1,12 +1,12 @@
 import { WindowLayout } from './components/layout';
 import { useNavigation } from './hooks';
-import { 
-  HomePage, 
-  AboutPage, 
-  ProjectsPage, 
-  ExperiencePage, 
-  SkillsPage,
-  BlogPage
+import {
+    AboutPage,
+    BlogPage,
+    ExperiencePage,
+    HomePage,
+    ProjectsPage,
+    SkillsPage
 } from './pages';
 
 function App() {

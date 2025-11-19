@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
-import { Calendar, Clock, Tag, BookOpen, ArrowRight } from 'lucide-react';
+import 'highlight.js/styles/github-dark.css';
+import { ArrowRight, BookOpen, Calendar, Clock, Tag } from 'lucide-react';
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
+import remarkGfm from 'remark-gfm';
 import { COLORS } from '../constants';
 import blogData from '../data/blog.json';
 import type { BlogPost } from '../types';
-import 'highlight.js/styles/github-dark.css';
 
 interface BlogCardProps {
   post: BlogPost;
