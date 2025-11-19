@@ -85,8 +85,8 @@ export default function HomePage() {
             transition={{ delay: 0.7, duration: 0.6 }}
             className="flex flex-wrap justify-center gap-4 mb-8 text-xs md:text-sm"
           >
-            <div className="flex items-center gap-2 bg-black/50 px-3 py-2 border-2 border-[#00ff00]">
-              <span className="w-2 h-2 bg-[#00ff00] animate-pulse" />
+            <div className="flex items-center gap-2 bg-black/50 px-3 py-2 border-2" style={{ borderColor: COLORS.primary }}>
+              <span className="w-2 h-2 animate-pulse" style={{ backgroundColor: COLORS.accent }} />
               <span className="text-gray-300">{personalInfo.availability}</span>
             </div>
             <div className="flex items-center gap-2 bg-black/50 px-3 py-2 border-2" style={{ borderColor: COLORS.secondary }}>

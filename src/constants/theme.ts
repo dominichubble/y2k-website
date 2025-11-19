@@ -1,7 +1,7 @@
 export const COLORS = {
-  primary: '#00d9ff',    // Electric Blue
-  secondary: '#00ff41',  // Matrix Green
-  accent: '#ff6b00',     // Electric Orange
+  primary: '#ffffff',    // White
+  secondary: '#808080',  // Gray
+  accent: '#00d9ff',     // Subtle Cyan
   black: '#000000',
   white: '#ffffff',
 } as const;

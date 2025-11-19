@@ -1,15 +1,14 @@
 @import "tailwindcss";
 
-/* Y2K Color Palette */
+/* Minimalistic Color Palette */
 :root {
-  --y2k-blue: #00d9ff;
-  --y2k-green: #00ff41;
-  --y2k-purple: #9d00ff;
-  --y2k-orange: #ff6b00;
-  --y2k-red: #ff0040;
-  --y2k-chrome: linear-gradient(135deg, #00d9ff 0%, #0066ff 100%);
-  --y2k-metal: linear-gradient(to right, #434343 0%, #000000 100%);
-  --y2k-hologram: linear-gradient(45deg, #00d9ff, #00ff41, #ff6b00);
+  --y2k-white: #ffffff;
+  --y2k-gray: #808080;
+  --y2k-cyan: #00d9ff;
+  --y2k-black: #000000;
+  --y2k-chrome: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+  --y2k-metal: linear-gradient(to right, #808080 0%, #000000 100%);
+  --y2k-hologram: linear-gradient(45deg, #ffffff, #808080, #00d9ff);
 }
 
 /* Y2K Custom Animations */
@@ -96,11 +95,11 @@
 @keyframes pulse-glow {
   0%,
   100% {
-    box-shadow: 0 0 5px rgba(0, 217, 255, 0.5);
+    box-shadow: 0 0 5px rgba(0, 217, 255, 0.3);
   }
   50% {
-    box-shadow: 0 0 20px rgba(0, 217, 255, 0.8),
-      0 0 30px rgba(0, 255, 65, 0.6);
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.5),
+      0 0 30px rgba(255, 255, 255, 0.3);
   }
 }
 
@@ -195,16 +194,16 @@ html, body {
 
 ::-webkit-scrollbar-track {
   background: #000;
-  border-left: 1px solid rgba(0, 217, 255, 0.3);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #00d9ff, #00ff41);
+  background: linear-gradient(180deg, #ffffff, #808080);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #00d9ff, #ff6b00);
-  box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+  background: linear-gradient(180deg, #ffffff, #00d9ff);
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
 }
 
 /* Loading animation for images */
@@ -232,7 +231,7 @@ img:not([src]) {
 
 /* Y2K Utility Classes */
 .y2k-chrome-text {
-  background: linear-gradient(90deg, #e0e0e0 0%, #ffffff 25%, #e0e0e0 50%, #ffffff 75%, #e0e0e0 100%);
+  background: linear-gradient(90deg, #808080 0%, #ffffff 25%, #808080 50%, #ffffff 75%, #808080 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -241,27 +240,27 @@ img:not([src]) {
 }
 
 .y2k-hologram {
-  background: linear-gradient(45deg, #00d9ff, #00ff41, #ff6b00, #00d9ff);
+  background: linear-gradient(45deg, #ffffff, #808080, #00d9ff, #ffffff);
   background-size: 400% 400%;
   animation: hologram 3s ease infinite;
 }
 
 .y2k-neon-border {
   border: 2px solid;
-  border-image: linear-gradient(45deg, #00d9ff, #00ff41, #ff6b00) 1;
-  box-shadow: 0 0 10px rgba(0, 217, 255, 0.5), 0 0 20px rgba(0, 255, 65, 0.3);
+  border-image: linear-gradient(45deg, #ffffff, #808080, #00d9ff) 1;
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
 }
 
 .y2k-glow-blue {
-  box-shadow: 0 0 20px rgba(0, 217, 255, 0.6), 0 0 40px rgba(0, 217, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.3), 0 0 40px rgba(0, 217, 255, 0.2);
 }
 
-.y2k-glow-green {
-  box-shadow: 0 0 20px rgba(0, 255, 65, 0.6), 0 0 40px rgba(0, 255, 65, 0.4);
+.y2k-glow-gray {
+  box-shadow: 0 0 20px rgba(128, 128, 128, 0.4), 0 0 40px rgba(128, 128, 128, 0.2);
 }
 
 .y2k-card {
-  background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(0, 255, 65, 0.1));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(128, 128, 128, 0.1));
   border: 2px solid transparent;
   background-clip: padding-box;
   position: relative;
@@ -272,7 +271,7 @@ img:not([src]) {
   position: absolute;
   inset: -2px;
   border-radius: inherit;
-  background: linear-gradient(45deg, #00d9ff, #00ff41, #ff6b00);
+  background: linear-gradient(45deg, #ffffff, #808080, #00d9ff);
   z-index: -1;
 }
 
@@ -307,7 +306,7 @@ img:not([src]) {
 /* Retro grid */
 .y2k-grid {
   background-image: 
-    linear-gradient(rgba(0, 217, 255, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 65, 0.1) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(128, 128, 128, 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
 }
