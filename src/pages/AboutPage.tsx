@@ -28,7 +28,7 @@ export default function AboutPage() {
             ABOUT ME
           </h1>
           <div 
-            className="h-1 w-24 mx-auto rounded-full"
+            className="h-1 w-24 mx-auto"
             style={{ backgroundColor: COLORS.primary }}
           />
         </motion.div>
@@ -42,7 +42,7 @@ export default function AboutPage() {
         >
           <button
             onClick={() => toggleSection('story')}
-            className="w-full bg-black/40 border-2 rounded-xl p-4 transition-all hover:bg-black/60"
+            className="w-full bg-black/40 border-2 p-4 transition-all hover:bg-black/60"
             style={{ borderColor: openSection === 'story' ? COLORS.primary : `${COLORS.primary}30` }}
           >
             <div className="flex items-center justify-between">
@@ -94,7 +94,7 @@ export default function AboutPage() {
         >
           <button
             onClick={() => toggleSection('hobbies')}
-            className="w-full bg-black/40 border-2 rounded-xl p-4 transition-all hover:bg-black/60"
+            className="w-full bg-black/40 border-2 p-4 transition-all hover:bg-black/60"
             style={{ borderColor: openSection === 'hobbies' ? COLORS.secondary : `${COLORS.secondary}30` }}
           >
             <div className="flex items-center justify-between">
@@ -124,8 +124,8 @@ export default function AboutPage() {
                   {about.hobbies.map((hobby, index) => (
                     <div 
                       key={index}
-                      className="flex items-start gap-3 p-3 rounded-lg" 
-                      style={{ backgroundColor: `${COLORS.secondary}10` }}
+                      className="flex items-start gap-3 p-3 border-2" 
+                      style={{ backgroundColor: `${COLORS.secondary}10`, borderColor: `${COLORS.secondary}30` }}
                     >
                       <span className="text-2xl">{hobby.icon}</span>
                       <p>{hobby.description}</p>
@@ -146,7 +146,7 @@ export default function AboutPage() {
         >
           <button
             onClick={() => toggleSection('interests')}
-            className="w-full bg-black/40 border-2 rounded-xl p-4 transition-all hover:bg-black/60"
+            className="w-full bg-black/40 border-2 p-4 transition-all hover:bg-black/60"
             style={{ borderColor: openSection === 'interests' ? COLORS.accent : `${COLORS.accent}30` }}
           >
             <div className="flex items-center justify-between">
@@ -176,8 +176,8 @@ export default function AboutPage() {
                   {about.interests.map((interest, index) => (
                     <div 
                       key={index}
-                      className="flex items-start gap-3 p-3 rounded-lg" 
-                      style={{ backgroundColor: `${COLORS.accent}10` }}
+                      className="flex items-start gap-3 p-3 border-2" 
+                      style={{ backgroundColor: `${COLORS.accent}10`, borderColor: `${COLORS.accent}30` }}
                     >
                       <span className="text-2xl">{interest.icon}</span>
                       <p
@@ -204,7 +204,7 @@ export default function AboutPage() {
             animate={{ opacity: 1, scale: 1 }}
             whileHover={{ scale: 1.05 }}
             transition={{ delay: 0.5, duration: 0.3 }}
-            className="bg-black/40 border-2 rounded-xl p-6 text-center transition-all"
+            className="bg-black/40 border-2 p-6 text-center transition-all"
             style={{ borderColor: openSection === 'technical' ? COLORS.primary : `${COLORS.primary}30` }}
           >
             <Code2 size={32} className="mx-auto mb-2" style={{ color: COLORS.primary }} />
@@ -220,7 +220,7 @@ export default function AboutPage() {
             animate={{ opacity: 1, scale: 1 }}
             whileHover={{ scale: 1.05 }}
             transition={{ delay: 0.6, duration: 0.3 }}
-            className="bg-black/40 border-2 rounded-xl p-6 text-center transition-all"
+            className="bg-black/40 border-2 p-6 text-center transition-all"
             style={{ borderColor: openSection === 'soft' ? COLORS.secondary : `${COLORS.secondary}30` }}
           >
             <Users size={32} className="mx-auto mb-2" style={{ color: COLORS.secondary }} />
@@ -236,7 +236,7 @@ export default function AboutPage() {
             animate={{ opacity: 1, scale: 1 }}
             whileHover={{ scale: 1.05 }}
             transition={{ delay: 0.7, duration: 0.3 }}
-            className="bg-black/40 border-2 rounded-xl p-6 text-center transition-all"
+            className="bg-black/40 border-2 p-6 text-center transition-all"
             style={{ borderColor: openSection === 'achievements' ? COLORS.accent : `${COLORS.accent}30` }}
           >
             <Rocket size={32} className="mx-auto mb-2" style={{ color: COLORS.accent }} />
@@ -257,7 +257,7 @@ export default function AboutPage() {
               transition={{ duration: 0.3 }}
               className="overflow-hidden mb-4"
             >
-              <div className="bg-black/40 border-2 rounded-xl p-6" style={{ borderColor: `${COLORS.primary}30` }}>
+              <div className="bg-black/40 border-2 p-6" style={{ borderColor: `${COLORS.primary}30` }}>
                 <h3 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: COLORS.primary }}>
                   <span>💻</span> Technical Skills
                 </h3>
@@ -269,7 +269,7 @@ export default function AboutPage() {
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: index * 0.05, duration: 0.3 }}
                       whileHover={{ scale: 1.1, y: -2 }}
-                      className="px-3 py-1 rounded-lg text-sm font-mono border-2 transition-all cursor-default"
+                      className="px-3 py-1 text-sm font-mono border-2 transition-all cursor-default"
                       style={{ 
                         borderColor: `${COLORS.primary}50`,
                         color: COLORS.primary,
@@ -292,7 +292,7 @@ export default function AboutPage() {
               transition={{ duration: 0.3 }}
               className="overflow-hidden mb-4"
             >
-              <div className="bg-black/40 border-2 rounded-xl p-6" style={{ borderColor: `${COLORS.secondary}30` }}>
+              <div className="bg-black/40 border-2 p-6" style={{ borderColor: `${COLORS.secondary}30` }}>
                 <h3 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: COLORS.secondary }}>
                   <span>🤝</span> Soft Skills
                 </h3>
@@ -304,7 +304,7 @@ export default function AboutPage() {
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: index * 0.05, duration: 0.3 }}
                       whileHover={{ scale: 1.1, y: -2 }}
-                      className="px-3 py-1 rounded-lg text-sm font-mono border-2 transition-all cursor-default"
+                      className="px-3 py-1 text-sm font-mono border-2 transition-all cursor-default"
                       style={{ 
                         borderColor: `${COLORS.secondary}50`,
                         color: COLORS.secondary,
@@ -327,7 +327,7 @@ export default function AboutPage() {
               transition={{ duration: 0.3 }}
               className="overflow-hidden mb-4"
             >
-              <div className="bg-black/40 border-2 rounded-xl p-6" style={{ borderColor: `${COLORS.accent}30` }}>
+              <div className="bg-black/40 border-2 p-6" style={{ borderColor: `${COLORS.accent}30` }}>
                 <h3 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: COLORS.accent }}>
                   <span>🏆</span> Key Achievements
                 </h3>
@@ -339,8 +339,8 @@ export default function AboutPage() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1, duration: 0.4 }}
                       whileHover={{ x: 5 }}
-                      className="flex items-start gap-3 p-3 rounded-lg transition-all"
-                      style={{ backgroundColor: `${COLORS.accent}10` }}
+                      className="flex items-start gap-3 p-3 border-2 transition-all"
+                      style={{ backgroundColor: `${COLORS.accent}10`, borderColor: `${COLORS.accent}30` }}
                     >
                       <span className="text-2xl">{achievement.icon}</span>
                       <p className="text-gray-300 text-sm flex-1">

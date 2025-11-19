@@ -7,7 +7,8 @@ interface WindowHeaderProps {
 export default function WindowHeader({ title = "DOMINIC HUBBLE.TV" }: WindowHeaderProps) {
   return (
     <div 
-      className="bg-gradient-to-r from-[#ff00ff]/20 via-[#00ffff]/20 to-[#ff00ff]/20 border-b-2 border-[#ff00ff]/30 px-6 py-3 flex items-center justify-between"
+      className="bg-black/80 border-b-2 px-6 py-3 flex items-center justify-between"
+      style={{ borderColor: COLORS.primary }}
     >
       <div className="flex items-center gap-3">
         <div className="flex gap-2">

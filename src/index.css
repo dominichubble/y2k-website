@@ -200,7 +200,6 @@ html, body {
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #00d9ff, #00ff41);
-  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -217,10 +216,9 @@ img:not([src]) {
   opacity: 0;
 }
 
-/* Glassmorphism effect */
+/* Matte effect - no glass or blur */
 .glass {
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 

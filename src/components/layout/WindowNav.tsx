@@ -17,7 +17,7 @@ export default function WindowNav({ currentSection, onSectionChange }: WindowNav
             <button
               key={item.id}
               onClick={() => onSectionChange(item.id)}
-              className={`px-3 md:px-4 py-2 rounded-lg font-mono text-xs md:text-sm transition-all duration-300 flex items-center gap-1 md:gap-2 ${
+              className={`px-3 md:px-4 py-2 font-mono text-xs md:text-sm transition-all duration-300 flex items-center gap-1 md:gap-2 ${
                 isActive
                   ? 'bg-[#ff00ff] text-black font-bold scale-105'
                   : 'text-[#00ffff] hover:bg-[#ff00ff]/20 hover:text-[#ff00ff]'

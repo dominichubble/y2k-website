@@ -36,14 +36,10 @@ export default function HomePage() {
             className="mb-6 inline-block"
           >
             <div className="relative">
-              <div 
-                className="absolute inset-0 rounded-full blur-xl opacity-50"
-                style={{ backgroundColor: COLORS.primary }}
-              />
               <img
                 src={personalInfo.profileImage}
                 alt={personalInfo.name}
-                className="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-4 object-cover mx-auto"
+                className="relative w-32 h-32 md:w-40 md:h-40 border-4 object-cover mx-auto"
                 style={{ borderColor: COLORS.primary }}
               />
             </div>
@@ -89,15 +85,15 @@ export default function HomePage() {
             transition={{ delay: 0.7, duration: 0.6 }}
             className="flex flex-wrap justify-center gap-4 mb-8 text-xs md:text-sm"
           >
-            <div className="flex items-center gap-2 bg-black/50 px-3 py-2 rounded-lg border border-[#00ff00]/30">
-              <span className="w-2 h-2 rounded-full bg-[#00ff00] animate-pulse" />
+            <div className="flex items-center gap-2 bg-black/50 px-3 py-2 border-2 border-[#00ff00]">
+              <span className="w-2 h-2 bg-[#00ff00] animate-pulse" />
               <span className="text-gray-300">{personalInfo.availability}</span>
             </div>
-            <div className="flex items-center gap-2 bg-black/50 px-3 py-2 rounded-lg border border-[#00ffff]/30">
+            <div className="flex items-center gap-2 bg-black/50 px-3 py-2 border-2" style={{ borderColor: COLORS.secondary }}>
               <MapPin size={14} style={{ color: COLORS.secondary }} />
               <span className="text-gray-300">{personalInfo.location}</span>
             </div>
-            <div className="flex items-center gap-2 bg-black/50 px-3 py-2 rounded-lg border border-[#ff00ff]/30">
+            <div className="flex items-center gap-2 bg-black/50 px-3 py-2 border-2" style={{ borderColor: COLORS.primary }}>
               <span className="text-gray-300">🎓 {personalInfo.university}</span>
             </div>
           </motion.div>
@@ -123,7 +119,7 @@ export default function HomePage() {
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg font-mono text-sm transition-all duration-300 border-2"
+              className="flex items-center gap-2 px-4 py-2 font-mono text-sm transition-all duration-300 border-2"
               style={{ 
                 borderColor: COLORS.primary,
                 color: COLORS.primary 
@@ -143,7 +139,7 @@ export default function HomePage() {
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg font-mono text-sm transition-all duration-300 border-2"
+              className="flex items-center gap-2 px-4 py-2 font-mono text-sm transition-all duration-300 border-2"
               style={{ 
                 borderColor: COLORS.secondary,
                 color: COLORS.secondary 
@@ -161,7 +157,7 @@ export default function HomePage() {
 
             <motion.a
               href={`mailto:${personalInfo.email}`}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg font-mono text-sm transition-all duration-300 border-2"
+              className="flex items-center gap-2 px-4 py-2 font-mono text-sm transition-all duration-300 border-2"
               style={{ 
                 borderColor: COLORS.accent,
                 color: COLORS.accent 
