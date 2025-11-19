@@ -12,5 +12,48 @@
     "linkedin": "https://www.linkedin.com/in/dominichubble",
     "profileImage": "/assets/pfp.jpeg",
     "bio": "Final year Computer Science student at Loughborough University with hands-on experience in software development, affiliate marketing, and project management. Currently working as a Junior Software Developer at MezzeData Limited while building innovative solutions and leading high-performing teams."
+  },
+  "about": {
+    "story": [
+      "Originally from the West Midlands, my journey into tech started at the age of 3 with my first iPod. That early exposure sparked a curiosity that's only grown stronger over the years, leading me to pursue Computer Science and Software Development.",
+      "What drives me most about this field is the continuous learning — there's always something new to discover, master, and create. Currently, I'm a final year Computer Science student at Loughborough University while working as a Junior Software Developer at MezzeData Limited."
+    ],
+    "hobbies": [
+      {
+        "icon": "🏑",
+        "title": "Field Hockey",
+        "description": "Playing field hockey — love the team dynamics and strategy"
+      },
+      {
+        "icon": "🎮",
+        "title": "Gaming",
+        "description": "Gaming — whether it's competitive or story-driven adventures"
+      },
+      {
+        "icon": "📺",
+        "title": "Anime",
+        "description": "Watching anime — always up for a good recommendation!"
+      }
+    ],
+    "interests": [
+      {
+        "icon": "🤖",
+        "title": "Machine Learning & Data Science",
+        "description": "Machine Learning & Data Science — exploring AI applications"
+      },
+      {
+        "icon": "📊",
+        "title": "Economics",
+        "description": "Economics — understanding market dynamics and data-driven decision making"
+      },
+      {
+        "icon": "💡",
+        "title": "Innovation",
+        "description": "Building solutions that combine tech with real-world business problems"
+      }
+    ],
+    "stats": {
+      "yearsExperience": "3+"
+    }
   }
 }
