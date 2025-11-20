@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
-/* Minimalistic Color Palette */
+/* Classy Y2K Color Palette */
 :root {
-  --y2k-white: #ffffff;
-  --y2k-gray: #808080;
   --y2k-cyan: #00d9ff;
+  --y2k-gray: #808080;
+  --y2k-white: #ffffff;
   --y2k-black: #000000;
   --y2k-chrome: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
   --y2k-metal: linear-gradient(to right, #808080 0%, #000000 100%);
-  --y2k-hologram: linear-gradient(45deg, #ffffff, #808080, #00d9ff);
+  --y2k-hologram: linear-gradient(45deg, #ffffff, #00d9ff, #808080);
 }
 
 /* Y2K Custom Animations */
@@ -65,10 +65,20 @@
 }
 
 @keyframes neon-flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    filter: drop-shadow(0 0 10px currentColor) drop-shadow(0 0 20px currentColor);
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    filter: drop-shadow(0 0 10px currentColor)
+      drop-shadow(0 0 20px currentColor);
   }
-  20%, 24%, 55% {
+  20%,
+  24%,
+  55% {
     filter: drop-shadow(0 0 5px currentColor);
   }
 }
@@ -178,7 +188,8 @@
 }
 
 /* Prevent scrolling on main document */
-html, body {
+html,
+body {
   overflow: hidden;
   height: 100%;
 }
@@ -231,7 +242,14 @@ img:not([src]) {
 
 /* Y2K Utility Classes */
 .y2k-chrome-text {
-  background: linear-gradient(90deg, #808080 0%, #ffffff 25%, #808080 50%, #ffffff 75%, #808080 100%);
+  background: linear-gradient(
+    90deg,
+    #808080 0%,
+    #ffffff 25%,
+    #808080 50%,
+    #ffffff 75%,
+    #808080 100%
+  );
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -256,18 +274,23 @@ img:not([src]) {
 }
 
 .y2k-glow-gray {
-  box-shadow: 0 0 20px rgba(128, 128, 128, 0.4), 0 0 40px rgba(128, 128, 128, 0.2);
+  box-shadow: 0 0 20px rgba(128, 128, 128, 0.4),
+    0 0 40px rgba(128, 128, 128, 0.2);
 }
 
 .y2k-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(128, 128, 128, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(128, 128, 128, 0.1)
+  );
   border: 2px solid transparent;
   background-clip: padding-box;
   position: relative;
 }
 
 .y2k-card::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: -2px;
   border-radius: inherit;
@@ -292,8 +315,7 @@ img:not([src]) {
 .y2k-stars {
   position: absolute;
   inset: 0;
-  background: 
-    radial-gradient(2px 2px at 20% 30%, white, transparent),
+  background: radial-gradient(2px 2px at 20% 30%, white, transparent),
     radial-gradient(2px 2px at 60% 70%, white, transparent),
     radial-gradient(1px 1px at 50% 50%, white, transparent),
     radial-gradient(1px 1px at 80% 10%, white, transparent),
@@ -305,8 +327,10 @@ img:not([src]) {
 
 /* Retro grid */
 .y2k-grid {
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px
+    ),
     linear-gradient(90deg, rgba(128, 128, 128, 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
 }

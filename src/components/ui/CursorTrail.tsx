@@ -69,8 +69,18 @@ export default function CursorTrail() {
         const progress = index / trail.length;
         const size = 12 - progress * 8;
         
-        // Cycle through Y2K colors
-        const colors = [COLORS.primary, COLORS.secondary, COLORS.accent];
+        // Expanded Y2K color palette with more vibrant colors
+        const colors = [
+          COLORS.primary,    // magenta
+          COLORS.secondary,  // cyan
+          COLORS.accent,     // lime
+          '#FF6B9D',        // pink
+          '#00D9FF',        // bright cyan
+          '#FFC700',        // gold
+          '#B644FF',        // purple
+          '#00FFA3',        // mint
+          '#FF3E96'         // hot pink
+        ];
         const color = colors[index % colors.length];
 
         return (

@@ -1,10 +1,10 @@
-import { useState } from 'react';
 import type { ReactNode } from 'react';
-import WindowHeader from './WindowHeader';
-import WindowNav from './WindowNav';
-import WindowFooter from './WindowFooter';
+import { useState } from 'react';
 import type { Section } from '../../constants';
 import { COLORS } from '../../constants';
+import WindowFooter from './WindowFooter';
+import WindowHeader from './WindowHeader';
+import WindowNav from './WindowNav';
 
 interface WindowLayoutProps {
   children: ReactNode;
@@ -34,17 +34,17 @@ export default function WindowLayout({
       {/* Starfield background */}
       <div className="y2k-stars opacity-20"></div>
       
-      {/* Decorative shapes */}
+      {/* Decorative shapes - subtle and classy */}
       <div 
-        className="absolute top-20 left-10 w-60 h-60 opacity-5 animate-pulse"
+        className="absolute top-20 left-10 w-60 h-60 rounded-full opacity-5 animate-pulse blur-3xl"
         style={{ backgroundColor: COLORS.primary }}
       />
       <div 
-        className="absolute bottom-20 right-10 w-80 h-80 opacity-5 animate-pulse"
-        style={{ backgroundColor: COLORS.secondary }}
+        className="absolute bottom-20 right-10 w-80 h-80 rounded-full opacity-5 animate-pulse blur-3xl"
+        style={{ backgroundColor: COLORS.primary }}
       />
       <div 
-        className="absolute top-1/2 left-1/2 w-40 h-40 opacity-5"
+        className="absolute top-1/2 right-1/4 w-40 h-40 rounded-full opacity-5 blur-3xl"
         style={{ backgroundColor: COLORS.accent }}
       />
 

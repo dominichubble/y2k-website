@@ -1,7 +1,7 @@
 export const COLORS = {
-  primary: '#ffffff',    // White
+  primary: '#00d9ff',    // Cyan (accent color)
   secondary: '#808080',  // Gray
-  accent: '#00d9ff',     // Subtle Cyan
+  accent: '#ffffff',     // White
   black: '#000000',
   white: '#ffffff',
 } as const;
