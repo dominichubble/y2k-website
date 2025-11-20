@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import DraggableWindow from './DraggableWindow';
 import { COLORS } from '../../constants';
 
@@ -37,6 +38,19 @@ export default function DetailWindow({
   width = 650,
   height = 550
 }: DetailWindowProps) {
+  // Listen for close modal event
+  useEffect(() => {
+    const handleCloseAll = () => {
+      onClose();
+    };
+
+    window.addEventListener('closeAllModals', handleCloseAll);
+
+    return () => {
+      window.removeEventListener('closeAllModals', handleCloseAll);
+    };
+  }, [onClose]);
+
   return (
     <DraggableWindow
       title={title}
