@@ -9,7 +9,7 @@ export default function HomePage() {
   return (
     <div className="h-full overflow-hidden">
       {/* Hero Section */}
-      <div className="h-full flex items-center justify-center p-6 md:p-12 relative">
+      <div className="h-full flex items-center justify-center p-6 md:p-12 pb-20 md:pb-24 relative overflow-y-auto">
         {/* Animated Background Grid */}
         <motion.div
           className="absolute inset-0 opacity-10"
