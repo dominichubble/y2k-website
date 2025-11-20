@@ -30,11 +30,24 @@ export default function DraggableWindow({
   const [isMinimized, setIsMinimized] = useState(false);
   const [isMaximized, setIsMaximized] = useState(false);
   const [preMaximizeState, setPreMaximizeState] = useState({ x: initialX, y: initialY, width, height });
+  const [isMobile, setIsMobile] = useState(false);
   const windowRef = useRef<HTMLDivElement>(null);
+
+  // Detect mobile view
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     if ((e.target as HTMLElement).closest('.window-control')) return;
-    if (isMaximized) return; // Don't allow dragging when maximized
+    if (isMaximized || isMobile) return; // Don't allow dragging when maximized or on mobile
     
     setIsDragging(true);
     setDragStart({
@@ -94,10 +107,10 @@ export default function DraggableWindow({
       ref={windowRef}
       className="fixed bg-black/95 border-4 overflow-hidden select-none"
       style={{
-        left: `${position.x}px`,
-        top: `${position.y}px`,
-        width: isMaximized ? '100vw' : `${width}px`,
-        height: isMinimized ? 'auto' : isMaximized ? '100vh' : `${height}px`,
+        left: isMobile ? '0' : `${position.x}px`,
+        top: isMobile ? '0' : `${position.y}px`,
+        width: isMobile || isMaximized ? '100vw' : `${width}px`,
+        height: isMinimized ? 'auto' : isMobile || isMaximized ? '100vh' : `${height}px`,
         borderColor: titleColor,
         boxShadow: `0 0 20px ${titleColor}40`,
         zIndex: 9999
@@ -105,9 +118,10 @@ export default function DraggableWindow({
     >
       {/* Title Bar */}
       <div
-        className="flex items-center justify-between px-4 py-3 border-b-2 cursor-move bg-black/80"
+        className="flex items-center justify-between px-4 py-3 border-b-2 bg-black/80"
         style={{ 
-          borderColor: titleColor
+          borderColor: titleColor,
+          cursor: isMobile ? 'default' : 'move'
         }}
         onMouseDown={handleMouseDown}
       >
@@ -119,28 +133,32 @@ export default function DraggableWindow({
 
         {/* Window Controls */}
         <div className="flex items-center gap-2 window-control">
-          <button
-            onClick={() => setIsMinimized(!isMinimized)}
-            className="p-1.5 border transition-all hover:scale-110"
-            style={{ 
-              borderColor: `${COLORS.secondary}60`,
-              color: COLORS.secondary 
-            }}
-            title="Minimize"
-          >
-            <Minimize2 size={12} />
-          </button>
-          <button
-            onClick={handleMaximize}
-            className="p-1.5 border transition-all hover:scale-110"
-            style={{ 
-              borderColor: `${titleColor}60`,
-              color: titleColor 
-            }}
-            title={isMaximized ? "Restore" : "Maximize"}
-          >
-            <Maximize2 size={12} />
-          </button>
+          {!isMobile && (
+            <>
+              <button
+                onClick={() => setIsMinimized(!isMinimized)}
+                className="p-1.5 border transition-all hover:scale-110"
+                style={{ 
+                  borderColor: `${COLORS.secondary}60`,
+                  color: COLORS.secondary 
+                }}
+                title="Minimize"
+              >
+                <Minimize2 size={12} />
+              </button>
+              <button
+                onClick={handleMaximize}
+                className="p-1.5 border transition-all hover:scale-110"
+                style={{ 
+                  borderColor: `${titleColor}60`,
+                  color: titleColor 
+                }}
+                title={isMaximized ? "Restore" : "Maximize"}
+              >
+                <Maximize2 size={12} />
+              </button>
+            </>
+          )}
           <button
             onClick={onClose}
             className="p-1.5 border transition-all hover:scale-110"
@@ -159,7 +177,7 @@ export default function DraggableWindow({
       {!isMinimized && (
         <div 
           className="overflow-y-auto overflow-x-hidden bg-black" 
-          style={{ height: isMaximized ? 'calc(100vh - 56px)' : `${height - 56}px` }}
+          style={{ height: isMobile || isMaximized ? 'calc(100vh - 56px)' : `${height - 56}px` }}
         >
           {children}
         </div>
