@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import DraggableWindow from './DraggableWindow';
 import { COLORS } from '../../constants';
+import DraggableWindow from './DraggableWindow';
 
 interface DetailItem {
   label: string;
