@@ -1,12 +1,13 @@
 import { WindowLayout } from './components/layout';
+import CursorTrail from './components/ui/CursorTrail';
 import { useNavigation } from './hooks';
 import {
-    AboutPage,
-    BlogPage,
-    ExperiencePage,
-    HomePage,
-    ProjectsPage,
-    SkillsPage
+  AboutPage,
+  BlogPage,
+  ExperiencePage,
+  HomePage,
+  ProjectsPage,
+  SkillsPage
 } from './pages';
 
 function App() {
@@ -32,12 +33,15 @@ function App() {
   };
 
   return (
-    <WindowLayout 
-      currentSection={currentSection} 
-      onSectionChange={navigateTo}
-    >
-      {renderPage()}
-    </WindowLayout>
+    <>
+      <CursorTrail />
+      <WindowLayout 
+        currentSection={currentSection} 
+        onSectionChange={navigateTo}
+      >
+        {renderPage()}
+      </WindowLayout>
+    </>
   );
 }
 
