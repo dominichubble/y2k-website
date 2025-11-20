@@ -2,9 +2,22 @@ import { motion } from 'framer-motion';
 import { Briefcase, Github, GraduationCap, Linkedin, Mail, MapPin } from 'lucide-react';
 import { COLORS } from '../constants';
 import profileData from '../data/profile.json';
+import Toast from '../components/ui/Toast';
+import { useToast } from '../hooks/useToast';
 
 export default function HomePage() {
   const { personalInfo } = profileData;
+  const { isVisible, message, showToast, hideToast } = useToast();
+
+  const handleCopyEmail = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    try {
+      await navigator.clipboard.writeText(personalInfo.email);
+      showToast('Email copied to clipboard!');
+    } catch (err) {
+      showToast('Failed to copy email');
+    }
+  };
 
   return (
     <div className="h-full overflow-hidden">
@@ -156,9 +169,9 @@ export default function HomePage() {
               <span>LinkedIn</span>
             </motion.a>
 
-            <motion.a
-              href={`mailto:${personalInfo.email}`}
-              className="flex items-center gap-2 px-4 py-2 font-mono text-sm transition-all duration-300 border-2"
+            <motion.button
+              onClick={handleCopyEmail}
+              className="flex items-center gap-2 px-4 py-2 font-mono text-sm transition-all duration-300 border-2 cursor-pointer"
               style={{ 
                 borderColor: COLORS.accent,
                 color: COLORS.accent 
@@ -171,11 +184,17 @@ export default function HomePage() {
               whileTap={{ scale: 0.95 }}
             >
               <Mail size={18} />
-              <span>Email</span>
-            </motion.a>
+              <span>Copy Email</span>
+            </motion.button>
           </motion.div>
         </div>
       </div>
+
+      <Toast 
+        message={message}
+        isVisible={isVisible}
+        onClose={hideToast}
+      />
     </div>
   );
 }
