@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from 'react';
+import { Maximize2, Minimize2, X } from 'lucide-react';
 import type { ReactNode } from 'react';
-import { X, Minimize2, Maximize2 } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 import { COLORS } from '../../constants';
 
 interface DraggableWindowProps {
