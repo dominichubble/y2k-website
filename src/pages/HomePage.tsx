@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { Briefcase, Github, GraduationCap, Linkedin, Mail, MapPin } from 'lucide-react';
+import Toast from '../components/ui/Toast';
 import { COLORS } from '../constants';
 import profileData from '../data/profile.json';
-import Toast from '../components/ui/Toast';
 import { useToast } from '../hooks/useToast';
 
 export default function HomePage() {
