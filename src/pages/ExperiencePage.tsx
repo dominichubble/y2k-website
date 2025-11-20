@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
-import { Briefcase, MapPin, Calendar, ExternalLink } from 'lucide-react';
+import { Briefcase, Calendar, ExternalLink, MapPin } from 'lucide-react';
 import { useState } from 'react';
+import DetailWindow from '../components/ui/DetailWindow';
 import { COLORS } from '../constants';
 import experienceData from '../data/experience.json';
-import DetailWindow from '../components/ui/DetailWindow';
 
 interface Experience {
   id: string;
@@ -25,6 +25,35 @@ export default function ExperiencePage() {
   const { experiences } = experienceData;
   const [selectedExperience, setSelectedExperience] = useState<Experience | null>(null);
 
+  // Extract years from experiences
+  const getYear = (dateStr: string) => {
+    const match = dateStr.match(/\d{4}/);
+    return match ? match[0] : '';
+  };
+
+  // Parse date for sorting (handle "Present" as current date)
+  const parseDate = (dateStr: string) => {
+    if (dateStr === 'Present') return new Date();
+    const [month, year] = dateStr.split(' ');
+    const monthMap: { [key: string]: number } = {
+      Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+      Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11
+    };
+    return new Date(parseInt(year), monthMap[month] || 0);
+  };
+
+  // Sort experiences by start date (newest first)
+  const sortedExperiences = [...experiences].sort((a, b) => 
+    parseDate(b.startDate).getTime() - parseDate(a.startDate).getTime()
+  );
+
+  // Track year changes and add milestones
+  let lastYear: string | null = null;
+  const milestones: { [key: string]: string } = {
+    '2026': 'Graduating from Loughborough University',
+    '2023': 'Started Computer Science Degree'
+  };
+
   return (
     <div className="h-full overflow-y-auto">
       <div className="p-6 md:p-12 max-w-5xl mx-auto">
@@ -36,12 +65,15 @@ export default function ExperiencePage() {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-5xl font-black y2k-chrome-text mb-3">
-            EXPERIENCE
+            EXPERIENCE TIMELINE
           </h1>
           <div 
             className="h-1 w-24 mx-auto"
             style={{ backgroundColor: COLORS.primary }}
           />
+          <p className="text-gray-400 text-sm mt-4 font-mono">
+            {sortedExperiences.length} Professional Experiences • 2020 - Present
+          </p>
         </motion.div>
 
         {/* Timeline */}
@@ -54,44 +86,104 @@ export default function ExperiencePage() {
 
           {/* Experience cards */}
           <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={exp.id}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                className={`relative flex items-start gap-8 ${
-                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                }`}
-              >
-                {/* Timeline dot */}
-                <div 
-                  className="absolute left-4 md:left-1/2 w-3 h-3 -ml-1.5 border-2"
-                  style={{ 
-                    backgroundColor: COLORS.primary,
-                    borderColor: COLORS.primary
-                  }}
-                />
-
-                {/* Spacer for desktop */}
-                <div className="hidden md:block md:w-1/2" />
-
-                {/* Content card */}
-                <div className="ml-12 md:ml-0 md:w-1/2">
-                  <button
-                    onClick={() => setSelectedExperience(exp as Experience)}
-                    className="w-full text-left bg-black/40 border-2 p-6 transition-all hover:bg-black/60 cursor-pointer"
-                    style={{ borderColor: `${COLORS.primary}30` }}
-                  >
-                    {/* Header */}
-                    <div className="mb-4">
-                      <div className="flex items-start justify-between gap-2 mb-2">
-                        <h3 
-                          className="text-lg font-bold"
-                          style={{ color: COLORS.primary }}
+            {sortedExperiences.map((exp, index) => {
+              const startYear = getYear(exp.startDate);
+              const yearChanged = lastYear !== startYear;
+              lastYear = startYear;
+              
+              return (
+                <div key={exp.id}>
+                  {/* Year divider and milestone */}
+                  {yearChanged && index > 0 && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: index * 0.1, duration: 0.5 }}
+                      className="relative mb-12"
+                    >
+                      <div className="flex items-center justify-center">
+                        <div 
+                          className="relative px-6 py-3 border-2 bg-black/80 backdrop-blur-sm"
+                          style={{ 
+                            borderColor: milestones[startYear] ? COLORS.accent : COLORS.secondary,
+                            boxShadow: milestones[startYear] 
+                              ? `0 0 20px ${COLORS.accent}40`
+                              : `0 0 20px ${COLORS.secondary}40`
+                          }}
                         >
-                          {exp.title}
-                        </h3>
+                          <div className="flex items-center gap-3">
+                            <span 
+                              className="text-2xl font-black font-mono"
+                              style={{ color: milestones[startYear] ? COLORS.accent : COLORS.secondary }}
+                            >
+                              {startYear}
+                            </span>
+                            {milestones[startYear] && (
+                              <span className="text-gray-300 text-sm font-medium">
+                                {milestones[startYear]}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  <motion.div
+                    initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    className={`relative flex items-start gap-8 ${
+                      index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                    }`}
+                  >
+
+
+                    {/* Timeline dot */}
+                    <div 
+                      className="absolute left-4 md:left-1/2 w-3 h-3 -ml-1.5 border-2 animate-pulse"
+                      style={{ 
+                        backgroundColor: COLORS.primary,
+                        borderColor: COLORS.primary,
+                        boxShadow: `0 0 10px ${COLORS.primary}`
+                      }}
+                    />
+
+                    {/* Spacer for desktop */}
+                    <div className="hidden md:block md:w-1/2" />
+
+                    {/* Content card */}
+                    <div className="ml-12 md:ml-0 md:w-1/2">
+                      <button
+                        onClick={() => setSelectedExperience(exp as Experience)}
+                        className="w-full text-left bg-black/40 border-2 p-6 transition-all hover:bg-black/60 hover:border-opacity-60 cursor-pointer group"
+                        style={{ borderColor: `${COLORS.primary}30` }}
+                      >
+                        {/* Current badge for present roles */}
+                        {exp.endDate === 'Present' && (
+                          <div className="mb-3">
+                            <span 
+                              className="px-2 py-1 text-xs font-mono font-bold border animate-pulse"
+                              style={{ 
+                                borderColor: COLORS.accent,
+                                color: COLORS.accent,
+                                backgroundColor: `${COLORS.accent}10`
+                              }}
+                            >
+                              CURRENT
+                            </span>
+                          </div>
+                        )}
+
+                        {/* Header */}
+                        <div className="mb-4">
+                          <div className="flex items-start justify-between gap-2 mb-2">
+                            <h3 
+                              className="text-lg font-bold group-hover:underline"
+                              style={{ color: COLORS.primary }}
+                            >
+                              {exp.title}
+                            </h3>
                         {exp.companyUrl && (
                           <a
                             href={exp.companyUrl}
@@ -166,14 +258,18 @@ export default function ExperiencePage() {
                             backgroundColor: `${COLORS.accent}10`
                           }}
                         >
-                          👑 Leadership Role
+                          LEADERSHIP ROLE
                         </span>
                       </div>
                     )}
-                  </button>
+                      </button>
+                    </div>
+                  </motion.div>
                 </div>
-              </motion.div>
-            ))}
+              );
+            })}
+
+
           </div>
         </div>
 
@@ -214,7 +310,7 @@ export default function ExperiencePage() {
               ),
               ...(selectedExperience.isLeadership 
                 ? [{
-                    title: '👑 LEADERSHIP ROLE',
+                    title: 'LEADERSHIP ROLE',
                     content: 'Managed team and project deliverables'
                   }]
                 : []
