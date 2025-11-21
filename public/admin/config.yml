@@ -1,0 +1,185 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Uncomment below to use local backend for development
+# local_backend: true
+
+media_folder: "public/assets"
+public_folder: "/assets"
+
+collections:
+  # Profile / Personal Info
+  - name: "profile"
+    label: "Profile"
+    files:
+      - name: "personal-info"
+        label: "Personal Information"
+        file: "src/data/profile.json"
+        fields:
+          - label: "Personal Info"
+            name: "personalInfo"
+            widget: "object"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "University", name: "university", widget: "string" }
+              - { label: "Current Role", name: "currentRole", widget: "string" }
+              - { label: "Current Company", name: "currentCompany", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Availability", name: "availability", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "GitHub URL", name: "github", widget: "string" }
+              - { label: "LinkedIn URL", name: "linkedin", widget: "string" }
+              - { label: "Profile Image", name: "profileImage", widget: "image" }
+              - { label: "Bio", name: "bio", widget: "text" }
+          
+          - label: "About"
+            name: "about"
+            widget: "object"
+            fields:
+              - label: "Story"
+                name: "story"
+                widget: "list"
+                field: { label: "Paragraph", name: "paragraph", widget: "text" }
+              
+              - label: "Hobbies"
+                name: "hobbies"
+                widget: "list"
+                fields:
+                  - { label: "Icon", name: "icon", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "string" }
+              
+              - label: "Interests"
+                name: "interests"
+                widget: "list"
+                fields:
+                  - { label: "Icon", name: "icon", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "string" }
+
+  # Experience
+  - name: "experience"
+    label: "Experience"
+    files:
+      - name: "experiences"
+        label: "Work Experience"
+        file: "src/data/experience.json"
+        fields:
+          - label: "Experiences"
+            name: "experiences"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Company", name: "company", widget: "string" }
+              - { label: "Company URL", name: "companyUrl", widget: "string", required: false }
+              - label: "Employment Type"
+                name: "employmentType"
+                widget: "select"
+                options: ["Full-time", "Part-time", "Internship", "Contract", "Freelance"]
+              - { label: "Start Date", name: "startDate", widget: "string", hint: "Format: MMM YYYY (e.g., Apr 2025)" }
+              - { label: "End Date", name: "endDate", widget: "string", hint: "Use 'Present' if current" }
+              - { label: "Location", name: "location", widget: "string" }
+              - label: "Work Type"
+                name: "workType"
+                widget: "select"
+                options: ["Remote", "On-site", "Hybrid"]
+              - { label: "Description", name: "description", widget: "text", required: false }
+              - label: "Skills"
+                name: "skills"
+                widget: "list"
+                field: { label: "Skill", name: "skill", widget: "string" }
+              - { label: "Color", name: "color", widget: "string", hint: "Theme color (e.g., orange, rose, sky)" }
+              - { label: "Leadership Role", name: "isLeadership", widget: "boolean", default: false, required: false }
+
+  # Projects
+  - name: "projects"
+    label: "Projects"
+    files:
+      - name: "projects-list"
+        label: "Projects List"
+        file: "src/data/projects.json"
+        fields:
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Technologies"
+                name: "technologies"
+                widget: "list"
+                field: { label: "Technology", name: "tech", widget: "string" }
+              - label: "Status"
+                name: "status"
+                widget: "select"
+                options: ["Completed", "In Progress", "Archived"]
+              - label: "Type"
+                name: "type"
+                widget: "select"
+                options: ["Professional", "Academic", "Personal"]
+              - label: "Highlights"
+                name: "highlights"
+                widget: "list"
+                field: { label: "Highlight", name: "highlight", widget: "string" }
+              - { label: "Project Link", name: "link", widget: "string", required: false }
+              - { label: "GitHub Repo", name: "githubRepo", widget: "string", required: false }
+              - { label: "Stars", name: "stars", widget: "number", required: false }
+              - { label: "Forks", name: "forks", widget: "number", required: false }
+              - { label: "Last Updated", name: "lastUpdated", widget: "datetime", required: false }
+
+  # Skills
+  - name: "skills"
+    label: "Skills"
+    files:
+      - name: "skills-data"
+        label: "Skills & Achievements"
+        file: "src/data/skills.json"
+        fields:
+          - label: "Technical Skills"
+            name: "technicalSkills"
+            widget: "list"
+            field: { label: "Skill", name: "skill", widget: "string" }
+          
+          - label: "Soft Skills"
+            name: "softSkills"
+            widget: "list"
+            field: { label: "Skill", name: "skill", widget: "string" }
+          
+          - label: "Achievements"
+            name: "achievements"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
+
+  # Blog Posts
+  - name: "blog"
+    label: "Blog"
+    files:
+      - name: "blog-posts"
+        label: "Blog Posts"
+        file: "src/data/blog.json"
+        fields:
+          - label: "Posts"
+            name: "posts"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Excerpt", name: "excerpt", widget: "text" }
+              - { label: "Content", name: "content", widget: "markdown" }
+              - { label: "Date", name: "date", widget: "datetime" }
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options: ["Tech", "Career", "Tutorial", "Personal", "Industry"]
+              - label: "Tags"
+                name: "tags"
+                widget: "list"
+                field: { label: "Tag", name: "tag", widget: "string" }
+              - { label: "Featured", name: "featured", widget: "boolean", default: false }
+              - { label: "Read Time (minutes)", name: "readTime", widget: "number", default: 5 }
