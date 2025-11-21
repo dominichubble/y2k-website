@@ -19,7 +19,7 @@ const itemVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 100
     }
   }
@@ -79,10 +79,9 @@ function SkillCategory({ title, skills, icon, color }: SkillCategoryProps) {
 interface AchievementProps {
   title: string;
   description: string;
-  index: number;
 }
 
-function Achievement({ title, description, index }: AchievementProps) {
+function Achievement({ title, description }: AchievementProps) {
   return (
     <motion.div
       variants={itemVariants}
@@ -185,7 +184,6 @@ export default function SkillsPage() {
                   key={index}
                   title={achievement.title}
                   description={achievement.description}
-                  index={index}
                 />
               ))}
             </div>

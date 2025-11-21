@@ -85,11 +85,12 @@ export default function WindowNav({ currentSection, onSectionChange }: WindowNav
                 />
 
                 {/* Content */}
-                <Icon 
-                  size={16} 
-                  className="relative z-10 transition-all duration-200"
-                  style={{ color: isActive ? '#000' : COLORS.primary }}
-                />
+                <span style={{ color: isActive ? '#000' : COLORS.primary }}>
+                  <Icon 
+                    size={16} 
+                    className="relative z-10 transition-all duration-200"
+                  />
+                </span>
                 <span 
                   className={`relative z-10 hidden sm:inline uppercase tracking-widest transition-all duration-200`}
                   style={{ color: isActive ? '#000' : COLORS.primary }}
