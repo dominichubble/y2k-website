@@ -3,7 +3,7 @@ backend:
   branch: main
 
 # Uncomment below to use local backend for development
-local_backend: true
+# local_backend: true
 
 media_folder: "public/assets"
 public_folder: "/assets"
