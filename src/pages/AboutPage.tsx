@@ -24,7 +24,7 @@ export default function AboutPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-6 sm:mb-8"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black y2k-chrome-text mb-3">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black y2k-chrome-text mb-3">
             ABOUT ME
           </h1>
           <div 

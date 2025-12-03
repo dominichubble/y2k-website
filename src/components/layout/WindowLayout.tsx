@@ -51,7 +51,7 @@ export default function WindowLayout({
       {/* Main Window Container */}
       <div 
         className={`relative bg-black/95 border-2 sm:border-4 shadow-2xl transition-all duration-300 flex flex-col ${
-          isMaximized ? 'w-full h-full max-w-none' : 'w-full max-w-[95vw] sm:max-w-5xl h-[95vh] sm:h-[90vh]'
+          isMaximized ? 'w-full h-full max-w-none' : 'w-full max-w-[95vw] sm:max-w-3xl lg:max-w-4xl h-[95vh] sm:h-[90vh]'
         }`}
         style={{ 
           borderColor: COLORS.primary,

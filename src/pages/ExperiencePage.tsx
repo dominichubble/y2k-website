@@ -64,7 +64,7 @@ export default function ExperiencePage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-8 sm:mb-12"
         >
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black y2k-chrome-text mb-3 px-2">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black y2k-chrome-text mb-3 px-2">
             EXPERIENCE TIMELINE
           </h1>
           <div 

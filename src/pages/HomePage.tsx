@@ -20,10 +20,10 @@ export default function HomePage() {
   };
 
   return (
-    <div className="h-full flex items-center">
-      <div className="w-full p-4 sm:p-6 md:p-12 max-w-3xl mx-auto">
+    <div className="h-full overflow-y-auto">
+      <div className="w-full p-4 sm:p-6 md:p-12 max-w-3xl mx-auto min-h-full flex items-center">
         {/* Hero Section */}
-        <div className="flex items-center justify-center relative">
+        <div className="flex items-center justify-center relative w-full py-8">
         <div className="relative z-10 text-center w-full">
           {/* Profile Image */}
           <motion.div
@@ -52,7 +52,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-3 sm:mb-4 y2k-chrome-text leading-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-3 sm:mb-4 y2k-chrome-text leading-tight"
           >
             {personalInfo.name.toUpperCase()}
           </motion.h1>
@@ -65,7 +65,7 @@ export default function HomePage() {
             className="mb-4 sm:mb-6"
           >
             <h2 
-              className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold mb-2 px-2 leading-tight"
+              className="text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-2 px-2 leading-tight"
               style={{ color: COLORS.primary }}
             >
               {personalInfo.title}

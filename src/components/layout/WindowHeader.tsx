@@ -20,7 +20,7 @@ export default function WindowHeader({
       style={{ borderColor: COLORS.primary }}
     >
       <div className="flex items-center gap-2 sm:gap-3">
-        <h1 className="text-sm sm:text-lg md:text-xl font-black tracking-wider">
+        <h1 className="text-xs sm:text-base md:text-lg font-black tracking-wider">
           <span 
             className="bg-clip-text text-transparent" 
             style={{ backgroundImage: `linear-gradient(90deg, ${COLORS.primary}, ${COLORS.secondary})` }}
@@ -28,7 +28,7 @@ export default function WindowHeader({
             {title}
           </span>
         </h1>
-        <span className="text-[#00ffff] text-xs sm:text-sm animate-pulse hidden md:inline">✩｡⋆</span>
+        <span className="text-[#00ffff] text-xs animate-pulse hidden md:inline">✩｡⋆</span>
       </div>
       
       <div className="flex items-center gap-2 sm:gap-4">
