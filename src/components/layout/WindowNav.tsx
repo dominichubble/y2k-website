@@ -20,20 +20,20 @@ const iconMap: Record<Section, React.ComponentType<{ size?: number; className?: 
 export default function WindowNav({ currentSection, onSectionChange }: WindowNavProps) {
   return (
     <nav 
-      className="border-b bg-black px-4 py-4 relative"
+      className="border-b px-4 py-4 relative"
       style={{ 
-        borderBottomWidth: '1px',
-        borderBottomColor: `${COLORS.primary}30`,
-        background: 'linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.98) 100%)'
+        borderBottomWidth: '2px',
+        borderBottomColor: COLORS.primary,
+        backgroundColor: '#1e293b'
       }}
     >
-      {/* Grid pattern background */}
+      {/* Subtle pattern background */}
       <div 
         className="absolute inset-0 opacity-5 pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(${COLORS.primary}20 1px, transparent 1px),
-            linear-gradient(90deg, ${COLORS.primary}20 1px, transparent 1px)
+            linear-gradient(${COLORS.primary}40 1px, transparent 1px),
+            linear-gradient(90deg, ${COLORS.primary}40 1px, transparent 1px)
           `,
           backgroundSize: '20px 20px'
         }}

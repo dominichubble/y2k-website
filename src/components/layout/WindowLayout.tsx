@@ -30,32 +30,67 @@ export default function WindowLayout({
   };
 
   return (
-    <div id="app-root" className="h-screen w-screen bg-black overflow-hidden relative y2k-grid flex items-center justify-center p-2 sm:p-4 lg:p-8">
-      {/* Starfield background */}
-      <div className="y2k-stars opacity-20"></div>
+    <div id="app-root" className="h-screen w-screen overflow-hidden relative flex items-center justify-center p-2 sm:p-4 lg:p-8" style={{ backgroundColor: '#0f172a' }}>
+      {/* Subtle dark gradient background */}
+      <div className="absolute inset-0" style={{ 
+        background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)'
+      }}></div>
+
+      {/* Animated grid pattern */}
+      <div 
+        className="absolute inset-0 opacity-20"
+        style={{
+          backgroundImage: `
+            linear-gradient(${COLORS.primary}20 1px, transparent 1px),
+            linear-gradient(90deg, ${COLORS.primary}20 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px',
+          animation: 'gridFloat 20s linear infinite'
+        }}
+      />
+
+      {/* Floating dots pattern */}
+      <div className="absolute inset-0 opacity-30">
+        {[...Array(15)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full"
+            style={{
+              width: Math.random() * 4 + 2 + 'px',
+              height: Math.random() * 4 + 2 + 'px',
+              backgroundColor: COLORS.primary,
+              left: Math.random() * 100 + '%',
+              top: Math.random() * 100 + '%',
+              animation: `float ${Math.random() * 10 + 15}s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 5}s`
+            }}
+          />
+        ))}
+      </div>
       
-      {/* Decorative shapes - subtle and classy */}
+      {/* Decorative shapes - soft and matte */}
       <div 
-        className="absolute top-20 left-10 w-60 h-60 rounded-full opacity-5 animate-pulse blur-3xl"
+        className="absolute top-20 left-10 w-60 h-60 rounded-full opacity-15 blur-3xl"
         style={{ backgroundColor: COLORS.primary }}
       />
       <div 
-        className="absolute bottom-20 right-10 w-80 h-80 rounded-full opacity-5 animate-pulse blur-3xl"
-        style={{ backgroundColor: COLORS.primary }}
+        className="absolute bottom-20 right-10 w-80 h-80 rounded-full opacity-15 blur-3xl animate-pulse"
+        style={{ backgroundColor: COLORS.primary, animationDuration: '8s' }}
       />
       <div 
-        className="absolute top-1/2 right-1/4 w-40 h-40 rounded-full opacity-5 blur-3xl"
+        className="absolute top-1/2 right-1/4 w-40 h-40 rounded-full opacity-15 blur-3xl"
         style={{ backgroundColor: COLORS.accent }}
       />
 
       {/* Main Window Container */}
       <div 
-        className={`relative bg-black/95 border-2 sm:border-4 shadow-2xl transition-all duration-300 flex flex-col ${
+        className={`relative border-2 sm:border-3 shadow-lg transition-all duration-300 flex flex-col rounded-lg ${
           isMaximized ? 'w-full h-full max-w-none' : 'w-full max-w-[95vw] sm:max-w-3xl lg:max-w-4xl h-[95vh] sm:h-[90vh]'
         }`}
         style={{ 
+          backgroundColor: '#1e293b',
           borderColor: COLORS.primary,
-          boxShadow: 'none'
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
         }}
       >
         <WindowHeader 

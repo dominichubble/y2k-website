@@ -1,14 +1,14 @@
 export const COLORS = {
-  primary: '#00d9ff',    // Cyan (accent color)
-  secondary: '#808080',  // Gray
-  accent: '#ffffff',     // White
-  black: '#000000',
-  white: '#ffffff',
+  primary: '#94a3b8',    // Muted slate blue
+  secondary: '#a1a1aa',  // Muted zinc gray
+  accent: '#f472b6',     // Muted pink accent
+  black: '#0f172a',      // Dark slate
+  white: '#f1f5f9',      // Soft white
 } as const;
 
 export const SHADOWS = {
-  glow: (color: string, opacity: number = 0.4) => 
-    `0 0 40px ${color}${Math.round(opacity * 255).toString(16)}, 0 0 80px ${COLORS.secondary}33`,
-  neon: (color: string, opacity: number = 0.6) =>
-    `0 0 15px ${color}${Math.round(opacity * 255).toString(16)}`,
+  subtle: (color: string, opacity: number = 0.1) => 
+    `0 2px 8px ${color}${Math.round(opacity * 255).toString(16)}`,
+  soft: (color: string, opacity: number = 0.15) =>
+    `0 4px 12px ${color}${Math.round(opacity * 255).toString(16)}`,
 } as const;

@@ -16,8 +16,11 @@ export default function WindowHeader({
 }: WindowHeaderProps) {
   return (
     <div 
-      className="bg-black/80 border-b-2 px-3 sm:px-6 py-2 sm:py-3 flex items-center justify-between"
-      style={{ borderColor: COLORS.primary }}
+      className="border-b-2 px-3 sm:px-6 py-2 sm:py-3 flex items-center justify-between rounded-t-lg"
+      style={{ 
+        backgroundColor: '#0f172a',
+        borderColor: COLORS.primary
+      }}
     >
       <div className="flex items-center gap-2 sm:gap-3">
         <h1 className="text-xs sm:text-base md:text-lg font-black tracking-wider">
