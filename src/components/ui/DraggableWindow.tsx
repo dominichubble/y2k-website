@@ -105,12 +105,12 @@ export default function DraggableWindow({
   return (
     <div
       ref={windowRef}
-      className="fixed bg-black/95 border-4 overflow-hidden select-none"
+      className="fixed bg-black/95 border-2 sm:border-4 overflow-hidden select-none"
       style={{
         left: isMobile ? '0' : `${position.x}px`,
         top: isMobile ? '0' : `${position.y}px`,
-        width: isMobile || isMaximized ? '100vw' : `${width}px`,
-        height: isMinimized ? 'auto' : isMobile || isMaximized ? '100vh' : `${height}px`,
+        width: isMobile || isMaximized ? '100vw' : `${Math.min(width, window.innerWidth - 40)}px`,
+        height: isMinimized ? 'auto' : isMobile || isMaximized ? '100vh' : `${Math.min(height, window.innerHeight - 40)}px`,
         borderColor: titleColor,
         boxShadow: `0 0 20px ${titleColor}40`,
         zIndex: 9999
@@ -118,21 +118,21 @@ export default function DraggableWindow({
     >
       {/* Title Bar */}
       <div
-        className="flex items-center justify-between px-4 py-3 border-b-2 bg-black/80"
+        className="flex items-center justify-between px-2 sm:px-4 py-2 sm:py-3 border-b sm:border-b-2 bg-black/80"
         style={{ 
           borderColor: titleColor,
           cursor: isMobile ? 'default' : 'move'
         }}
         onMouseDown={handleMouseDown}
       >
-        <div className="flex items-center gap-3">
-          <span className="font-mono text-sm font-bold" style={{ color: titleColor }}>
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+          <span className="font-mono text-xs sm:text-sm font-bold truncate" style={{ color: titleColor }}>
             {title}
           </span>
         </div>
 
         {/* Window Controls */}
-        <div className="flex items-center gap-2 window-control">
+        <div className="flex items-center gap-1 sm:gap-2 window-control flex-shrink-0">
           {!isMobile && (
             <>
               <button

@@ -30,7 +30,7 @@ export default function WindowLayout({
   };
 
   return (
-    <div id="app-root" className="h-screen w-screen bg-black overflow-hidden relative y2k-grid flex items-center justify-center p-4 md:p-8">
+    <div id="app-root" className="h-screen w-screen bg-black overflow-hidden relative y2k-grid flex items-center justify-center p-2 sm:p-4 lg:p-8">
       {/* Starfield background */}
       <div className="y2k-stars opacity-20"></div>
       
@@ -50,8 +50,8 @@ export default function WindowLayout({
 
       {/* Main Window Container */}
       <div 
-        className={`relative bg-black/95 border-4 shadow-2xl overflow-hidden transition-all duration-300 ${
-          isMaximized ? 'w-full h-full max-w-none' : 'w-full max-w-5xl h-[90vh]'
+        className={`relative bg-black/95 border-2 sm:border-4 shadow-2xl transition-all duration-300 flex flex-col ${
+          isMaximized ? 'w-full h-full max-w-none' : 'w-full max-w-[95vw] sm:max-w-5xl h-[95vh] sm:h-[90vh]'
         }`}
         style={{ 
           borderColor: COLORS.primary,
@@ -69,8 +69,8 @@ export default function WindowLayout({
           onSectionChange={onSectionChange} 
         />
         
-        {/* Content Area */}
-        <div className="h-[calc(100%-8rem)] overflow-y-auto overflow-x-hidden">
+        {/* Content Area - flex-1 makes it take remaining space */}
+        <div className="flex-1 overflow-y-auto overflow-x-hidden">
           {children}
         </div>
 

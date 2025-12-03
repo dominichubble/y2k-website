@@ -16,15 +16,15 @@ export default function AboutPage() {
 
   return (
     <div className="h-full overflow-y-auto">
-      <div className="p-6 md:p-12 max-w-5xl mx-auto">
+      <div className="p-4 sm:p-6 md:p-12 max-w-5xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8"
+          className="text-center mb-6 sm:mb-8"
         >
-          <h1 className="text-4xl md:text-5xl font-black y2k-chrome-text mb-3">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black y2k-chrome-text mb-3">
             ABOUT ME
           </h1>
           <div 
@@ -42,13 +42,13 @@ export default function AboutPage() {
         >
           <button
             onClick={() => toggleSection('story')}
-            className="w-full bg-black/40 border-2 p-4 transition-all hover:bg-black/60"
+            className="w-full bg-black/40 border sm:border-2 p-3 sm:p-4 transition-all hover:bg-black/60"
             style={{ borderColor: openSection === 'story' ? COLORS.primary : `${COLORS.primary}30` }}
           >
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <Users size={24} style={{ color: COLORS.primary }} />
-                <h2 className="text-xl md:text-2xl font-bold text-white">My Story</h2>
+              <div className="flex items-center gap-2 sm:gap-3">
+                <Users size={20} className="sm:w-6 sm:h-6" style={{ color: COLORS.primary }} />
+                <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white">My Story</h2>
               </div>
               <motion.div
                 animate={{ rotate: openSection === 'story' ? 180 : 0 }}
@@ -68,7 +68,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
               >
-                <div className="p-6 space-y-4 text-gray-300 leading-relaxed">
+                <div className="p-3 sm:p-4 md:p-6 space-y-3 sm:space-y-4 text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed">
                   {about.story.map((paragraph, index) => (
                     <p 
                       key={index}
@@ -94,13 +94,13 @@ export default function AboutPage() {
         >
           <button
             onClick={() => toggleSection('hobbies')}
-            className="w-full bg-black/40 border-2 p-4 transition-all hover:bg-black/60"
+            className="w-full bg-black/40 border sm:border-2 p-3 sm:p-4 transition-all hover:bg-black/60"
             style={{ borderColor: openSection === 'hobbies' ? COLORS.secondary : `${COLORS.secondary}30` }}
           >
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">🎯</span>
-                <h2 className="text-xl md:text-2xl font-bold" style={{ color: COLORS.secondary }}>Beyond Code</h2>
+              <div className="flex items-center gap-2 sm:gap-3">
+                <span className="text-lg sm:text-2xl">🎯</span>
+                <h2 className="text-lg sm:text-xl md:text-2xl font-bold" style={{ color: COLORS.secondary }}>Beyond Code</h2>
               </div>
               <motion.div
                 animate={{ rotate: openSection === 'hobbies' ? 180 : 0 }}
@@ -120,15 +120,15 @@ export default function AboutPage() {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
               >
-                <div className="p-6 space-y-3 text-gray-300">
+                <div className="p-3 sm:p-4 md:p-6 space-y-2 sm:space-y-3 text-gray-300">
                   {about.hobbies.map((hobby, index) => (
                     <div 
                       key={index}
-                      className="flex items-start gap-3 p-3 border-2" 
+                      className="flex items-start gap-2 sm:gap-3 p-2 sm:p-3 border sm:border-2" 
                       style={{ backgroundColor: `${COLORS.secondary}10`, borderColor: `${COLORS.secondary}30` }}
                     >
-                      <span className="text-2xl">{hobby.icon}</span>
-                      <p>{hobby.description}</p>
+                      <span className="text-lg sm:text-2xl">{hobby.icon}</span>
+                      <p className="text-xs sm:text-sm md:text-base">{hobby.description}</p>
                     </div>
                   ))}
                 </div>
@@ -146,7 +146,7 @@ export default function AboutPage() {
         >
           <button
             onClick={() => toggleSection('interests')}
-            className="w-full bg-black/40 border-2 p-4 transition-all hover:bg-black/60"
+            className="w-full bg-black/40 border sm:border-2 p-3 sm:p-4 transition-all hover:bg-black/60"
             style={{ borderColor: openSection === 'interests' ? COLORS.accent : `${COLORS.accent}30` }}
           >
             <div className="flex items-center justify-between">

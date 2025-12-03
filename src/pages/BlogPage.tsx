@@ -33,9 +33,9 @@ function BlogCard({ post, onReadMore, index }: BlogCardProps) {
       style={{ borderColor: `${COLORS.primary}40` }}
     >
       {/* Category Badge */}
-      <div className="p-4 border-b" style={{ borderColor: `${COLORS.primary}20` }}>
+      <div className="p-3 sm:p-4 border-b" style={{ borderColor: `${COLORS.primary}20` }}>
         <span 
-          className="inline-block px-3 py-1 text-xs font-mono font-bold uppercase border"
+          className="inline-block px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-mono font-bold uppercase border"
           style={{ 
             borderColor: COLORS.accent,
             color: COLORS.accent,
@@ -46,38 +46,38 @@ function BlogCard({ post, onReadMore, index }: BlogCardProps) {
         </span>
       </div>
 
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         {/* Title */}
         <h2 
-          className="text-xl md:text-2xl font-bold mb-3 group-hover:text-white transition-colors"
+          className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 group-hover:text-white transition-colors break-words"
           style={{ color: COLORS.primary }}
         >
           {post.title}
         </h2>
 
         {/* Excerpt */}
-        <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-4">
+        <p className="text-gray-400 text-xs sm:text-sm md:text-base leading-relaxed mb-3 sm:mb-4">
           {post.excerpt}
         </p>
 
         {/* Meta Info */}
-        <div className="flex flex-wrap gap-4 text-xs text-gray-500 mb-4">
-          <span className="flex items-center gap-1.5">
-            <Calendar size={14} />
-            {formatDate(post.date)}
+        <div className="flex flex-wrap gap-2 sm:gap-4 text-[10px] sm:text-xs text-gray-500 mb-3 sm:mb-4">
+          <span className="flex items-center gap-1">
+            <Calendar size={12} className="sm:w-3.5 sm:h-3.5" />
+            <span className="whitespace-nowrap">{formatDate(post.date)}</span>
           </span>
-          <span className="flex items-center gap-1.5">
-            <Clock size={14} />
-            {post.readTime}
+          <span className="flex items-center gap-1">
+            <Clock size={12} className="sm:w-3.5 sm:h-3.5" />
+            <span className="whitespace-nowrap">{post.readTime}</span>
           </span>
         </div>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
           {post.tags.map((tag, i) => (
             <span
               key={i}
-              className="px-2 py-1 text-xs font-mono border"
+              className="px-1.5 sm:px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs font-mono border"
               style={{ 
                 borderColor: `${COLORS.primary}40`,
                 color: COLORS.primary,
@@ -92,12 +92,12 @@ function BlogCard({ post, onReadMore, index }: BlogCardProps) {
         {/* Read More Button */}
         <button
           onClick={() => onReadMore(post)}
-          className="flex items-center gap-2 text-sm font-mono font-bold transition-all group/btn"
+          className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-mono font-bold transition-all group/btn"
           style={{ color: COLORS.accent }}
         >
           <span>READ MORE</span>
           <ArrowRight 
-            size={16} 
+            size={14} className="sm:w-4 sm:h-4" 
             className="transition-transform group-hover/btn:translate-x-1"
           />
         </button>

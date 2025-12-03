@@ -192,10 +192,24 @@ html,
 body {
   overflow: hidden;
   height: 100%;
+  width: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 #root {
   height: 100%;
+  width: 100%;
+}
+
+/* Improved text wrapping and overflow handling */
+* {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Ensure proper box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 /* Custom scrollbar for internal scroll areas */

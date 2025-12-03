@@ -16,11 +16,11 @@ export default function WindowHeader({
 }: WindowHeaderProps) {
   return (
     <div 
-      className="bg-black/80 border-b-2 px-6 py-3 flex items-center justify-between"
+      className="bg-black/80 border-b-2 px-3 sm:px-6 py-2 sm:py-3 flex items-center justify-between"
       style={{ borderColor: COLORS.primary }}
     >
-      <div className="flex items-center gap-3">
-        <h1 className="text-lg md:text-xl font-black tracking-wider">
+      <div className="flex items-center gap-2 sm:gap-3">
+        <h1 className="text-sm sm:text-lg md:text-xl font-black tracking-wider">
           <span 
             className="bg-clip-text text-transparent" 
             style={{ backgroundImage: `linear-gradient(90deg, ${COLORS.primary}, ${COLORS.secondary})` }}
@@ -28,16 +28,16 @@ export default function WindowHeader({
             {title}
           </span>
         </h1>
-        <span className="text-[#00ffff] text-sm animate-pulse hidden md:inline">✩｡⋆</span>
+        <span className="text-[#00ffff] text-xs sm:text-sm animate-pulse hidden md:inline">✩｡⋆</span>
       </div>
       
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2 sm:gap-4">
         {/* Window Controls */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2">
           {onMaximize && (
             <button
               onClick={onMaximize}
-              className="p-1.5 border transition-all hover:scale-110"
+              className="p-1 sm:p-1.5 border transition-all hover:scale-110"
               style={{ 
                 borderColor: `${COLORS.primary}60`,
                 color: COLORS.primary 
@@ -50,7 +50,7 @@ export default function WindowHeader({
           {onClose && (
             <button
               onClick={onClose}
-              className="p-1.5 border transition-all hover:scale-110"
+              className="p-1 sm:p-1.5 border transition-all hover:scale-110"
               style={{ 
                 borderColor: `${COLORS.accent}60`,
                 color: COLORS.accent 

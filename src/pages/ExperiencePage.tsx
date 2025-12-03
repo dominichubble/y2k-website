@@ -56,22 +56,22 @@ export default function ExperiencePage() {
 
   return (
     <div className="h-full overflow-y-auto">
-      <div className="p-6 md:p-12 max-w-5xl mx-auto">
+      <div className="p-4 sm:p-6 md:p-12 max-w-5xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-black y2k-chrome-text mb-3">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black y2k-chrome-text mb-3 px-2">
             EXPERIENCE TIMELINE
           </h1>
           <div 
             className="h-1 w-24 mx-auto"
             style={{ backgroundColor: COLORS.primary }}
           />
-          <p className="text-gray-400 text-sm mt-4 font-mono">
+          <p className="text-gray-400 text-xs sm:text-sm mt-4 font-mono px-2">
             {sortedExperiences.length} Professional Experiences • 2020 - Present
           </p>
         </motion.div>
@@ -80,12 +80,12 @@ export default function ExperiencePage() {
         <div className="relative">
           {/* Timeline line */}
           <div 
-            className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5"
+            className="absolute left-3 sm:left-4 md:left-1/2 top-0 bottom-0 w-0.5"
             style={{ backgroundColor: `${COLORS.primary}30` }}
           />
 
           {/* Experience cards */}
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-12">
             {sortedExperiences.map((exp, index) => {
               const startYear = getYear(exp.startDate);
               const yearChanged = lastYear !== startYear;
@@ -103,7 +103,7 @@ export default function ExperiencePage() {
                     >
                       <div className="flex items-center justify-center">
                         <div 
-                          className="relative px-6 py-3 border-2 bg-black/80 backdrop-blur-sm"
+                          className="relative px-3 sm:px-6 py-2 sm:py-3 border sm:border-2 bg-black/80 backdrop-blur-sm"
                           style={{ 
                             borderColor: milestones[startYear] ? COLORS.accent : COLORS.secondary,
                             boxShadow: milestones[startYear] 
@@ -111,15 +111,15 @@ export default function ExperiencePage() {
                               : `0 0 20px ${COLORS.secondary}40`
                           }}
                         >
-                          <div className="flex items-center gap-3">
+                          <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-3">
                             <span 
-                              className="text-2xl font-black font-mono"
+                              className="text-xl sm:text-2xl font-black font-mono"
                               style={{ color: milestones[startYear] ? COLORS.accent : COLORS.secondary }}
                             >
                               {startYear}
                             </span>
                             {milestones[startYear] && (
-                              <span className="text-gray-300 text-sm font-medium">
+                              <span className="text-gray-300 text-xs sm:text-sm font-medium text-center">
                                 {milestones[startYear]}
                               </span>
                             )}
@@ -141,7 +141,7 @@ export default function ExperiencePage() {
 
                     {/* Timeline dot */}
                     <div 
-                      className="absolute left-4 md:left-1/2 w-3 h-3 -ml-1.5 border-2 animate-pulse"
+                      className="absolute left-3 sm:left-4 md:left-1/2 w-2.5 sm:w-3 h-2.5 sm:h-3 -ml-1.5 border sm:border-2 animate-pulse"
                       style={{ 
                         backgroundColor: COLORS.primary,
                         borderColor: COLORS.primary,

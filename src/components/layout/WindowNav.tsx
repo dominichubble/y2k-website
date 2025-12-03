@@ -55,7 +55,7 @@ export default function WindowNav({ currentSection, onSectionChange }: WindowNav
               className="relative group"
             >
               <div
-                className={`relative px-5 md:px-7 py-2.5 md:py-3 font-mono text-xs md:text-sm transition-all duration-200 flex items-center gap-2.5 ${
+                className={`relative px-2 sm:px-4 md:px-7 py-2 sm:py-2.5 md:py-3 font-mono text-xs md:text-sm transition-all duration-200 flex items-center gap-1.5 sm:gap-2.5 ${
                   isActive ? 'font-bold' : 'font-medium'
                 }`}
                 style={{

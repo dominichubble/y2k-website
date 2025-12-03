@@ -36,25 +36,25 @@ function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
 
   return (
     <div
-      className="bg-black/40 border-2 transition-all"
+      className="bg-black/40 border sm:border-2 transition-all"
       style={{ borderColor: isExpanded ? COLORS.primary : `${COLORS.primary}30` }}
     >
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full p-6 text-left hover:bg-black/60 transition-all"
+        className="w-full p-3 sm:p-4 md:p-6 text-left hover:bg-black/60 transition-all"
       >
       {/* Header */}
-      <div className="flex items-start justify-between mb-4">
-        <div className="flex-1">
+      <div className="flex items-start justify-between mb-3 sm:mb-4 gap-2">
+        <div className="flex-1 min-w-0">
           <h3 
-            className="text-xl font-bold mb-2"
+            className="text-base sm:text-lg md:text-xl font-bold mb-2 break-words"
             style={{ color: COLORS.primary }}
           >
             {project.title}
           </h3>
-          <div className="flex items-center gap-2 flex-wrap">
+          <div className="flex items-center gap-1 sm:gap-2 flex-wrap">
             <span 
-              className="px-2 py-1 text-xs font-mono border"
+              className="px-1.5 sm:px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs font-mono border"
               style={{ 
                 borderColor: getStatusColor(project.status),
                 color: getStatusColor(project.status),
@@ -64,7 +64,7 @@ function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
               {project.status}
             </span>
             <span 
-              className="px-2 py-1 text-xs font-mono border"
+              className="px-1.5 sm:px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs font-mono border"
               style={{ 
                 borderColor: `${COLORS.primary}60`,
                 color: '#9ca3af',
@@ -118,8 +118,8 @@ function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
       </div>
 
       {/* Description - Always visible preview */}
-      <p className="text-gray-300 text-sm leading-relaxed mb-3">
-        {isExpanded ? project.description : `${project.description.slice(0, 100)}${project.description.length > 100 ? '...' : ''}`}
+      <p className="text-gray-300 text-xs sm:text-sm leading-relaxed mb-2 sm:mb-3">
+        {isExpanded ? project.description : `${project.description.slice(0, 80)}${project.description.length > 80 ? '...' : ''}`}
       </p>
 
       {/* View Details Button */}
@@ -128,7 +128,7 @@ function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
           e.stopPropagation();
           onViewDetails(project);
         }}
-        className="px-3 py-1 text-xs font-mono border transition-all hover:scale-105"
+        className="px-2 sm:px-3 py-1 text-[10px] sm:text-xs font-mono border transition-all hover:scale-105"
         style={{ 
           borderColor: COLORS.primary,
           color: COLORS.primary,
@@ -235,15 +235,15 @@ export default function ProjectsPage() {
 
   return (
     <div className="h-full overflow-y-auto">
-      <div className="p-6 md:p-12 max-w-6xl mx-auto">
+      <div className="p-4 sm:p-6 md:p-12 max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8"
+          className="text-center mb-6 sm:mb-8"
         >
-          <h1 className="text-4xl md:text-5xl font-black y2k-chrome-text mb-3">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black y2k-chrome-text mb-3">
             PROJECTS
           </h1>
           <div 

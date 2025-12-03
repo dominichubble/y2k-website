@@ -36,32 +36,32 @@ function SkillCategory({ title, skills, icon, color }: SkillCategoryProps) {
   return (
     <motion.div
       variants={itemVariants}
-      className="bg-black/40 border-2 p-6"
+      className="bg-black/40 border sm:border-2 p-3 sm:p-4 md:p-6"
       style={{ borderColor: `${color}40` }}
     >
-      <div className="flex items-center gap-3 mb-4">
+      <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
         <div 
-          className="p-2 border-2"
+          className="p-1.5 sm:p-2 border sm:border-2"
           style={{ borderColor: color, backgroundColor: `${color}10` }}
         >
           {icon}
         </div>
         <h3 
-          className="text-xl font-bold font-mono"
+          className="text-base sm:text-lg md:text-xl font-bold font-mono"
           style={{ color }}
         >
           {title}
         </h3>
       </div>
       
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-1.5 sm:gap-2">
         {skills.map((skill, index) => (
           <motion.span
             key={index}
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: index * 0.05 }}
-            className="px-3 py-1.5 font-mono text-sm border-2 hover:scale-105 transition-transform cursor-default"
+            className="px-2 sm:px-3 py-1 sm:py-1.5 font-mono text-xs sm:text-sm border sm:border-2 hover:scale-105 transition-transform cursor-default"
             style={{ 
               borderColor: `${color}60`,
               color: '#fff',
@@ -85,17 +85,17 @@ function Achievement({ title, description }: AchievementProps) {
   return (
     <motion.div
       variants={itemVariants}
-      className="bg-black/40 border-2 p-4 hover:scale-105 transition-transform"
+      className="bg-black/40 border sm:border-2 p-3 sm:p-4 hover:scale-105 transition-transform"
       style={{ borderColor: `${COLORS.accent}40` }}
     >
       <div className="flex flex-col gap-2">
         <h4 
-          className="text-sm font-bold font-mono uppercase tracking-wider"
+          className="text-xs sm:text-sm font-bold font-mono uppercase tracking-wider"
           style={{ color: COLORS.accent }}
         >
           {title}
         </h4>
-        <p className="text-sm text-gray-300">
+        <p className="text-xs sm:text-sm text-gray-300">
           {description}
         </p>
       </div>

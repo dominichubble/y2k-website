@@ -61,17 +61,17 @@ export default function DetailWindow({
       height={height}
       titleColor={COLORS.primary}
     >
-      <div className="p-6 space-y-5">
+      <div className="p-3 sm:p-4 md:p-6 space-y-3 sm:space-y-4 md:space-y-5">
         {/* Header */}
         {subtitle && (
           <div>
-            <p className="text-white font-semibold text-lg">{subtitle}</p>
+            <p className="text-white font-semibold text-base sm:text-lg break-words">{subtitle}</p>
             {link && (
               <a
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-mono transition-colors"
+                className="text-xs sm:text-sm font-mono transition-colors break-all"
                 style={{ color: COLORS.secondary }}
               >
                 {link} →
@@ -83,17 +83,17 @@ export default function DetailWindow({
         {/* Sections */}
         {sections.map((section, index) => (
           <div key={index}>
-            <h4 className="text-xs font-mono text-gray-400 mb-3 tracking-wide">
+            <h4 className="text-[10px] sm:text-xs font-mono text-gray-400 mb-2 sm:mb-3 tracking-wide uppercase">
               {section.title}
             </h4>
 
             {/* Grid items (for key-value pairs) */}
             {section.items && (
-              <div className="grid grid-cols-2 gap-3 text-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 text-xs sm:text-sm">
                 {section.items.map((item, i) => (
                   <div key={i}>
-                    <span className="text-gray-400 block mb-1 text-xs">{item.label}</span>
-                    <span className="text-white">{item.value}</span>
+                    <span className="text-gray-400 block mb-1 text-[10px] sm:text-xs">{item.label}</span>
+                    <span className="text-white break-words">{item.value}</span>
                   </div>
                 ))}
               </div>
@@ -101,18 +101,18 @@ export default function DetailWindow({
 
             {/* Text content */}
             {section.content && (
-              <p className="text-gray-300 text-sm leading-relaxed">
+              <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
                 {section.content}
               </p>
             )}
 
             {/* Tags */}
             {section.tags && (
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1 sm:gap-2">
                 {section.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 text-sm font-mono border"
+                    className="px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-sm font-mono border"
                     style={{
                       borderColor: `${COLORS.secondary}50`,
                       color: COLORS.secondary,
@@ -127,14 +127,14 @@ export default function DetailWindow({
 
             {/* List items */}
             {section.listItems && (
-              <ul className="space-y-2">
+              <ul className="space-y-1.5 sm:space-y-2">
                 {section.listItems.map((item, i) => (
                   <li
                     key={i}
-                    className="text-sm text-gray-300 flex items-start gap-2 leading-relaxed"
+                    className="text-xs sm:text-sm text-gray-300 flex items-start gap-2 leading-relaxed"
                   >
-                    <span style={{ color: COLORS.accent }}>▸</span>
-                    <span>{item}</span>
+                    <span style={{ color: COLORS.accent }} className="flex-shrink-0">▸</span>
+                    <span className="break-words">{item}</span>
                   </li>
                 ))}
               </ul>
