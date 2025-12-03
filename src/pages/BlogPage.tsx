@@ -97,8 +97,8 @@ function BlogCard({ post, onReadMore, index }: BlogCardProps) {
         >
           <span>READ MORE</span>
           <ArrowRight 
-            size={14} className="sm:w-4 sm:h-4" 
-            className="transition-transform group-hover/btn:translate-x-1"
+            size={14}
+            className="sm:w-4 sm:h-4 transition-transform group-hover/btn:translate-x-1"
           />
         </button>
       </div>
