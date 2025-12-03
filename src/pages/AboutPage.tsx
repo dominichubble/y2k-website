@@ -202,48 +202,51 @@ export default function AboutPage() {
             onClick={() => toggleSection('technical')}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, borderColor: COLORS.primary }}
+            whileTap={{ scale: 0.95 }}
             transition={{ delay: 0.5, duration: 0.3 }}
-            className="bg-black/40 border-2 p-6 text-center transition-all"
+            className="bg-black/40 border-2 p-6 text-center transition-all cursor-pointer hover:bg-black/60"
             style={{ borderColor: openSection === 'technical' ? COLORS.primary : `${COLORS.primary}30` }}
           >
             <Code2 size={32} className="mx-auto mb-2" style={{ color: COLORS.primary }} />
             <div className="text-3xl font-black mb-1" style={{ color: COLORS.primary }}>
               {technicalSkills.length}+
             </div>
-            <div className="text-sm text-gray-400 font-mono">Technical Skills</div>
+            <div className="text-sm text-gray-400 font-mono">Click to View →</div>
           </motion.button>
 
           <motion.button
             onClick={() => toggleSection('soft')}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, borderColor: COLORS.secondary }}
+            whileTap={{ scale: 0.95 }}
             transition={{ delay: 0.6, duration: 0.3 }}
-            className="bg-black/40 border-2 p-6 text-center transition-all"
+            className="bg-black/40 border-2 p-6 text-center transition-all cursor-pointer hover:bg-black/60"
             style={{ borderColor: openSection === 'soft' ? COLORS.secondary : `${COLORS.secondary}30` }}
           >
             <Users size={32} className="mx-auto mb-2" style={{ color: COLORS.secondary }} />
             <div className="text-3xl font-black mb-1" style={{ color: COLORS.secondary }}>
               {softSkills.length}+
             </div>
-            <div className="text-sm text-gray-400 font-mono">Soft Skills</div>
+            <div className="text-sm text-gray-400 font-mono">Click to View →</div>
           </motion.button>
 
           <motion.button
             onClick={() => toggleSection('achievements')}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, borderColor: COLORS.accent }}
+            whileTap={{ scale: 0.95 }}
             transition={{ delay: 0.7, duration: 0.3 }}
-            className="bg-black/40 border-2 p-6 text-center transition-all"
+            className="bg-black/40 border-2 p-6 text-center transition-all cursor-pointer hover:bg-black/60"
             style={{ borderColor: openSection === 'achievements' ? COLORS.accent : `${COLORS.accent}30` }}
           >
             <Rocket size={32} className="mx-auto mb-2" style={{ color: COLORS.accent }} />
             <div className="text-3xl font-black mb-1" style={{ color: COLORS.accent }}>
               {achievements.length}+
             </div>
-            <div className="text-sm text-gray-400 font-mono">Key Achievements</div>
+            <div className="text-sm text-gray-400 font-mono">Click to View →</div>
           </motion.button>
         </div>
 
