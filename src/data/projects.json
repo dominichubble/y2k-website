@@ -12,23 +12,29 @@
         "📰 Implementing news and events management system",
         "🏛️ Connecting residents with local commissioners and services"
       ],
-      "githubRepo": "dominichubble/mezzedata-app"
+      "githubRepo": "dominichubble/mezzedata-app",
+      "stars": 0,
+      "forks": 0,
+      "lastUpdated": "2024-12-08T00:00:00Z"
     },
     {
       "id": "panthera-app",
       "title": "Panthera Student Lifestyle App",
       "description": "Award-winning student lifestyle application that won several awards at the national level.",
-      "technologies": ["React Native", "JavaScript"],
+      "technologies": ["React Native", "JavaScript", "Firebase", "REST APIs"],
       "status": "Completed",
       "type": "Academic",
       "highlights": [
-        "Won Several Competition Awards",
-        "Received Inspirational Leader Award",
-        "Achieved Companies Choice Award",
-        "Led team of 4 developers for 10 months"
+        "🏆 Won Several Competition Awards",
+        "🌟 Received Inspirational Leader Award",
+        "💼 Achieved Companies Choice Award",
+        "👥 Led team of 4 developers for 10 months"
       ],
       "link": "https://www.instagram.com/p/CbuKdeLqJZP/",
-      "githubRepo": "dominichubble/panthera-app"
+      "githubRepo": "dominichubble/panthera-app",
+      "stars": 0,
+      "forks": 0,
+      "lastUpdated": "2022-06-15T00:00:00Z"
     },
     {
       "id": "traffic-automation",
@@ -38,11 +44,14 @@
       "status": "Completed",
       "type": "Professional",
       "highlights": [
-        "Increased traffic engagement by 30%",
-        "Automated 80% of repetitive marketing tasks",
-        "Built comprehensive competitor intelligence system"
+        "📈 Increased traffic engagement by 30%",
+        "🤖 Automated 80% of repetitive marketing tasks",
+        "🔍 Built comprehensive competitor intelligence system"
       ],
-      "githubRepo": "dominichubble/traffic-automation"
+      "githubRepo": "dominichubble/traffic-automation",
+      "stars": 0,
+      "forks": 0,
+      "lastUpdated": "2023-09-20T00:00:00Z"
     },
     {
       "id": "productivity-platform",
@@ -52,12 +61,15 @@
       "status": "Completed",
       "type": "Academic",
       "highlights": [
-        "Leading a team of 6 developers using Agile methodologies",
-        "Fully responsive design",
-        "Implemented user-friendly interfaces and experiences"
+        "👥 Leading a team of 6 developers using Agile methodologies",
+        "📱 Fully responsive design",
+        "✨ Implemented user-friendly interfaces and experiences"
       ],
       "link": "https://www.linkedin.com/posts/dominichubble_another-exciting-and-challenging-phase-of-activity-7299509157802504193-cAgA?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADhuLNIBIHLbwP6xLKdQUupQj83tti8Rql0",
-      "githubRepo": "dominichubble/productivity-platform"
+      "githubRepo": "dominichubble/productivity-platform",
+      "stars": 0,
+      "forks": 0,
+      "lastUpdated": "2024-11-15T00:00:00Z"
     }
   ]
 }

@@ -1,9 +1,12 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { Briefcase, Code2, ExternalLink, GitFork, GraduationCap, Star } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { COLORS } from '../constants';
 import { useGitHubProjects } from '../hooks/useGitHubProjects';
+import { useGeneratedCaseStudies } from '../hooks/useGeneratedCaseStudies';
 import DetailWindow from '../components/ui/DetailWindow';
+import CaseStudyWindow from '../components/ui/CaseStudyWindow';
+import caseStudiesData from '../data/case-studies.json';
 
 type FilterType = 'all' | 'Professional' | 'Academic';
 
@@ -25,9 +28,10 @@ interface Project {
 interface ProjectCardProps {
   project: Project;
   onViewDetails: (project: Project) => void;
+  hasCaseStudy?: boolean;
 }
 
-function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
+function ProjectCard({ project, onViewDetails, hasCaseStudy }: ProjectCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   
   const getStatusColor = (status: string) => {
@@ -36,12 +40,12 @@ function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
 
   return (
     <div
-      className="bg-black/40 border sm:border-2 transition-all"
+      className="bg-black/40 border sm:border-2 transition-all hover:bg-black/60"
       style={{ borderColor: isExpanded ? COLORS.primary : `${COLORS.primary}30` }}
     >
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full p-3 sm:p-4 md:p-6 text-left hover:bg-black/60 transition-all"
+        className="w-full p-3 sm:p-4 md:p-6 text-left transition-all"
       >
       {/* Header */}
       <div className="flex items-start justify-between mb-3 sm:mb-4 gap-2">
@@ -123,20 +127,34 @@ function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
       </p>
 
       {/* View Details Button */}
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          onViewDetails(project);
-        }}
-        className="px-2 sm:px-3 py-1 text-[10px] sm:text-xs font-mono border transition-all hover:scale-105"
-        style={{ 
-          borderColor: COLORS.primary,
-          color: COLORS.primary,
-          backgroundColor: `${COLORS.primary}10`
-        }}
-      >
-        View Full Details →
-      </button>
+      <div className="flex items-center gap-2">
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onViewDetails(project);
+          }}
+          className="px-2 sm:px-3 py-1 text-[10px] sm:text-xs font-mono border transition-all hover:scale-105"
+          style={{ 
+            borderColor: COLORS.primary,
+            color: COLORS.primary,
+            backgroundColor: `${COLORS.primary}10`
+          }}
+        >
+          {hasCaseStudy ? 'View Case Study →' : 'View Full Details →'}
+        </button>
+        {hasCaseStudy && (
+          <span 
+            className="px-2 py-1 text-[10px] font-mono border"
+            style={{ 
+              borderColor: COLORS.accent,
+              color: COLORS.accent,
+              backgroundColor: `${COLORS.accent}15`
+            }}
+          >
+            📚 Case Study Available
+          </span>
+        )}
+      </div>
       </button>
 
       {/* Expanded Details */}
@@ -203,9 +221,30 @@ function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
 }
 
 export default function ProjectsPage() {
-  const { projects, loading, error } = useGitHubProjects();
+  const { projects, loading, error, repoMap } = useGitHubProjects();
+  const { generatedStudies } = useGeneratedCaseStudies(repoMap);
   const [filter, setFilter] = useState<FilterType>('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [caseStudies, setCaseStudies] = useState<Record<string, any>>({});
+
+  // Merge manual case studies with auto-generated ones
+  useEffect(() => {
+    const caseStudiesMap: Record<string, any> = {};
+    
+    // First, add manual case studies (these take priority)
+    caseStudiesData.caseStudies.forEach((cs: any) => {
+      caseStudiesMap[cs.projectId] = cs;
+    });
+    
+    // Then, add auto-generated studies for projects without manual case studies
+    Object.entries(generatedStudies).forEach(([projectId, study]) => {
+      if (!caseStudiesMap[projectId]) {
+        caseStudiesMap[projectId] = study;
+      }
+    });
+    
+    setCaseStudies(caseStudiesMap);
+  }, [generatedStudies]);
 
   const filteredProjects = filter === 'all' 
     ? projects 
@@ -320,6 +359,7 @@ export default function ProjectsPage() {
                 key={project.id} 
                 project={project}
                 onViewDetails={setSelectedProject}
+                hasCaseStudy={!!caseStudies[project.id]}
               />
             ))}
           </motion.div>
@@ -337,7 +377,13 @@ export default function ProjectsPage() {
         )}
 
         {/* Draggable Detail Window */}
-        {selectedProject && (
+        {selectedProject && caseStudies[selectedProject.id] ? (
+          <CaseStudyWindow
+            title={selectedProject.title}
+            caseStudy={caseStudies[selectedProject.id]}
+            onClose={() => setSelectedProject(null)}
+          />
+        ) : selectedProject ? (
           <DetailWindow
             title={selectedProject.title}
             subtitle={selectedProject.description}
@@ -384,7 +430,7 @@ export default function ProjectsPage() {
               }
             ]}
           />
-        )}
+        ) : null}
       </div>
     </div>
   );

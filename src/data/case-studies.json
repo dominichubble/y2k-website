@@ -1,0 +1,144 @@
+{
+  "caseStudies": [
+    {
+      "projectId": "panthera-app",
+      "hero": {
+        "tagline": "Revolutionizing Student Life Through Technology",
+        "coverImage": "/assets/panthera-cover.jpg"
+      },
+      "overview": {
+        "problem": "Students struggle to discover events, connect with peers, and access campus services efficiently. Existing solutions were fragmented across multiple platforms, leading to poor engagement and missed opportunities.",
+        "impact": "Won multiple national awards and became the go-to platform for student lifestyle management at our university.",
+        "timeline": "10 months (Sept 2021 - June 2022)",
+        "team": "Led team of 4 developers"
+      },
+      "myRole": {
+        "title": "Lead Developer & Project Manager",
+        "responsibilities": [
+          "Architected the entire React Native application structure",
+          "Led daily standups and sprint planning with 4-person team",
+          "Implemented core features: event discovery, social networking, and campus services integration",
+          "Coordinated with university stakeholders for requirements gathering",
+          "Presented at national competitions and pitch events"
+        ]
+      },
+      "technicalDeep": {
+        "architecture": {
+          "description": "Built on React Native for cross-platform compatibility with Firebase backend",
+          "diagram": "https://raw.githubusercontent.com/dominichubble/panthera-app/main/docs/architecture.png",
+          "components": [
+            {
+              "name": "Mobile App (React Native)",
+              "details": "Cross-platform iOS/Android app with offline-first architecture"
+            },
+            {
+              "name": "Firebase Backend",
+              "details": "Real-time database, authentication, and cloud functions"
+            },
+            {
+              "name": "University API Integration",
+              "details": "Connected to campus services for timetables, facilities, and events"
+            }
+          ]
+        },
+        "keyFeatures": [
+          {
+            "title": "Real-time Event Discovery",
+            "description": "Students receive instant notifications about campus events matching their interests",
+            "tech": ["Firebase Realtime Database", "Push Notifications", "Geolocation API"]
+          },
+          {
+            "title": "Social Networking",
+            "description": "Connect with peers, form study groups, and share experiences",
+            "tech": ["Firebase Auth", "Cloud Firestore", "Image Optimization"]
+          },
+          {
+            "title": "Campus Services Hub",
+            "description": "One-stop access to library bookings, gym schedules, and dining menus",
+            "tech": ["REST API Integration", "Caching Strategy", "Offline Mode"]
+          }
+        ]
+      },
+      "challenges": [
+        {
+          "challenge": "Performance with Real-time Updates",
+          "description": "Initial implementation caused lag when handling 500+ concurrent users during peak event times",
+          "solution": "Implemented pagination, data throttling, and optimistic UI updates. Reduced load time by 60%.",
+          "learned": "Importance of scalability planning from day one"
+        },
+        {
+          "challenge": "Cross-platform Design Consistency",
+          "description": "iOS and Android users expected platform-specific UI patterns",
+          "solution": "Created adaptive component library that respected platform conventions while maintaining brand identity",
+          "learned": "User experience trumps design consistency when it comes to platform expectations"
+        },
+        {
+          "challenge": "Team Coordination",
+          "description": "Managing 4 developers with varying skill levels and schedules",
+          "solution": "Implemented agile methodology with 2-week sprints, code reviews, and pair programming sessions",
+          "learned": "Clear communication and documentation are essential for team success"
+        }
+      ],
+      "outcomes": {
+        "metrics": [
+          {
+            "label": "Active Users",
+            "value": "2,500+",
+            "description": "Within first semester of launch"
+          },
+          {
+            "label": "Event Engagement",
+            "value": "+85%",
+            "description": "Increase in event attendance compared to previous year"
+          },
+          {
+            "label": "User Satisfaction",
+            "value": "4.7/5",
+            "description": "Average rating from student surveys"
+          },
+          {
+            "label": "Performance",
+            "value": "60% faster",
+            "description": "Load times after optimization"
+          }
+        ],
+        "awards": [
+          "🏆 National Student Innovation Award 2022",
+          "🎖️ Inspirational Leader Award",
+          "🌟 Companies Choice Award",
+          "💡 Best Mobile Application - University Tech Fair"
+        ],
+        "testimonials": [
+          {
+            "quote": "Panthera completely changed how we engage with campus life. I never miss an event now!",
+            "author": "Sarah M., Student Union President"
+          },
+          {
+            "quote": "Leading this team taught Dominic invaluable project management and technical leadership skills.",
+            "author": "Dr. James Wilson, Faculty Advisor"
+          }
+        ]
+      },
+      "reflections": {
+        "whatWentWell": [
+          "Strong team collaboration and agile practices",
+          "Excellent stakeholder communication",
+          "Scalable architecture that handled rapid growth"
+        ],
+        "whatCouldImprove": [
+          "Earlier user testing would have caught UX issues sooner",
+          "More comprehensive error logging for production debugging",
+          "Better documentation for future maintainers"
+        ],
+        "keyTakeaways": [
+          "Understanding user needs is more important than technical complexity",
+          "Leadership is about empowering your team, not doing everything yourself",
+          "Building for scale from the start saves months of refactoring later"
+        ]
+      },
+      "githubLink": "https://github.com/dominichubble/panthera-app",
+      "demoVideo": "https://www.instagram.com/p/CbuKdeLqJZP/",
+      "relatedProjects": ["community-platform", "neural-networks"]
+    }
+  ]
+}
