@@ -6,6 +6,7 @@ import { useGitHubProjects } from '../hooks/useGitHubProjects';
 import { useGeneratedCaseStudies } from '../hooks/useGeneratedCaseStudies';
 import DetailWindow from '../components/ui/DetailWindow';
 import CaseStudyWindow from '../components/ui/CaseStudyWindow';
+import type { CaseStudy } from '../components/ui/CaseStudyWindow';
 import caseStudiesData from '../data/case-studies.json';
 
 type FilterType = 'all' | 'Professional' | 'Academic';
@@ -225,15 +226,15 @@ export default function ProjectsPage() {
   const { generatedStudies } = useGeneratedCaseStudies(repoMap);
   const [filter, setFilter] = useState<FilterType>('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [caseStudies, setCaseStudies] = useState<Record<string, any>>({});
+  const [caseStudies, setCaseStudies] = useState<Record<string, CaseStudy>>({});
 
   // Merge manual case studies with auto-generated ones
   useEffect(() => {
-    const caseStudiesMap: Record<string, any> = {};
+    const caseStudiesMap: Record<string, CaseStudy> = {};
     
     // First, add manual case studies (these take priority)
-    caseStudiesData.caseStudies.forEach((cs: any) => {
-      caseStudiesMap[cs.projectId] = cs;
+    caseStudiesData.caseStudies.forEach((cs) => {
+      caseStudiesMap[cs.projectId] = cs as CaseStudy;
     });
     
     // Then, add auto-generated studies for projects without manual case studies

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { COLORS } from '../../constants';
 import DraggableWindow from './DraggableWindow';
 
-interface CaseStudy {
+export interface CaseStudy {
   hero: {
     tagline: string;
     coverImage?: string;
