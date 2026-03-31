@@ -8,34 +8,51 @@ interface TrailPoint {
   timestamp: number;
 }
 
+/** Soft chrome sparkles — only theme steel / pearl / periwinkle */
+const TRAIL_PALETTE = [
+  COLORS.accent,
+  COLORS.primary,
+  COLORS.secondary,
+  `${COLORS.primary}e6`,
+  `${COLORS.accent}cc`,
+  `${COLORS.secondary}dd`,
+] as const;
+
+const TRAIL_LENGTH = 12;
+const TRAIL_MS = 900;
+
 export default function CursorTrail() {
   const [trail, setTrail] = useState<TrailPoint[]>([]);
   const [isEnabled, setIsEnabled] = useState(true);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const idCounter = useRef(0);
 
   useEffect(() => {
-    if (!isEnabled) return;
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const syncMotion = () => setPrefersReducedMotion(mq.matches);
+    syncMotion();
+    mq.addEventListener('change', syncMotion);
+    return () => mq.removeEventListener('change', syncMotion);
+  }, []);
+
+  useEffect(() => {
+    if (!isEnabled || prefersReducedMotion) return;
 
     const handleMouseMove = (e: MouseEvent) => {
       const newPoint: TrailPoint = {
         x: e.clientX,
         y: e.clientY,
         id: idCounter.current++,
-        timestamp: Date.now()
+        timestamp: Date.now(),
       };
 
-      setTrail(prev => {
-        const updated = [...prev, newPoint];
-        // Keep only last 15 points
-        return updated.slice(-15);
-      });
+      setTrail((prev) => [...prev, newPoint].slice(-TRAIL_LENGTH));
     };
 
-    // Clean up old points
     const cleanupInterval = setInterval(() => {
-      setTrail(prev => {
+      setTrail((prev) => {
         const now = Date.now();
-        return prev.filter(point => now - point.timestamp < 1000);
+        return prev.filter((point) => now - point.timestamp < TRAIL_MS);
       });
     }, 50);
 
@@ -45,63 +62,54 @@ export default function CursorTrail() {
       window.removeEventListener('mousemove', handleMouseMove);
       clearInterval(cleanupInterval);
     };
-  }, [isEnabled]);
+  }, [isEnabled, prefersReducedMotion]);
 
-  // Check if mobile
   useEffect(() => {
     const checkMobile = () => {
       setIsEnabled(window.innerWidth >= 768);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    
+
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  if (!isEnabled) return null;
+  if (!isEnabled || prefersReducedMotion) return null;
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-[9998]">
+    <div
+      className="fixed inset-0 z-[9998] pointer-events-none"
+      aria-hidden
+    >
       {trail.map((point, index) => {
         const age = Date.now() - point.timestamp;
-        const opacity = Math.max(0, 1 - age / 1000);
-        const progress = index / trail.length;
-        const size = 12 - progress * 8;
-        
-        // Expanded Y2K color palette with more vibrant colors
-        const colors = [
-          COLORS.primary,    // magenta
-          COLORS.secondary,  // cyan
-          COLORS.accent,     // lime
-          '#FF6B9D',        // pink
-          '#00D9FF',        // bright cyan
-          '#FFC700',        // gold
-          '#B644FF',        // purple
-          '#00FFA3',        // mint
-          '#FF3E96'         // hot pink
-        ];
-        const color = colors[index % colors.length];
+        const opacity = Math.max(0, 1 - age / TRAIL_MS);
+        const progress = trail.length > 1 ? index / (trail.length - 1) : 0;
+        const headBoost = index === trail.length - 1 ? 1.15 : 1;
+        const size = (6 + (1 - progress) * 5) * headBoost;
+        const color = TRAIL_PALETTE[index % TRAIL_PALETTE.length];
 
         return (
           <div
             key={point.id}
-            className="absolute font-bold"
+            className="absolute select-none"
             style={{
               left: point.x,
               top: point.y,
-              transform: `translate(-50%, -50%) scale(${1 - progress * 0.3}) rotate(${progress * 180}deg)`,
-              opacity: opacity * 0.9,
-              color: color,
+              transform: `translate(-50%, -50%) scale(${0.85 + (1 - progress) * 0.2}) rotate(${progress * 72}deg)`,
+              opacity: opacity * 0.42,
+              color,
               fontSize: `${size}px`,
+              lineHeight: 1,
               textShadow: `
-                0 0 10px ${color},
-                0 0 20px ${color},
-                0 0 30px ${color}
+                0 0 4px ${color}55,
+                0 0 12px ${color}33,
+                0 0 20px ${COLORS.primary}18
               `,
               pointerEvents: 'none',
-              fontFamily: 'monospace',
-              filter: 'blur(0.3px)'
+              fontFamily: 'Sora, ui-sans-serif, system-ui, sans-serif',
+              fontWeight: 600,
             }}
           >
             ✦
