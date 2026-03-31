@@ -5,8 +5,19 @@ import { COLORS } from '../constants';
 import profileData from '../data/profile.json';
 import skillsData from '../data/skills.json';
 
+type TechnicalSkillCategory = { title: string; skills: string[] };
+type SkillsDataFile = {
+  technicalSkillCategories: TechnicalSkillCategory[];
+  softSkills: string[];
+  achievements: { title: string; description: string }[];
+};
+
 export default function AboutPage() {
-  const { technicalSkills, softSkills, achievements } = skillsData;
+  const { technicalSkillCategories, softSkills, achievements } = skillsData as unknown as SkillsDataFile;
+  const technicalSkillCount = technicalSkillCategories.reduce(
+    (n, c) => n + c.skills.length,
+    0
+  );
   const { about } = profileData;
   const [openSection, setOpenSection] = useState<string | null>('story');
 
@@ -74,8 +85,8 @@ export default function AboutPage() {
                       key={index}
                       dangerouslySetInnerHTML={{
                         __html: paragraph
-                          .replace('West Midlands', `<span style="color: ${COLORS.primary}">West Midlands</span>`)
-                          .replace('continuous learning', `<span style="color: ${COLORS.secondary}">continuous learning</span>`)
+                          .replace('applied AI', `<span style="color: ${COLORS.primary}">applied AI</span>`)
+                          .replace('real-world', `<span style="color: ${COLORS.secondary}">real-world</span>`)
                       }}
                     />
                   ))}
@@ -210,7 +221,7 @@ export default function AboutPage() {
           >
             <Code2 size={32} className="mx-auto mb-2" style={{ color: COLORS.primary }} />
             <div className="text-3xl font-black mb-1" style={{ color: COLORS.primary }}>
-              {technicalSkills.length}+
+              {technicalSkillCount}+
             </div>
             <div className="text-sm text-gray-400 font-mono">Click to View →</div>
           </motion.button>
@@ -264,23 +275,32 @@ export default function AboutPage() {
                 <h3 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: COLORS.primary }}>
                   <Code2 size={20} /> Technical Skills
                 </h3>
-                <div className="flex flex-wrap gap-2">
-                  {technicalSkills.map((skill, index) => (
-                    <motion.span
-                      key={skill}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: index * 0.05, duration: 0.3 }}
-                      whileHover={{ scale: 1.1, y: -2 }}
-                      className="px-3 py-1 text-sm font-mono border-2 transition-all cursor-default"
-                      style={{ 
-                        borderColor: `${COLORS.primary}50`,
-                        color: COLORS.primary,
-                        backgroundColor: `${COLORS.primary}10`
-                      }}
-                    >
-                      {skill}
-                    </motion.span>
+                <div className="space-y-4">
+                  {technicalSkillCategories.map((category) => (
+                    <div key={category.title}>
+                      <h4 className="text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">
+                        {category.title}
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {category.skills.map((skill, index) => (
+                          <motion.span
+                            key={`${category.title}-${skill}`}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: index * 0.03, duration: 0.3 }}
+                            whileHover={{ scale: 1.1, y: -2 }}
+                            className="px-3 py-1 text-sm font-mono border-2 transition-all cursor-default"
+                            style={{
+                              borderColor: `${COLORS.primary}50`,
+                              color: COLORS.primary,
+                              backgroundColor: `${COLORS.primary}10`
+                            }}
+                          >
+                            {skill}
+                          </motion.span>
+                        ))}
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>

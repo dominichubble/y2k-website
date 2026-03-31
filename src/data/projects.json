@@ -1,75 +1,117 @@
 {
   "projects": [
     {
-      "id": "mezzedata-platform",
-      "title": "Community Information App",
-      "description": "Developing a Flutter-based mobile application for local residents to access community news, events, dining options, and local government information.",
-      "technologies": ["Flutter", "Dart", "Firebase", "REST APIs", "Mobile Development"],
+      "id": "mezzedoc-system",
+      "title": "MezzeDocuments Content System",
+      "description": "Developed an in-house system that transforms static PDFs into structured, interactive in-app content for improved usability and content delivery.",
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "Data Pipelines",
+        "Caching",
+        "Content Processing"
+      ],
       "status": "In Progress",
       "type": "Professional",
       "highlights": [
-        "📱 Building mobile app for community engagement",
-        "📰 Implementing news and events management system",
-        "🏛️ Connecting residents with local commissioners and services"
+        "Built an internal content generation workflow for MezzeDocuments",
+        "Transformed static PDF content into structured in-app pages",
+        "Improved content delivery efficiency with modular architecture and caching"
       ],
-      "githubRepo": "dominichubble/mezzedata-app",
       "stars": 0,
       "forks": 0,
-      "lastUpdated": "2024-12-08T00:00:00Z"
+      "lastUpdated": "2026-03-31T00:00:00Z"
     },
     {
-      "id": "panthera-app",
-      "title": "Panthera Student Lifestyle App",
-      "description": "Award-winning student lifestyle application that won several awards at the national level.",
-      "technologies": ["React Native", "JavaScript", "Firebase", "REST APIs"],
+      "id": "fin-sentiment-analysis",
+      "title": "Financial Sentiment Analysis",
+      "description": "NLP-based sentiment analysis using BERT/FinBERT on financial data sources, with a dashboard for trends and decision support.",
+      "technologies": [
+        "Python",
+        "BERT/FinBERT",
+        "NLP",
+        "Machine Learning"
+      ],
       "status": "Completed",
       "type": "Academic",
       "highlights": [
-        "🏆 Won Several Competition Awards",
-        "🌟 Received Inspirational Leader Award",
-        "💼 Achieved Companies Choice Award",
-        "👥 Led team of 4 developers for 10 months"
+        "Built an NLP-based sentiment analysis system using BERT/FinBERT",
+        "Evaluated model performance using accuracy, F1 score, and RMSE",
+        "Developed a dashboard to visualise sentiment trends and support financial decision-making"
       ],
-      "link": "https://www.instagram.com/p/CbuKdeLqJZP/",
-      "githubRepo": "dominichubble/panthera-app",
+      "githubRepo": "dominichubble/sentiment-analysis",
       "stars": 0,
       "forks": 0,
-      "lastUpdated": "2022-06-15T00:00:00Z"
+      "lastUpdated": "2026-03-31T16:08:47.779Z"
+    },
+    {
+      "id": "ml-time-series",
+      "title": "Machine Learning Model for Time-Series Prediction",
+      "description": "Designed and evaluated neural network models for time-series prediction in Python.",
+      "technologies": [
+        "Python",
+        "Neural Networks",
+        "Machine Learning",
+        "Data Pipelines"
+      ],
+      "status": "Completed",
+      "type": "Academic",
+      "highlights": [
+        "Designed and evaluated neural network models for time-series prediction",
+        "Built an end-to-end machine learning pipeline including preprocessing, feature engineering, and evaluation",
+        "Achieved strong predictive performance (R² > 0.85)"
+      ],
+      "stars": 0,
+      "forks": 0,
+      "lastUpdated": "2026-03-31T16:08:47.780Z"
+    },
+    {
+      "id": "productivity-platform",
+      "title": "Productivity & Knowledge Management System",
+      "description": "Led a 6-person team to design and deliver a full-stack system using React, MySQL, and GCP (team lead).",
+      "technologies": [
+        "React",
+        "MySQL",
+        "GCP",
+        "Jira",
+        "Agile"
+      ],
+      "status": "Completed",
+      "type": "Academic",
+      "highlights": [
+        "Led a 6-person team to design and deliver a full-stack system",
+        "Delivered ahead of schedule while managing a large project scope",
+        "Applied Agile methodology with Jira to manage sprints, tasks, and requirements",
+        "Developed scalable features including task management and data-driven dashboards"
+      ],
+      "githubRepo": "dominichubble/productivity-platform",
+      "stars": 0,
+      "forks": 0,
+      "lastUpdated": "2024-11-15T00:00:00Z"
     },
     {
       "id": "traffic-automation",
       "title": "Marketing Automation Tools",
-      "description": "Developed Python automation tools for affiliate marketing and competitor analysis.",
-      "technologies": ["Python", "Sentiment Analysis", "Data Analysis", "Web Scraping", "APIs"],
+      "description": "Python automation for outreach and web scraping, improving operational efficiency at Loads of Traffic.",
+      "technologies": [
+        "Python",
+        "Data Analysis",
+        "Web Scraping",
+        "APIs",
+        "Workflow Automation"
+      ],
       "status": "Completed",
       "type": "Professional",
       "highlights": [
-        "📈 Increased traffic engagement by 30%",
-        "🤖 Automated 80% of repetitive marketing tasks",
-        "🔍 Built comprehensive competitor intelligence system"
+        "Streamlined outreach and scraping workflows by replacing manual steps",
+        "Removed unnecessary process stages to improve scalability",
+        "Used data-driven analysis to support affiliate decision-making",
+        "Combined technical delivery with commercial insight for measurable productivity gains"
       ],
       "githubRepo": "dominichubble/traffic-automation",
       "stars": 0,
       "forks": 0,
       "lastUpdated": "2023-09-20T00:00:00Z"
-    },
-    {
-      "id": "productivity-platform",
-      "title": "Productivity Platform",
-      "description": "Modern, responsive platform built with React, MySQL, and Bootstrap. Built with a team of 6 other developers.",
-      "technologies": ["Scrum", "React", "TypeScript", "MySQL", "Bootstrap", "PHPMyAdmin", "Google Cloud"],
-      "status": "Completed",
-      "type": "Academic",
-      "highlights": [
-        "👥 Leading a team of 6 developers using Agile methodologies",
-        "📱 Fully responsive design",
-        "✨ Implemented user-friendly interfaces and experiences"
-      ],
-      "link": "https://www.linkedin.com/posts/dominichubble_another-exciting-and-challenging-phase-of-activity-7299509157802504193-cAgA?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADhuLNIBIHLbwP6xLKdQUupQj83tti8Rql0",
-      "githubRepo": "dominichubble/productivity-platform",
-      "stars": 0,
-      "forks": 0,
-      "lastUpdated": "2024-11-15T00:00:00Z"
     }
   ]
 }

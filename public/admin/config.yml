@@ -139,11 +139,16 @@ collections:
         label: "Skills & Achievements"
         file: "src/data/skills.json"
         fields:
-          - label: "Technical Skills"
-            name: "technicalSkills"
+          - label: "Technical Skill Categories"
+            name: "technicalSkillCategories"
             widget: "list"
-            field: { label: "Skill", name: "skill", widget: "string" }
-          
+            fields:
+              - { label: "Category Title", name: "title", widget: "string" }
+              - label: "Skills"
+                name: "skills"
+                widget: "list"
+                field: { label: "Skill", widget: "string" }
+
           - label: "Soft Skills"
             name: "softSkills"
             widget: "list"

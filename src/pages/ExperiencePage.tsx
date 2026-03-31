@@ -43,9 +43,15 @@ export default function ExperiencePage() {
   };
 
   // Sort experiences by start date (newest first)
-  const sortedExperiences = [...experiences].sort((a, b) => 
+  const sortedExperiences = [...(experiences as Experience[])].sort((a, b) => 
     parseDate(b.startDate).getTime() - parseDate(a.startDate).getTime()
   );
+
+  const years = sortedExperiences
+    .map((exp) => parseInt(getYear(exp.startDate), 10))
+    .filter((year) => !Number.isNaN(year));
+  const minYear = years.length > 0 ? Math.min(...years) : new Date().getFullYear();
+  const maxYear = new Date().getFullYear();
 
   // Track year changes and add milestones
   let lastYear: string | null = null;
@@ -72,7 +78,7 @@ export default function ExperiencePage() {
             style={{ backgroundColor: COLORS.primary }}
           />
           <p className="text-gray-400 text-xs sm:text-sm mt-4 font-mono px-2">
-            {sortedExperiences.length} Professional Experiences • 2020 - Present
+            {sortedExperiences.length} Professional Experiences • {minYear} - {maxYear}
           </p>
         </motion.div>
 

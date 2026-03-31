@@ -103,8 +103,19 @@ function Achievement({ title, description }: AchievementProps) {
   );
 }
 
+type TechnicalSkillCategory = { title: string; skills: string[] };
+type SkillsDataFile = {
+  technicalSkillCategories: TechnicalSkillCategory[];
+  softSkills: string[];
+  achievements: { title: string; description: string }[];
+};
+
 export default function SkillsPage() {
-  const { technicalSkills, softSkills, achievements } = skillsData;
+  const { technicalSkillCategories, softSkills, achievements } = skillsData as unknown as SkillsDataFile;
+  const technicalSkillCount = technicalSkillCategories.reduce(
+    (n, c) => n + c.skills.length,
+    0
+  );
 
   return (
     <div className="h-full overflow-y-auto">
@@ -142,13 +153,16 @@ export default function SkillsPage() {
           animate="visible"
           className="max-w-6xl mx-auto space-y-6"
         >
-          {/* Technical Skills */}
-          <SkillCategory
-            title="Technical Skills"
-            skills={technicalSkills}
-            icon={<Code2 size={24} style={{ color: COLORS.primary }} />}
-            color={COLORS.primary}
-          />
+          {/* Technical Skills (grouped like CV) */}
+          {technicalSkillCategories.map((category) => (
+            <SkillCategory
+              key={category.title}
+              title={category.title}
+              skills={category.skills}
+              icon={<Code2 size={24} style={{ color: COLORS.primary }} />}
+              color={COLORS.primary}
+            />
+          ))}
 
           {/* Soft Skills */}
           <SkillCategory
@@ -205,7 +219,7 @@ export default function SkillsPage() {
                 className="text-3xl font-black font-mono mb-1"
                 style={{ color: COLORS.primary }}
               >
-                {technicalSkills.length}
+                {technicalSkillCount}
               </div>
               <div className="text-xs text-gray-400 font-mono">
                 Technical Skills

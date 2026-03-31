@@ -1,48 +1,88 @@
 {
-  "technicalSkills": [
-    "React",
-    "TypeScript",
-    "JavaScript",
-    "Python",
-    "Node.js",
-    "HTML/CSS",
-    "Git/GitHub",
-    "SQL",
-    "MongoDB",
-    "RESTful APIs",
-    "Machine Learning",
-    "AI/ML"
+  "technicalSkillCategories": [
+    {
+      "title": "Programming",
+      "skills": ["Python", "TypeScript", "Dart", "SQL", "Java"]
+    },
+    {
+      "title": "Software Development",
+      "skills": [
+        "Flutter",
+        "React",
+        "Node.js",
+        "REST APIs",
+        "Backend Systems",
+        "MySQL",
+        "Schema Design"
+      ]
+    },
+    {
+      "title": "Data & AI",
+      "skills": [
+        "Data Pipelines",
+        "Web Scraping",
+        "API Integration",
+        "Machine Learning Pipelines",
+        "NLP (BERT/FinBERT)",
+        "Model Evaluation"
+      ]
+    },
+    {
+      "title": "DevOps & Tools",
+      "skills": [
+        "GCP",
+        "CI/CD (GitHub Actions)",
+        "Git",
+        "Linux",
+        "Jira",
+        "Figma",
+        "VS Code",
+        "Postman",
+        "Cursor",
+        "Claude",
+        "GitHub Copilot"
+      ]
+    }
   ],
   "softSkills": [
-    "Project Management",
-    "Leadership",
     "Team Collaboration",
-    "Problem Solving",
     "Communication",
-    "Agile/Scrum",
+    "Stakeholder Alignment",
+    "Project Leadership",
+    "Agile Delivery",
+    "Problem Solving",
     "Critical Thinking",
-    "Mentoring"
+    "Adaptability",
+    "Learning from Feedback"
   ],
   "achievements": [
     {
-      "title": "Award Winner",
-      "description": "Company of the Year Competition Award Winner (Panthera)"
+      "title": "Degree performance",
+      "description": "BSc Computer Science (2023–2026), predicted First-Class Honours; current average 78.9%. Highlights: Embedded Systems Programming (98%), Team Projects (91%), OOP (87%), OS/Networks 1 (87%), Formal Methods (81%), AI Methods (81%), Mobile App Development (80%)"
     },
     {
-      "title": "Team Leadership",
-      "description": "Led cross-functional teams of 5+ developers"
+      "title": "Award nominee",
+      "description": "Nominated for Loughborough University’s Entrepreneur of the Year Award (2023)"
     },
     {
-      "title": "Performance",
-      "description": "Increased traffic engagement by 30% at Loads of Traffic"
+      "title": "Certifications",
+      "description": "Certified ScrumMaster (Scrum Alliance) · Google Cloud Digital Leader"
     },
     {
-      "title": "Academic Excellence",
-      "description": "Maintaining First-Class Honours at Loughborough University"
+      "title": "Team leadership",
+      "description": "Led a six-person team delivering a full-stack productivity and knowledge management system (React, MySQL, GCP), ahead of schedule, using Agile and Jira"
     },
     {
-      "title": "Work & Study",
-      "description": "Currently employed while studying full-time"
+      "title": "Sport",
+      "description": "Isle of Man Men’s Hockey Squad and Loughborough Town 1s"
+    },
+    {
+      "title": "Prior education",
+      "description": "A-Levels: Computer Science (A), Mathematics (A), EPQ (A), Economics (B), Physics AS (B), St Ninians High School · GCSEs: 7 A*s, 4 As"
+    },
+    {
+      "title": "Professional delivery",
+      "description": "Balancing final-year study with production software delivery at MezzeData and prior roles"
     }
   ]
 }

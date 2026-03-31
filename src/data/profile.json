@@ -1,55 +1,66 @@
 {
   "personalInfo": {
     "name": "Dominic Hubble",
-    "title": "SOFTWARE DEVELOPER & CS STUDENT",
+    "title": "APPLIED AI & SOFTWARE ENGINEER",
     "university": "Loughborough University",
-    "currentRole": "Junior Software Developer",
+    "currentRole": "Applied AI & Software Engineer",
     "currentCompany": "MezzeData Limited",
-    "location": "Isle of Man / Remote",
-    "availability": "Available for opportunities",
+    "location": "Isle of Man",
+    "availability": "Open to software and AI opportunities",
     "email": "dominichubble@gmail.com",
     "github": "https://github.com/dominichubble",
     "linkedin": "https://www.linkedin.com/in/dominichubble",
     "profileImage": "/assets/pfp.jpeg",
-    "bio": "Final year Computer Science student at Loughborough University with hands-on experience in software development, affiliate marketing, and project management. Currently working as a Junior Software Developer at MezzeData Limited while building innovative solutions and leading high-performing teams."
+    "bio": "Applied AI and software engineer building data-driven systems and using AI to improve workflows. Experienced in full-stack and mobile development, with a focus on practical, real-world applications. A strong team player who communicates well, works effectively with others, and learns quickly from feedback and challenges. Final-year BSc Computer Science at Loughborough University (predicted First-Class Honours, current average 78.9%)."
   },
   "about": {
     "story": [
-      "Originally from the West Midlands, my journey into tech started at the age of 3 with my first iPod. That early exposure sparked a curiosity that's only grown stronger over the years, leading me to pursue Computer Science and Software Development.",
-      "What drives me most about this field is the continuous learning — there's always something new to discover, master, and create. Currently, I'm a final year Computer Science student at Loughborough University while working as a Junior Software Developer at MezzeData Limited."
+      "I build practical software that combines strong engineering fundamentals with applied AI, focusing on products that improve day-to-day workflows and decision-making.",
+      "Alongside my degree at Loughborough University, I work as a Developer at MezzeData, leading a Flutter-based mobile app: I own architecture, feature delivery, and technical direction, including MezzeDocuments—turning static PDFs into structured, interactive in-app content with modular layers, data pipelines, and caching for performance at scale.",
+      "I thrive in Agile teams, translate stakeholder requirements into technical solutions, and care about clear communication—from pair work and code review to presenting outcomes."
     ],
     "hobbies": [
       {
         "icon": "🏑",
         "title": "Field Hockey",
-        "description": "Playing field hockey — love the team dynamics and strategy"
+        "description": "Competing in hockey with the Isle of Man Men's Squad and Loughborough Town 1s"
       },
       {
-        "icon": "🎮",
-        "title": "Gaming",
-        "description": "Gaming — whether it's competitive or story-driven adventures"
+        "icon": "🤝",
+        "title": "Leadership",
+        "description": "Deputy Head Student and Junior Achievement Managing Director; leadership through team projects and collaboration"
       },
       {
-        "icon": "📺",
-        "title": "Anime",
-        "description": "Watching anime — always up for a good recommendation!"
+        "icon": "🚀",
+        "title": "Entrepreneurship",
+        "description": "Active with Loughborough Enterprise Network (LEN); nominated for Loughborough University Entrepreneur of the Year (2023)"
+      },
+      {
+        "icon": "📈",
+        "title": "Economics & Markets",
+        "description": "Following economics and financial systems to better connect technical work with business outcomes"
       }
     ],
     "interests": [
       {
         "icon": "🤖",
-        "title": "Machine Learning & Data Science",
-        "description": "Machine Learning & Data Science — exploring AI applications"
+        "title": "AI applications",
+        "description": "AI applications — from NLP and ML pipelines to evaluation (accuracy, F1, RMSE) and production-minded tooling"
       },
       {
         "icon": "📊",
-        "title": "Economics",
-        "description": "Economics — understanding market dynamics and data-driven decision making"
+        "title": "Economics & financial systems",
+        "description": "Economics & financial systems — connecting technical work with markets, risk, and data-driven decisions"
+      },
+      {
+        "icon": "🏑",
+        "title": "Competitive sport",
+        "description": "Competitive sport — field hockey with the Isle of Man Men's Squad and Loughborough Town 1s"
       },
       {
         "icon": "💡",
         "title": "Innovation",
-        "description": "Building solutions that combine tech with real-world business problems"
+        "description": "Innovation — building products that combine technical depth with real-world impact"
       }
     ],
     "stats": {

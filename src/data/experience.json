@@ -2,31 +2,24 @@
   "experiences": [
     {
       "id": "mezzedata",
-      "title": "Junior Software Developer",
+      "title": "Developer",
       "company": "MezzeData Limited",
       "companyUrl": "https://www.linkedin.com/company/mezzedata-limited",
       "employmentType": "Part-time",
-      "startDate": "Apr 2025",
+      "startDate": "2025",
       "endDate": "Present",
       "location": "Isle of Man",
       "workType": "Remote",
-      "description": "",
-      "skills": [],
+      "description": "Leading development of a Flutter-based mobile application, owning architecture, feature delivery, and technical direction. Developed an in-house system for MezzeDocuments, transforming static PDFs into structured, interactive in-app content to improve usability and content delivery. Designed modular architecture (data, domain, presentation layers) for scalability and maintainability, built structured data pipelines and caching systems for performance and delivery efficiency, and shipped production-ready features in Agile—translating stakeholder requirements into technical solutions.",
+      "skills": [
+        "Flutter",
+        "Dart",
+        "Software Architecture",
+        "Data Pipelines",
+        "Caching",
+        "Agile"
+      ],
       "color": "orange"
-    },
-    {
-      "id": "loads-traffic-current",
-      "title": "Affiliate Executive and Software Developer",
-      "company": "Loads of Traffic",
-      "companyUrl": "https://www.linkedin.com/company/loads-of-traffic/",
-      "employmentType": "Part-time",
-      "startDate": "Jun 2023",
-      "endDate": "Present",
-      "location": "Douglas, Isle of Man",
-      "workType": "Hybrid",
-      "description": "Spearheading affiliate marketing initiatives and enhancing partnership strategies to drive traffic and engagement, whilst also focusing on competitor intelligence and market penetration strategies.",
-      "skills": ["Marketing", "Python", "VBA", "Project Management", "Analytics", "Automation"],
-      "color": "rose"
     },
     {
       "id": "pdms",
@@ -38,52 +31,36 @@
       "endDate": "Sep 2024",
       "location": "Isle of Man",
       "workType": "On-site",
-      "description": "",
-      "skills": ["Front-End Development", "Business Analysis", "Testing", "UX", "Project Management"],
+      "description": "Worked across front-end development, business analysis, testing, UX, and project management within an Agile team. Contributed to internal systems and gained exposure to real-world software delivery and collaboration workflows, strengthening understanding of version control, delivery pipelines, and production environments.",
+      "skills": [
+        "Front-End Development",
+        "Business Analysis",
+        "Testing",
+        "UX",
+        "Project Management",
+        "Agile"
+      ],
       "color": "sky"
     },
     {
-      "id": "loads-traffic-junior",
-      "title": "Junior Web Developer",
+      "id": "loads-traffic-current",
+      "title": "Affiliate Executive & Software Developer",
       "company": "Loads of Traffic",
       "companyUrl": "https://www.linkedin.com/company/loads-of-traffic/",
-      "employmentType": "Internship",
-      "startDate": "Jun 2022",
-      "endDate": "Aug 2022",
+      "employmentType": "Part-time",
+      "startDate": "2022",
+      "endDate": "2024",
       "location": "Douglas, Isle of Man",
-      "workType": "On-site",
-      "description": "Assisted in the development and maintenance of client websites, implementing responsive designs and improving user experience.",
-      "skills": ["Web Development", "Web Design"],
+      "workType": "Hybrid",
+      "description": "Developed Python automation tools to streamline outreach and web scraping, removing manual processes and improving efficiency. Optimised workflows by eliminating unnecessary stages, reducing operational complexity and improving scalability. Applied data-driven analysis to improve affiliate performance and support decision-making. Combined technical implementation with commercial insight to drive measurable improvements in productivity.",
+      "skills": [
+        "Python",
+        "Web Scraping",
+        "Automation",
+        "Data Analysis",
+        "Workflow Optimisation"
+      ],
       "color": "rose"
-    },
-    {
-      "id": "panthera",
-      "title": "Managing Director (Company of the Year Competition)",
-      "company": "Panthera",
-      "companyUrl": "https://www.linkedin.com/company/pantherajaiom/",
-      "employmentType": "Full-time",
-      "startDate": "Sep 2021",
-      "endDate": "Jul 2022",
-      "location": "Douglas, Isle of Man",
-      "workType": "Hybrid",
-      "description": "Led a team in developing a student lifestyle app, earning several awards, including the Leadership accolade and Companies choice.",
-      "skills": ["Leadership", "App Development", "Project Management", "Software Development"],
-      "color": "sky-dark",
-      "isLeadership": true
-    },
-    {
-      "id": "pushologies",
-      "title": "Junior Graphic Designer",
-      "company": "Pushologies",
-      "companyUrl": "https://www.linkedin.com/company/pushologies/",
-      "employmentType": "Internship",
-      "startDate": "Mar 2020",
-      "endDate": "Mar 2020",
-      "location": "Douglas, Isle of Man",
-      "workType": "Hybrid",
-      "description": "Designed graphics for use in various marketing materials, including push notifications and social media.",
-      "skills": ["Marketing", "Adobe Photoshop", "Adobe Illustrator", "Adobe InDesign"],
-      "color": "blue"
     }
   ]
 }
