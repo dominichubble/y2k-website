@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
-/* Y2K tokens (aligned with src/constants/theme.ts) */
+/* Softcore Y2K tokens (aligned with src/constants/theme.ts) */
 :root {
-  --y2k-cyan: #00d9ff;
-  --y2k-magenta: #ff2ec4;
-  --y2k-silver: #c8cdd4;
-  --y2k-gray: #808080;
-  --y2k-white: #f4f8fc;
-  --y2k-black: #06060a;
-  --y2k-chrome: linear-gradient(135deg, #ffffff 0%, #c8cdd4 45%, #8899aa 100%);
-  --y2k-metal: linear-gradient(to right, #606878 0%, #1a1e28 100%);
-  --y2k-hologram: linear-gradient(45deg, #ffffff, #00d9ff, #ff2ec4, #ffffff);
-  --font-y2k-display: "Orbitron", ui-sans-serif, system-ui, sans-serif;
-  --font-y2k-mono: "Share Tech Mono", ui-monospace, monospace;
+  --y2k-cyan: #98ccd5;
+  --y2k-magenta: #d4b8f0;
+  --y2k-silver: #e8e4f0;
+  --y2k-gray: #9ca3af;
+  --y2k-white: #faf8ff;
+  --y2k-black: #17151f;
+  --y2k-chrome: linear-gradient(135deg, #ffffff 0%, #e8e4f0 50%, #c5d5d8 100%);
+  --y2k-metal: linear-gradient(to right, #8a9098 0%, #2a2832 100%);
+  --y2k-hologram: linear-gradient(45deg, #faf8ff, #98ccd5, #d4b8f0, #faf8ff);
+  --font-y2k-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-y2k-mono: "DM Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
 .font-y2k-display {
@@ -241,17 +241,17 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #000;
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  background: #17151f;
+  border-left: 1px solid rgba(232, 228, 240, 0.12);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #ffffff, #808080);
+  background: linear-gradient(180deg, #e8e4f0, #a8b8c0);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #ffffff, #00d9ff);
-  box-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
+  background: linear-gradient(180deg, #faf8ff, #98ccd5);
+  box-shadow: 0 0 8px rgba(152, 204, 213, 0.25);
 }
 
 /* Loading animation for images */
@@ -280,23 +280,23 @@ img:not([src]) {
 /* Y2K Utility Classes */
 .y2k-chrome-text {
   font-family: var(--font-y2k-display);
-  font-weight: 800;
-  letter-spacing: 0.06em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   background: linear-gradient(
     90deg,
-    #6a7380 0%,
-    #e8eef5 22%,
-    #ffffff 40%,
-    #8899aa 58%,
-    #ffffff 78%,
-    #5a6570 100%
+    #a8aeb8 0%,
+    #f5f2fa 28%,
+    #ffffff 48%,
+    #c8cfd8 62%,
+    #faf8ff 82%,
+    #9aa2ac 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: chrome-shine 4s linear infinite;
-  filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.25));
+  animation: chrome-shine 8s ease-in-out infinite;
+  filter: drop-shadow(0 1px 12px rgba(152, 204, 213, 0.2));
 }
 
 .y2k-hologram {
@@ -377,46 +377,49 @@ img:not([src]) {
   background-size: 50px 50px;
 }
 
-/* Subtle CRT-style scanlines (overlay on window content) */
+/* Barely-there scanlines — softcore Y2K */
 .y2k-scanlines {
   pointer-events: none;
+  opacity: 0.35;
   background: repeating-linear-gradient(
     to bottom,
     transparent,
-    transparent 3px,
-    rgba(255, 255, 255, 0.018) 3px,
-    rgba(255, 255, 255, 0.018) 4px
+    transparent 4px,
+    rgba(255, 255, 255, 0.006) 4px,
+    rgba(255, 255, 255, 0.006) 5px
   );
 }
 
-/* Chrome photo frame for avatars / hero images */
+/* Soft pearl frame for avatars */
 .y2k-photo-frame {
   position: relative;
   padding: 4px;
+  border-radius: 0.125rem;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.35) 0%,
-    rgba(0, 217, 255, 0.45) 35%,
-    rgba(255, 46, 196, 0.35) 70%,
-    rgba(255, 255, 255, 0.25) 100%
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(152, 204, 213, 0.5) 38%,
+    rgba(212, 184, 240, 0.45) 72%,
+    rgba(255, 255, 255, 0.4) 100%
   );
   box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.85),
-    0 0 0 2px rgba(0, 217, 255, 0.5),
-    0 0 32px rgba(0, 217, 255, 0.2),
-    0 0 48px rgba(255, 46, 196, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    0 0 0 1px rgba(23, 21, 31, 0.35),
+    0 0 0 2px rgba(152, 204, 213, 0.35),
+    0 12px 36px rgba(23, 21, 31, 0.35),
+    0 0 28px rgba(212, 184, 240, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .y2k-photo-frame::after {
   content: "";
   position: absolute;
   inset: 2px;
-  border: 1px solid rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(23, 21, 31, 0.12);
   pointer-events: none;
+  border-radius: 0.125rem;
 }
 
-/* Outer atmosphere vignette */
+/* Soft vignette */
 .y2k-vignette {
-  box-shadow: inset 0 0 120px 40px rgba(0, 0, 0, 0.55);
+  box-shadow: inset 0 0 140px 60px rgba(23, 21, 31, 0.42);
 }

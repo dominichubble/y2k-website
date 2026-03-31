@@ -1,10 +1,10 @@
-/** Y2K chrome palette — electric cyan, silver chrome, hot magenta */
+/** Softcore Y2K — pastel chrome, seafoam & lavender, easy on the eyes */
 export const COLORS = {
-  primary: '#00d9ff',
-  secondary: '#c8cdd4',
-  accent: '#ff2ec4',
-  black: '#06060a',
-  white: '#f4f8fc',
+  primary: '#98ccd5',
+  secondary: '#e8e4f0',
+  accent: '#d4b8f0',
+  black: '#17151f',
+  white: '#faf8ff',
 } as const;
 
 export const SHADOWS = {

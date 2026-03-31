@@ -55,11 +55,10 @@ export default function WindowLayout({
   };
 
   const windowChromeShadow = `
-    0 0 0 1px rgba(255, 255, 255, 0.12),
-    0 0 0 2px rgba(0, 217, 255, 0.45),
-    0 0 48px rgba(0, 217, 255, 0.18),
-    0 0 80px rgba(255, 46, 196, 0.08),
-    0 24px 64px rgba(0, 0, 0, 0.75),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 0 1px rgba(152, 204, 213, 0.28),
+    0 16px 44px rgba(0, 0, 0, 0.38),
+    0 0 52px rgba(212, 184, 240, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.14)
   `;
 
@@ -74,21 +73,21 @@ export default function WindowLayout({
         className="absolute inset-0"
         style={{
           background: `
-            radial-gradient(ellipse 120% 80% at 50% -20%, rgba(0, 217, 255, 0.12) 0%, transparent 50%),
-            radial-gradient(ellipse 80% 60% at 100% 50%, rgba(255, 46, 196, 0.08) 0%, transparent 45%),
-            radial-gradient(ellipse 70% 50% at 0% 80%, rgba(0, 217, 255, 0.06) 0%, transparent 40%),
-            linear-gradient(165deg, #0a0418 0%, #12081f 35%, #050a12 70%, #020408 100%)
+            radial-gradient(ellipse 120% 80% at 50% -18%, rgba(152, 204, 213, 0.14) 0%, transparent 52%),
+            radial-gradient(ellipse 80% 58% at 100% 42%, rgba(212, 184, 240, 0.11) 0%, transparent 48%),
+            radial-gradient(ellipse 70% 50% at 0% 78%, rgba(152, 204, 213, 0.07) 0%, transparent 42%),
+            linear-gradient(165deg, #1a1622 0%, #221c2e 34%, #16141e 68%, #121018 100%)
           `,
         }}
       />
 
       {/* Perspective-style grid */}
       <div
-        className="absolute inset-0 opacity-[0.22]"
+        className="absolute inset-0 opacity-[0.09]"
         style={{
           backgroundImage: `
-            linear-gradient(${COLORS.primary}35 1px, transparent 1px),
-            linear-gradient(90deg, ${COLORS.primary}22 1px, transparent 1px)
+            linear-gradient(${COLORS.primary}28 1px, transparent 1px),
+            linear-gradient(90deg, ${COLORS.primary}18 1px, transparent 1px)
           `,
           backgroundSize: '56px 56px',
           animation: 'gridFloat 24s linear infinite',
@@ -101,15 +100,15 @@ export default function WindowLayout({
 
       {/* Horizon glow */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-1/3 pointer-events-none opacity-40"
+        className="absolute bottom-0 left-0 right-0 h-1/3 pointer-events-none opacity-30"
         style={{
           background:
-            'linear-gradient(to top, rgba(0, 217, 255, 0.15) 0%, transparent 70%)',
+            'linear-gradient(to top, rgba(152, 204, 213, 0.1) 0%, transparent 72%)',
         }}
       />
 
       {/* Starfield */}
-      <div className="absolute inset-0 opacity-40 pointer-events-none">
+      <div className="absolute inset-0 opacity-[0.26] pointer-events-none">
         {ATMOSPHERE_STARS.map((star, i) => {
           const glow = i % 4 === 0 ? COLORS.accent : COLORS.primary;
           return (
@@ -120,7 +119,7 @@ export default function WindowLayout({
                 width: star.size,
                 height: star.size,
                 backgroundColor: glow,
-                boxShadow: `0 0 ${star.size + 3}px ${glow}`,
+                boxShadow: `0 0 ${Math.min(star.size + 2, 6)}px ${glow}`,
                 left: star.left,
                 top: star.top,
                 animation: `float ${star.duration}s ease-in-out infinite`,
@@ -133,16 +132,16 @@ export default function WindowLayout({
 
       {/* Soft orbs */}
       <div
-        className="absolute top-[12%] left-[8%] w-72 h-72 rounded-full opacity-20 blur-3xl pointer-events-none"
+        className="absolute top-[12%] left-[8%] w-72 h-72 rounded-full opacity-[0.11] blur-3xl pointer-events-none"
         style={{
-          background: `radial-gradient(circle, ${COLORS.primary} 0%, transparent 70%)`,
+          background: `radial-gradient(circle, ${COLORS.primary} 0%, transparent 72%)`,
         }}
       />
       <div
-        className="absolute bottom-[15%] right-[6%] w-96 h-96 rounded-full opacity-15 blur-3xl animate-pulse pointer-events-none"
+        className="absolute bottom-[15%] right-[6%] w-96 h-96 rounded-full opacity-[0.08] blur-3xl animate-pulse pointer-events-none"
         style={{
-          background: `radial-gradient(circle, ${COLORS.accent} 0%, transparent 70%)`,
-          animationDuration: '10s',
+          background: `radial-gradient(circle, ${COLORS.accent} 0%, transparent 72%)`,
+          animationDuration: '14s',
         }}
       />
 
@@ -154,7 +153,7 @@ export default function WindowLayout({
             : 'w-full max-w-[95vw] sm:max-w-3xl lg:max-w-4xl h-[95vh] sm:h-[90vh]'
         }`}
         style={{
-          background: `linear-gradient(180deg, #161c28 0%, #0e1218 45%, #0a0d12 100%)`,
+          background: `linear-gradient(180deg, #242030 0%, #1c1a26 48%, #18161f 100%)`,
           borderColor: COLORS.primary,
           borderWidth: 2,
           borderStyle: 'solid',

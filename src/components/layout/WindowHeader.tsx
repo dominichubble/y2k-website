@@ -18,19 +18,19 @@ export default function WindowHeader({
     <div
       className="border-b-2 px-3 sm:px-6 py-2 sm:py-3 flex items-center justify-between rounded-t-lg font-y2k-mono relative overflow-hidden"
       style={{
-        background: `linear-gradient(180deg, #1a2332 0%, #0f141c 55%, #0c1016 100%)`,
+        background: `linear-gradient(180deg, #2a2635 0%, #211f2c 52%, #1c1a24 100%)`,
         borderColor: COLORS.primary,
-        boxShadow: `inset 0 1px 0 rgba(255, 255, 255, 0.1)`,
+        boxShadow: `inset 0 1px 0 rgba(255, 255, 255, 0.12)`,
       }}
     >
       <div
-        className="absolute inset-x-0 top-0 h-px opacity-60 pointer-events-none"
+        className="absolute inset-x-0 top-0 h-px opacity-45 pointer-events-none"
         style={{
           background: `linear-gradient(90deg, transparent, ${COLORS.primary}, ${COLORS.accent}, transparent)`,
         }}
       />
       <div className="flex items-center gap-2 sm:gap-3 relative z-10">
-        <h1 className="text-xs sm:text-base md:text-lg font-bold tracking-[0.2em] uppercase">
+        <h1 className="text-xs sm:text-base md:text-lg font-semibold tracking-[0.18em] uppercase">
           <span
             className="bg-clip-text text-transparent"
             style={{

@@ -23,9 +23,9 @@ export default function WindowNav({ currentSection, onSectionChange }: WindowNav
       className="border-b px-4 py-4 relative font-y2k-mono"
       style={{
         borderBottomWidth: '2px',
-        borderBottomColor: COLORS.primary,
-        background: `linear-gradient(180deg, #141a24 0%, #10151c 100%)`,
-        boxShadow: `inset 0 1px 0 rgba(255, 255, 255, 0.04)`,
+        borderBottomColor: `${COLORS.primary}55`,
+        background: `linear-gradient(180deg, #252030 0%, #1e1c28 100%)`,
+        boxShadow: `inset 0 1px 0 rgba(255, 255, 255, 0.06)`,
       }}
     >
       {/* Subtle pattern background */}
@@ -69,10 +69,14 @@ export default function WindowNav({ currentSection, onSectionChange }: WindowNav
                   style={{
                     clipPath:
                       'polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)',
-                    backgroundColor: isActive ? COLORS.primary : 'transparent',
-                    border: `1px solid ${isActive ? COLORS.primary : `${COLORS.primary}40`}`,
+                    background: isActive
+                      ? `linear-gradient(180deg, rgba(250,248,255,0.9) 0%, rgba(232,236,240,0.75) 100%)`
+                      : 'transparent',
+                    border: `1px solid ${
+                      isActive ? `${COLORS.primary}50` : `${COLORS.primary}35`
+                    }`,
                     boxShadow: isActive
-                      ? `0 0 16px ${COLORS.primary}99, 0 0 32px ${COLORS.primary}44, inset 0 1px 0 rgba(255,255,255,0.35)`
+                      ? `0 2px 14px rgba(23, 21, 31, 0.12), inset 0 1px 0 rgba(255,255,255,0.65)`
                       : undefined,
                   }}
                 />
@@ -84,21 +88,25 @@ export default function WindowNav({ currentSection, onSectionChange }: WindowNav
                   }`}
                   style={{
                     clipPath: 'polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)',
-                    backgroundColor: `${COLORS.primary}15`,
-                    border: `1px solid ${COLORS.primary}80`,
+                    backgroundColor: `${COLORS.primary}12`,
+                    border: `1px solid ${COLORS.primary}45`,
                   }}
                 />
 
                 {/* Content */}
-                <span style={{ color: isActive ? '#000' : COLORS.primary }}>
+                <span
+                  style={{
+                    color: isActive ? '#2d323c' : COLORS.primary,
+                  }}
+                >
                   <Icon 
                     size={16} 
                     className="relative z-10 transition-all duration-200"
                   />
                 </span>
-                <span 
-                  className={`relative z-10 hidden sm:inline uppercase tracking-widest transition-all duration-200`}
-                  style={{ color: isActive ? '#000' : COLORS.primary }}
+                <span
+                  className={`relative z-10 hidden sm:inline uppercase tracking-wider transition-all duration-200`}
+                  style={{ color: isActive ? '#2d323c' : COLORS.primary }}
                 >
                   {item.label}
                 </span>
@@ -107,18 +115,18 @@ export default function WindowNav({ currentSection, onSectionChange }: WindowNav
                 {isActive && (
                   <>
                     <motion.div
-                      className="absolute top-0 left-0 w-2 h-2"
+                      className="absolute top-0 left-0 w-1.5 h-1.5 opacity-70"
                       style={{ backgroundColor: COLORS.accent }}
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      transition={{ delay: 0.2 }}
+                      transition={{ delay: 0.15 }}
                     />
                     <motion.div
-                      className="absolute bottom-0 right-0 w-2 h-2"
+                      className="absolute bottom-0 right-0 w-1.5 h-1.5 opacity-70"
                       style={{ backgroundColor: COLORS.accent }}
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      transition={{ delay: 0.2 }}
+                      transition={{ delay: 0.15 }}
                     />
                   </>
                 )}
