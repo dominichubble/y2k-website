@@ -19,12 +19,13 @@ const iconMap: Record<Section, React.ComponentType<{ size?: number; className?: 
 
 export default function WindowNav({ currentSection, onSectionChange }: WindowNavProps) {
   return (
-    <nav 
-      className="border-b px-4 py-4 relative"
-      style={{ 
+    <nav
+      className="border-b px-4 py-4 relative font-y2k-mono"
+      style={{
         borderBottomWidth: '2px',
         borderBottomColor: COLORS.primary,
-        backgroundColor: '#1e293b'
+        background: `linear-gradient(180deg, #141a24 0%, #10151c 100%)`,
+        boxShadow: `inset 0 1px 0 rgba(255, 255, 255, 0.04)`,
       }}
     >
       {/* Subtle pattern background */}
@@ -63,12 +64,16 @@ export default function WindowNav({ currentSection, onSectionChange }: WindowNav
                 }}
               >
                 {/* Background layer */}
-                <div 
+                <div
                   className="absolute inset-0 transition-all duration-200"
                   style={{
-                    clipPath: 'polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)',
+                    clipPath:
+                      'polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px)',
                     backgroundColor: isActive ? COLORS.primary : 'transparent',
                     border: `1px solid ${isActive ? COLORS.primary : `${COLORS.primary}40`}`,
+                    boxShadow: isActive
+                      ? `0 0 16px ${COLORS.primary}99, 0 0 32px ${COLORS.primary}44, inset 0 1px 0 rgba(255,255,255,0.35)`
+                      : undefined,
                   }}
                 />
 

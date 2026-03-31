@@ -15,26 +15,40 @@ export default function WindowHeader({
   isMaximized = false
 }: WindowHeaderProps) {
   return (
-    <div 
-      className="border-b-2 px-3 sm:px-6 py-2 sm:py-3 flex items-center justify-between rounded-t-lg"
-      style={{ 
-        backgroundColor: '#0f172a',
-        borderColor: COLORS.primary
+    <div
+      className="border-b-2 px-3 sm:px-6 py-2 sm:py-3 flex items-center justify-between rounded-t-lg font-y2k-mono relative overflow-hidden"
+      style={{
+        background: `linear-gradient(180deg, #1a2332 0%, #0f141c 55%, #0c1016 100%)`,
+        borderColor: COLORS.primary,
+        boxShadow: `inset 0 1px 0 rgba(255, 255, 255, 0.1)`,
       }}
     >
-      <div className="flex items-center gap-2 sm:gap-3">
-        <h1 className="text-xs sm:text-base md:text-lg font-black tracking-wider">
-          <span 
-            className="bg-clip-text text-transparent" 
-            style={{ backgroundImage: `linear-gradient(90deg, ${COLORS.primary}, ${COLORS.secondary})` }}
+      <div
+        className="absolute inset-x-0 top-0 h-px opacity-60 pointer-events-none"
+        style={{
+          background: `linear-gradient(90deg, transparent, ${COLORS.primary}, ${COLORS.accent}, transparent)`,
+        }}
+      />
+      <div className="flex items-center gap-2 sm:gap-3 relative z-10">
+        <h1 className="text-xs sm:text-base md:text-lg font-bold tracking-[0.2em] uppercase">
+          <span
+            className="bg-clip-text text-transparent"
+            style={{
+              backgroundImage: `linear-gradient(105deg, ${COLORS.secondary} 0%, ${COLORS.primary} 40%, ${COLORS.white} 55%, ${COLORS.primary} 70%, ${COLORS.secondary} 100%)`,
+            }}
           >
             {title}
           </span>
         </h1>
-        <span className="text-[#00ffff] text-xs animate-pulse hidden md:inline">✩｡⋆</span>
+        <span
+          className="text-xs animate-pulse hidden md:inline"
+          style={{ color: COLORS.accent }}
+        >
+          ✩｡⋆
+        </span>
       </div>
       
-      <div className="flex items-center gap-2 sm:gap-4">
+      <div className="flex items-center gap-2 sm:gap-4 relative z-10">
         {/* Window Controls */}
         <div className="flex items-center gap-1 sm:gap-2">
           {onMaximize && (

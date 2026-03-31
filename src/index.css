@@ -1,14 +1,26 @@
 @import "tailwindcss";
 
-/* Classy Y2K Color Palette */
+/* Y2K tokens (aligned with src/constants/theme.ts) */
 :root {
   --y2k-cyan: #00d9ff;
+  --y2k-magenta: #ff2ec4;
+  --y2k-silver: #c8cdd4;
   --y2k-gray: #808080;
-  --y2k-white: #ffffff;
-  --y2k-black: #000000;
-  --y2k-chrome: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
-  --y2k-metal: linear-gradient(to right, #808080 0%, #000000 100%);
-  --y2k-hologram: linear-gradient(45deg, #ffffff, #00d9ff, #808080);
+  --y2k-white: #f4f8fc;
+  --y2k-black: #06060a;
+  --y2k-chrome: linear-gradient(135deg, #ffffff 0%, #c8cdd4 45%, #8899aa 100%);
+  --y2k-metal: linear-gradient(to right, #606878 0%, #1a1e28 100%);
+  --y2k-hologram: linear-gradient(45deg, #ffffff, #00d9ff, #ff2ec4, #ffffff);
+  --font-y2k-display: "Orbitron", ui-sans-serif, system-ui, sans-serif;
+  --font-y2k-mono: "Share Tech Mono", ui-monospace, monospace;
+}
+
+.font-y2k-display {
+  font-family: var(--font-y2k-display);
+}
+
+.font-y2k-mono {
+  font-family: var(--font-y2k-mono);
 }
 
 /* Y2K Custom Animations */
@@ -267,19 +279,24 @@ img:not([src]) {
 
 /* Y2K Utility Classes */
 .y2k-chrome-text {
+  font-family: var(--font-y2k-display);
+  font-weight: 800;
+  letter-spacing: 0.06em;
   background: linear-gradient(
     90deg,
-    #808080 0%,
-    #ffffff 25%,
-    #808080 50%,
-    #ffffff 75%,
-    #808080 100%
+    #6a7380 0%,
+    #e8eef5 22%,
+    #ffffff 40%,
+    #8899aa 58%,
+    #ffffff 78%,
+    #5a6570 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: chrome-shine 3s linear infinite;
+  animation: chrome-shine 4s linear infinite;
+  filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.25));
 }
 
 .y2k-hologram {
@@ -358,4 +375,48 @@ img:not([src]) {
     ),
     linear-gradient(90deg, rgba(128, 128, 128, 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
+}
+
+/* Subtle CRT-style scanlines (overlay on window content) */
+.y2k-scanlines {
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 3px,
+    rgba(255, 255, 255, 0.018) 3px,
+    rgba(255, 255, 255, 0.018) 4px
+  );
+}
+
+/* Chrome photo frame for avatars / hero images */
+.y2k-photo-frame {
+  position: relative;
+  padding: 4px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(0, 217, 255, 0.45) 35%,
+    rgba(255, 46, 196, 0.35) 70%,
+    rgba(255, 255, 255, 0.25) 100%
+  );
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.85),
+    0 0 0 2px rgba(0, 217, 255, 0.5),
+    0 0 32px rgba(0, 217, 255, 0.2),
+    0 0 48px rgba(255, 46, 196, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.y2k-photo-frame::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+/* Outer atmosphere vignette */
+.y2k-vignette {
+  box-shadow: inset 0 0 120px 40px rgba(0, 0, 0, 0.55);
 }

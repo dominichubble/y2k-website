@@ -32,13 +32,12 @@ export default function HomePage() {
             transition={{ duration: 0.8, type: "spring" }}
             className="mb-4 sm:mb-6 inline-block"
           >
-            <div className="relative">
+            <div className="y2k-photo-frame inline-block rounded-sm">
               <img
                 src={personalInfo.profileImage}
                 alt={personalInfo.name}
                 loading="eager"
-                className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 border-2 sm:border-4 object-cover mx-auto rounded-sm"
-                style={{ borderColor: COLORS.primary }}
+                className="relative z-[1] block w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 object-cover mx-auto rounded-sm bg-black/40"
                 onError={(e) => {
                   console.error('Image failed to load:', personalInfo.profileImage);
                   (e.target as HTMLImageElement).style.display = 'none';
