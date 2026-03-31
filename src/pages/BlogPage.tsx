@@ -127,8 +127,8 @@ export default function BlogPage() {
 
   if (selectedPost) {
     return (
-      <div className="h-full overflow-y-auto">
-        <div className="p-6 md:p-12 max-w-4xl mx-auto">
+      <div className="h-full min-h-0 overflow-y-auto overflow-x-hidden">
+        <div className="mx-auto max-w-4xl px-3 py-5 sm:px-6 sm:py-8 md:px-10 md:py-12">
           {/* Back Button */}
           <motion.button
             initial={{ opacity: 0, x: -20 }}
@@ -145,7 +145,7 @@ export default function BlogPage() {
           <motion.article
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="prose prose-invert prose-lg max-w-none"
+            className="prose prose-invert max-w-none prose-sm sm:prose-base md:prose-lg"
           >
             <div className="mb-8">
               <span 
@@ -282,28 +282,27 @@ export default function BlogPage() {
   }
 
   return (
-    <div className="h-full overflow-y-auto">
-      <div className="p-6 md:p-12">
+    <div className="h-full min-h-0 overflow-y-auto overflow-x-hidden">
+      <div className="px-3 py-5 sm:px-6 sm:py-8 md:px-10 md:py-12">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-8"
+          className="mb-6 text-center sm:mb-8"
         >
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: "spring", stiffness: 200 }}
-            className="inline-block mb-4"
+            className="mb-3 inline-block sm:mb-4"
           >
-            <BookOpen 
-              size={48} 
+            <BookOpen
+              className="h-9 w-9 animate-pulse sm:h-11 sm:w-11 md:h-12 md:w-12"
               style={{ color: COLORS.primary }}
-              className="animate-pulse"
             />
           </motion.div>
 
-          <h1 className="text-4xl md:text-6xl font-black y2k-chrome-text mb-4">
+          <h1 className="mb-3 text-2xl font-black y2k-chrome-text sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
             BLOG & ARTICLES
           </h1>
           <p className="text-gray-400 font-mono text-sm md:text-base">

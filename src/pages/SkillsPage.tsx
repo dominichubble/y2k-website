@@ -118,8 +118,8 @@ export default function SkillsPage() {
   );
 
   return (
-    <div className="h-full overflow-y-auto">
-      <div className="min-h-full p-6 md:p-8 lg:p-12">
+    <div className="h-full min-h-0 overflow-y-auto overflow-x-hidden">
+      <div className="min-h-0 px-3 py-5 sm:px-5 sm:py-6 md:px-8 md:py-8 lg:px-12 lg:py-12">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -132,14 +132,13 @@ export default function SkillsPage() {
             transition={{ type: "spring", stiffness: 200 }}
             className="inline-block mb-4"
           >
-            <Sparkles 
-              size={48} 
+            <Sparkles
+              className="h-9 w-9 animate-pulse sm:h-10 sm:w-10 md:h-12 md:w-12"
               style={{ color: COLORS.primary }}
-              className="animate-pulse"
             />
           </motion.div>
           
-          <h1 className="text-4xl md:text-6xl font-black y2k-chrome-text mb-4">
+          <h1 className="mb-3 text-2xl font-black y2k-chrome-text sm:text-3xl md:mb-4 md:text-4xl lg:text-5xl xl:text-6xl">
             SKILLS & EXPERTISE
           </h1>
           <p className="text-gray-400 font-mono text-sm md:text-base">

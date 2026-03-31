@@ -26,8 +26,8 @@ export default function AboutPage() {
   };
 
   return (
-    <div className="h-full overflow-y-auto">
-      <div className="p-4 sm:p-6 md:p-12 max-w-5xl mx-auto">
+    <div className="h-full min-h-0 overflow-y-auto overflow-x-hidden">
+      <div className="mx-auto max-w-5xl px-3 py-5 sm:px-5 sm:py-6 md:px-8 md:py-10 lg:px-12 lg:py-12">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}

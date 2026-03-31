@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Dominic Hubble">
+  <defs>
+    <linearGradient id="bg" x1="6" y1="6" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1a1d26"/>
+      <stop offset="1" stop-color="#0e0f14"/>
+    </linearGradient>
+    <linearGradient id="starMain" x1="16" y1="5" x2="16" y2="27" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#dce4ec"/>
+      <stop offset="0.4" stop-color="#9aadbf"/>
+      <stop offset="1" stop-color="#6a7d90"/>
+    </linearGradient>
+    <linearGradient id="starCore" x1="16" y1="12" x2="16" y2="20" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#eef2ff"/>
+      <stop offset="1" stop-color="#b8c9eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="9" fill="url(#bg)"/>
+  <rect x="0.5" y="0.5" width="31" height="31" rx="8.5" fill="none" stroke="#9aadbf" stroke-opacity="0.28" stroke-width="1"/>
+  <!-- Soft 8-point halo -->
+  <path
+    fill="#9aadbf"
+    fill-opacity="0.22"
+    d="M16 4.5l1.4 5.1 4.9-2-2 4.9 5.1 1.4-5.1 1.4 2 4.9-4.9-2L16 27.5l-1.4-5.1-4.9 2 2-4.9-5.1-1.4 5.1-1.4-2-4.9 4.9 2L16 4.5z"
+  />
+  <!-- Main 4-point sparkle (unique silhouette) -->
+  <path
+    fill="url(#starMain)"
+    d="M16 5.5L18.4 14L26.5 16L18.4 18L16 26.5L13.6 18L5.5 16L13.6 14L16 5.5z"
+  />
+  <!-- Inner diamond -->
+  <path fill="url(#starCore)" d="M16 11.5l1.4 4.5 4.5 1.4-4.5 1.4L16 23.3l-1.4-4.5-4.5-1.4 4.5-1.4L16 11.5z"/>
+  <circle cx="14.5" cy="13" r="1" fill="#f7f5f2" fill-opacity="0.5"/>
+</svg>

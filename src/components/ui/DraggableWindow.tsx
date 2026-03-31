@@ -31,18 +31,20 @@ export default function DraggableWindow({
   const [isMaximized, setIsMaximized] = useState(false);
   const [preMaximizeState, setPreMaximizeState] = useState({ x: initialX, y: initialY, width, height });
   const [isMobile, setIsMobile] = useState(false);
+  const [viewport, setViewport] = useState(() => ({
+    w: typeof window !== 'undefined' ? window.innerWidth : 1024,
+    h: typeof window !== 'undefined' ? window.innerHeight : 768,
+  }));
   const windowRef = useRef<HTMLDivElement>(null);
 
-  // Detect mobile view
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768); // md breakpoint
+    const sync = () => {
+      setIsMobile(window.innerWidth < 768);
+      setViewport({ w: window.innerWidth, h: window.innerHeight });
     };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
+    sync();
+    window.addEventListener('resize', sync);
+    return () => window.removeEventListener('resize', sync);
   }, []);
 
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -102,15 +104,19 @@ export default function DraggableWindow({
     };
   }, [isDragging, dragStart]);
 
+  const edge = 12;
+  const maxFloatingW = Math.max(280, Math.min(width, viewport.w - edge * 2));
+  const maxFloatingH = Math.max(240, Math.min(height, viewport.h - edge * 2));
+
   return (
     <div
       ref={windowRef}
-      className="fixed bg-black/95 border-2 sm:border-4 overflow-hidden select-none"
+      className="fixed bg-black/95 border-2 sm:border-4 overflow-hidden select-none flex flex-col max-w-[100dvw] max-h-[100dvh]"
       style={{
         left: isMobile ? '0' : `${position.x}px`,
         top: isMobile ? '0' : `${position.y}px`,
-        width: isMobile || isMaximized ? '100vw' : `${Math.min(width, window.innerWidth - 40)}px`,
-        height: isMinimized ? 'auto' : isMobile || isMaximized ? '100vh' : `${Math.min(height, window.innerHeight - 40)}px`,
+        width: isMobile || isMaximized ? '100dvw' : `${maxFloatingW}px`,
+        height: isMinimized ? 'auto' : isMobile || isMaximized ? '100dvh' : `${maxFloatingH}px`,
         borderColor: titleColor,
         boxShadow: `0 0 20px ${titleColor}40`,
         zIndex: 9999
@@ -175,10 +181,7 @@ export default function DraggableWindow({
 
       {/* Content */}
       {!isMinimized && (
-        <div 
-          className="overflow-y-auto overflow-x-hidden bg-black" 
-          style={{ height: isMobile || isMaximized ? 'calc(100vh - 56px)' : `${height - 56}px` }}
-        >
+        <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden bg-black">
           {children}
         </div>
       )}

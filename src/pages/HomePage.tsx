@@ -20,24 +20,24 @@ export default function HomePage() {
   };
 
   return (
-    <div className="h-full overflow-y-auto">
-      <div className="w-full p-4 sm:p-6 md:p-12 max-w-3xl mx-auto min-h-full flex items-center">
+    <div className="h-full min-h-0 overflow-y-auto overflow-x-hidden">
+      <div className="mx-auto flex w-full max-w-3xl flex-col items-center px-3 py-6 sm:px-5 sm:py-8 md:px-8 md:py-10 lg:px-10 lg:py-12">
         {/* Hero Section */}
-        <div className="flex items-center justify-center relative w-full py-8">
-        <div className="relative z-10 text-center w-full">
+        <div className="relative w-full py-4 sm:py-6 md:py-8">
+        <div className="relative z-10 w-full text-center">
           {/* Profile Image */}
           <motion.div
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ duration: 0.8, type: "spring" }}
-            className="mb-4 sm:mb-6 inline-block"
+            className="mb-4 inline-block sm:mb-6 md:mb-8"
           >
             <div className="y2k-photo-frame inline-block rounded-sm">
               <img
                 src={personalInfo.profileImage}
                 alt={personalInfo.name}
                 loading="eager"
-                className="relative z-[1] block w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 object-cover mx-auto rounded-sm bg-black/40"
+                className="relative z-[1] mx-auto block h-[min(11rem,38vmin)] w-[min(11rem,38vmin)] rounded-sm bg-black/40 object-cover sm:h-[min(13rem,40vmin)] sm:w-[min(13rem,40vmin)] md:h-60 md:w-60 lg:h-64 lg:w-64 xl:h-72 xl:w-72"
                 onError={(e) => {
                   console.error('Image failed to load:', personalInfo.profileImage);
                   (e.target as HTMLImageElement).style.display = 'none';
@@ -51,7 +51,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-3 sm:mb-4 y2k-chrome-text leading-tight"
+            className="mb-2 text-xl font-black leading-tight y2k-chrome-text sm:mb-3 sm:text-2xl md:mb-4 md:text-3xl lg:text-4xl xl:text-5xl"
           >
             {personalInfo.name.toUpperCase()}
           </motion.h1>
@@ -63,8 +63,8 @@ export default function HomePage() {
             transition={{ delay: 0.5, duration: 0.6 }}
             className="mb-4 sm:mb-6"
           >
-            <h2 
-              className="text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-2 px-2 leading-tight"
+            <h2
+              className="mb-2 px-2 text-xs font-bold leading-tight sm:text-sm md:text-base lg:text-lg xl:text-xl"
               style={{ color: COLORS.primary }}
             >
               {personalInfo.title}

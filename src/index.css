@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
-/* Softcore Y2K tokens (aligned with src/constants/theme.ts) */
+/* Steel & pearl Y2K tokens (aligned with src/constants/theme.ts) */
 :root {
-  --y2k-cyan: #98ccd5;
-  --y2k-magenta: #d4b8f0;
-  --y2k-silver: #e8e4f0;
-  --y2k-gray: #9ca3af;
-  --y2k-white: #faf8ff;
-  --y2k-black: #17151f;
-  --y2k-chrome: linear-gradient(135deg, #ffffff 0%, #e8e4f0 50%, #c5d5d8 100%);
-  --y2k-metal: linear-gradient(to right, #8a9098 0%, #2a2832 100%);
-  --y2k-hologram: linear-gradient(45deg, #faf8ff, #98ccd5, #d4b8f0, #faf8ff);
+  --y2k-cyan: #9aadbf;
+  --y2k-magenta: #b8c9eb;
+  --y2k-silver: #ece8e4;
+  --y2k-gray: #8b9199;
+  --y2k-white: #f7f5f2;
+  --y2k-black: #121318;
+  --y2k-chrome: linear-gradient(135deg, #ffffff 0%, #ece8e4 48%, #b8c0cc 100%);
+  --y2k-metal: linear-gradient(to right, #7a8494 0%, #1e2128 100%);
+  --y2k-hologram: linear-gradient(45deg, #f7f5f2, #9aadbf, #b8c9eb, #f7f5f2);
   --font-y2k-display: "Sora", ui-sans-serif, system-ui, sans-serif;
   --font-y2k-mono: "DM Sans", ui-sans-serif, system-ui, sans-serif;
 }
@@ -126,11 +126,11 @@
 @keyframes pulse-glow {
   0%,
   100% {
-    box-shadow: 0 0 5px rgba(0, 217, 255, 0.3);
+    box-shadow: 0 0 5px rgba(154, 173, 191, 0.28);
   }
   50% {
-    box-shadow: 0 0 20px rgba(0, 217, 255, 0.5),
-      0 0 30px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 18px rgba(154, 173, 191, 0.4),
+      0 0 28px rgba(247, 245, 242, 0.2);
   }
 }
 
@@ -208,7 +208,7 @@
   animation: bounce-subtle 2s ease-in-out infinite;
 }
 
-/* Prevent scrolling on main document */
+/* Prevent scrolling on main document; dvh handles mobile browser chrome */
 html,
 body {
   overflow: hidden;
@@ -219,7 +219,41 @@ body {
 
 #root {
   height: 100%;
+  min-height: 100dvh;
   width: 100%;
+}
+
+/* Shell sizing: small laptops + phones (used by WindowLayout) */
+.y2k-window-shell {
+  width: min(100%, calc(100vw - 0.75rem));
+  height: min(calc(100dvh - 0.75rem), 56rem);
+  max-height: calc(100dvh - 0.75rem);
+}
+
+@media (min-width: 640px) {
+  .y2k-window-shell {
+    width: min(100%, calc(100vw - 1.25rem));
+    height: min(calc(100dvh - 1.25rem), 56rem);
+    max-height: calc(100dvh - 1.25rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .y2k-window-shell {
+    width: min(100%, 56rem);
+  }
+}
+
+@media (min-width: 1280px) {
+  .y2k-window-shell {
+    width: min(100%, 64rem);
+  }
+}
+
+@media (min-width: 1536px) {
+  .y2k-window-shell {
+    width: min(100%, 72rem);
+  }
 }
 
 /* Improved text wrapping and overflow handling */
@@ -241,17 +275,17 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #17151f;
-  border-left: 1px solid rgba(232, 228, 240, 0.12);
+  background: #121318;
+  border-left: 1px solid rgba(236, 232, 228, 0.1);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #e8e4f0, #a8b8c0);
+  background: linear-gradient(180deg, #ece8e4, #8f9dad);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #faf8ff, #98ccd5);
-  box-shadow: 0 0 8px rgba(152, 204, 213, 0.25);
+  background: linear-gradient(180deg, #f7f5f2, #9aadbf);
+  box-shadow: 0 0 8px rgba(154, 173, 191, 0.22);
 }
 
 /* Loading animation for images */
@@ -284,19 +318,19 @@ img:not([src]) {
   letter-spacing: 0.04em;
   background: linear-gradient(
     90deg,
-    #a8aeb8 0%,
-    #f5f2fa 28%,
-    #ffffff 48%,
-    #c8cfd8 62%,
-    #faf8ff 82%,
-    #9aa2ac 100%
+    #7a8490 0%,
+    #e2dee8 26%,
+    #ffffff 46%,
+    #aeb8c4 58%,
+    #f7f5f2 78%,
+    #6d7580 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: chrome-shine 8s ease-in-out infinite;
-  filter: drop-shadow(0 1px 12px rgba(152, 204, 213, 0.2));
+  filter: drop-shadow(0 1px 14px rgba(154, 173, 191, 0.18));
 }
 
 .y2k-hologram {
@@ -390,36 +424,36 @@ img:not([src]) {
   );
 }
 
-/* Soft pearl frame for avatars */
+/* Pearl + steel frame — echoes elevator metal + shirt white */
 .y2k-photo-frame {
   position: relative;
   padding: 4px;
   border-radius: 0.125rem;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.55) 0%,
-    rgba(152, 204, 213, 0.5) 38%,
-    rgba(212, 184, 240, 0.45) 72%,
-    rgba(255, 255, 255, 0.4) 100%
+    rgba(255, 255, 255, 0.65) 0%,
+    rgba(154, 173, 191, 0.42) 36%,
+    rgba(184, 201, 235, 0.38) 68%,
+    rgba(236, 232, 228, 0.5) 100%
   );
   box-shadow:
-    0 0 0 1px rgba(23, 21, 31, 0.35),
-    0 0 0 2px rgba(152, 204, 213, 0.35),
-    0 12px 36px rgba(23, 21, 31, 0.35),
-    0 0 28px rgba(212, 184, 240, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    0 0 0 1px rgba(18, 19, 24, 0.45),
+    0 0 0 2px rgba(154, 173, 191, 0.32),
+    0 14px 40px rgba(18, 19, 24, 0.4),
+    0 0 32px rgba(184, 201, 235, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
 .y2k-photo-frame::after {
   content: "";
   position: absolute;
   inset: 2px;
-  border: 1px solid rgba(23, 21, 31, 0.12);
+  border: 1px solid rgba(18, 19, 24, 0.14);
   pointer-events: none;
   border-radius: 0.125rem;
 }
 
 /* Soft vignette */
 .y2k-vignette {
-  box-shadow: inset 0 0 140px 60px rgba(23, 21, 31, 0.42);
+  box-shadow: inset 0 0 140px 60px rgba(18, 19, 24, 0.48);
 }

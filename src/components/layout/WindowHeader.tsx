@@ -16,9 +16,9 @@ export default function WindowHeader({
 }: WindowHeaderProps) {
   return (
     <div
-      className="border-b-2 px-3 sm:px-6 py-2 sm:py-3 flex items-center justify-between rounded-t-lg font-y2k-mono relative overflow-hidden"
+      className="border-b-2 px-2.5 sm:px-4 md:px-6 py-1.5 sm:py-2.5 md:py-3 flex items-center justify-between gap-2 rounded-t-lg font-y2k-mono relative overflow-hidden shrink-0 min-w-0"
       style={{
-        background: `linear-gradient(180deg, #2a2635 0%, #211f2c 52%, #1c1a24 100%)`,
+        background: `linear-gradient(180deg, #2a2c32 0%, #22242a 52%, #1d1f24 100%)`,
         borderColor: COLORS.primary,
         boxShadow: `inset 0 1px 0 rgba(255, 255, 255, 0.12)`,
       }}
@@ -29,8 +29,8 @@ export default function WindowHeader({
           background: `linear-gradient(90deg, transparent, ${COLORS.primary}, ${COLORS.accent}, transparent)`,
         }}
       />
-      <div className="flex items-center gap-2 sm:gap-3 relative z-10">
-        <h1 className="text-xs sm:text-base md:text-lg font-semibold tracking-[0.18em] uppercase">
+      <div className="flex min-w-0 flex-1 items-center gap-2 sm:gap-3 relative z-10">
+        <h1 className="min-w-0 truncate text-[10px] sm:text-xs md:text-base lg:text-lg font-semibold tracking-[0.1em] sm:tracking-[0.14em] md:tracking-[0.18em] uppercase">
           <span
             className="bg-clip-text text-transparent"
             style={{
@@ -48,7 +48,7 @@ export default function WindowHeader({
         </span>
       </div>
       
-      <div className="flex items-center gap-2 sm:gap-4 relative z-10">
+      <div className="flex flex-shrink-0 items-center gap-1.5 sm:gap-3 md:gap-4 relative z-10">
         {/* Window Controls */}
         <div className="flex items-center gap-1 sm:gap-2">
           {onMaximize && (

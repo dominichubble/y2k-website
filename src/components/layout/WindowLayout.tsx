@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { useState } from 'react';
 import type { Section } from '../../constants';
-import { COLORS } from '../../constants';
+import { COLORS, COLORS_RGB } from '../../constants';
 import WindowFooter from './WindowFooter';
 import WindowHeader from './WindowHeader';
 import WindowNav from './WindowNav';
@@ -56,16 +56,20 @@ export default function WindowLayout({
 
   const windowChromeShadow = `
     0 0 0 1px rgba(255, 255, 255, 0.1),
-    0 0 0 1px rgba(152, 204, 213, 0.28),
+    0 0 0 1px rgba(${COLORS_RGB.primary}, 0.28),
     0 16px 44px rgba(0, 0, 0, 0.38),
-    0 0 52px rgba(212, 184, 240, 0.1),
+    0 0 52px rgba(${COLORS_RGB.accent}, 0.11),
     inset 0 1px 0 rgba(255, 255, 255, 0.14)
   `;
 
   return (
     <div
       id="app-root"
-      className="h-screen w-screen overflow-hidden relative flex items-center justify-center p-2 sm:p-4 lg:p-8 y2k-vignette"
+      className={`h-[100dvh] min-h-0 w-full overflow-hidden relative flex p-1.5 sm:p-3 md:p-4 lg:p-6 xl:p-8 y2k-vignette [padding-bottom:max(0.375rem,env(safe-area-inset-bottom))] [padding-left:max(0.375rem,env(safe-area-inset-left))] [padding-right:max(0.375rem,env(safe-area-inset-right))] ${
+        isMaximized
+          ? 'items-stretch justify-stretch'
+          : 'items-center justify-center'
+      }`}
       style={{ backgroundColor: COLORS.black }}
     >
       {/* Deep space gradient */}
@@ -73,10 +77,10 @@ export default function WindowLayout({
         className="absolute inset-0"
         style={{
           background: `
-            radial-gradient(ellipse 120% 80% at 50% -18%, rgba(152, 204, 213, 0.14) 0%, transparent 52%),
-            radial-gradient(ellipse 80% 58% at 100% 42%, rgba(212, 184, 240, 0.11) 0%, transparent 48%),
-            radial-gradient(ellipse 70% 50% at 0% 78%, rgba(152, 204, 213, 0.07) 0%, transparent 42%),
-            linear-gradient(165deg, #1a1622 0%, #221c2e 34%, #16141e 68%, #121018 100%)
+            radial-gradient(ellipse 120% 80% at 50% -18%, rgba(${COLORS_RGB.primary}, 0.13) 0%, transparent 52%),
+            radial-gradient(ellipse 80% 58% at 100% 42%, rgba(${COLORS_RGB.accent}, 0.1) 0%, transparent 48%),
+            radial-gradient(ellipse 70% 50% at 0% 78%, rgba(${COLORS_RGB.primary}, 0.06) 0%, transparent 42%),
+            linear-gradient(165deg, #141517 0%, #1a1c22 34%, #111214 68%, #0d0e11 100%)
           `,
         }}
       />
@@ -102,8 +106,7 @@ export default function WindowLayout({
       <div
         className="absolute bottom-0 left-0 right-0 h-1/3 pointer-events-none opacity-30"
         style={{
-          background:
-            'linear-gradient(to top, rgba(152, 204, 213, 0.1) 0%, transparent 72%)',
+          background: `linear-gradient(to top, rgba(${COLORS_RGB.primary}, 0.09) 0%, transparent 72%)`,
         }}
       />
 
@@ -147,13 +150,13 @@ export default function WindowLayout({
 
       {/* Main window */}
       <div
-        className={`relative flex flex-col rounded-lg overflow-hidden transition-all duration-300 ${
+        className={`relative flex flex-col overflow-hidden transition-all duration-300 min-h-0 ${
           isMaximized
-            ? 'w-full h-full max-w-none'
-            : 'w-full max-w-[95vw] sm:max-w-3xl lg:max-w-4xl h-[95vh] sm:h-[90vh]'
+            ? 'h-full min-h-0 w-full max-w-none flex-1 rounded-none sm:rounded-md md:rounded-lg'
+            : 'y2k-window-shell rounded-md sm:rounded-lg'
         }`}
         style={{
-          background: `linear-gradient(180deg, #242030 0%, #1c1a26 48%, #18161f 100%)`,
+          background: `linear-gradient(180deg, #1f2126 0%, #191b20 48%, #15161b 100%)`,
           borderColor: COLORS.primary,
           borderWidth: 2,
           borderStyle: 'solid',

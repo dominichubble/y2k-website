@@ -20,11 +20,11 @@ const iconMap: Record<Section, React.ComponentType<{ size?: number; className?: 
 export default function WindowNav({ currentSection, onSectionChange }: WindowNavProps) {
   return (
     <nav
-      className="border-b px-4 py-4 relative font-y2k-mono"
+      className="border-b px-2 py-2 sm:px-3 sm:py-3 md:px-4 relative font-y2k-mono shrink-0"
       style={{
         borderBottomWidth: '2px',
         borderBottomColor: `${COLORS.primary}55`,
-        background: `linear-gradient(180deg, #252030 0%, #1e1c28 100%)`,
+        background: `linear-gradient(180deg, #23252b 0%, #1c1e24 100%)`,
         boxShadow: `inset 0 1px 0 rgba(255, 255, 255, 0.06)`,
       }}
     >
@@ -40,7 +40,7 @@ export default function WindowNav({ currentSection, onSectionChange }: WindowNav
         }}
       />
 
-      <div className="flex gap-1 justify-center items-center flex-wrap relative z-10">
+      <div className="flex gap-0.5 sm:gap-1 justify-center items-center flex-wrap relative z-10">
         {NAV_ITEMS.map((item, index) => {
           const isActive = currentSection === item.id;
           const Icon = iconMap[item.id];
@@ -56,7 +56,7 @@ export default function WindowNav({ currentSection, onSectionChange }: WindowNav
               className="relative group"
             >
               <div
-                className={`relative px-2 sm:px-4 md:px-7 py-2 sm:py-2.5 md:py-3 font-mono text-xs md:text-sm transition-all duration-200 flex items-center gap-1.5 sm:gap-2.5 ${
+                className={`relative px-1.5 py-1.5 sm:px-3 sm:py-2 md:px-5 md:py-2.5 lg:px-7 lg:py-3 font-mono text-[10px] sm:text-xs md:text-sm transition-all duration-200 flex items-center gap-1 sm:gap-2 ${
                   isActive ? 'font-bold' : 'font-medium'
                 }`}
                 style={{
@@ -99,10 +99,7 @@ export default function WindowNav({ currentSection, onSectionChange }: WindowNav
                     color: isActive ? '#2d323c' : COLORS.primary,
                   }}
                 >
-                  <Icon 
-                    size={16} 
-                    className="relative z-10 transition-all duration-200"
-                  />
+                  <Icon className="relative z-10 h-3.5 w-3.5 transition-all duration-200 sm:h-4 sm:w-4 md:h-[18px] md:w-[18px]" />
                 </span>
                 <span
                   className={`relative z-10 hidden sm:inline uppercase tracking-wider transition-all duration-200`}

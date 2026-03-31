@@ -5,9 +5,9 @@ export default function WindowFooter() {
     <div
       className="relative border-t sm:border-t-2 flex-shrink-0 rounded-b-lg font-y2k-mono"
       style={{
-        background: `linear-gradient(180deg, #1e1c26 0%, #18161f 100%)`,
+        background: `linear-gradient(180deg, #1a1c22 0%, #15161c 100%)`,
         borderColor: COLORS.primary,
-        boxShadow: `inset 0 1px 0 rgba(152, 204, 213, 0.07)`,
+        boxShadow: `inset 0 1px 0 rgba(154, 173, 191, 0.08)`,
       }}
     >
       <div className="px-2 sm:px-4 py-1.5 sm:py-2 text-center overflow-hidden">

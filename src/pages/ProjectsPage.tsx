@@ -253,7 +253,7 @@ export default function ProjectsPage() {
 
   if (loading) {
     return (
-      <div className="h-full flex items-center justify-center">
+      <div className="flex h-full min-h-0 items-center justify-center overflow-hidden px-4">
         <div className="text-center">
           <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2" style={{ borderColor: COLORS.primary }}></div>
           <p className="mt-4 text-gray-400 font-mono">Loading projects from GitHub...</p>
@@ -264,7 +264,7 @@ export default function ProjectsPage() {
 
   if (error) {
     return (
-      <div className="h-full flex items-center justify-center">
+      <div className="flex h-full min-h-0 items-center justify-center overflow-hidden px-4">
         <div className="text-center">
           <p className="text-red-400 font-mono">Error: {error}</p>
           <p className="mt-2 text-gray-400 text-sm">Failed to load projects from GitHub</p>
@@ -274,8 +274,8 @@ export default function ProjectsPage() {
   }
 
   return (
-    <div className="h-full overflow-y-auto">
-      <div className="p-4 sm:p-6 md:p-12 max-w-6xl mx-auto">
+    <div className="h-full min-h-0 overflow-y-auto overflow-x-hidden">
+      <div className="mx-auto max-w-6xl px-3 py-5 sm:px-5 sm:py-6 md:px-8 md:py-10 lg:px-12 lg:py-12">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
